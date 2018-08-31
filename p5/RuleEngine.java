@@ -3,11 +3,15 @@ package problem5;
 import java.util.HashMap;
 
 public class RuleEngine {
+	HashMap<String,String> map = new HashMap<>();
 	
-	public boolean Eval(String rule,HashMap<String, Object> Object)
+	public void AddRule(String ruleId,String expression) {
+		map.put(ruleId, expression);
+	}
+	public boolean Eval(String ruleId,HashMap<String, Object> Object)
 	{
-		//rule1 (salary > 2500 or age < 30) or (department = "purchase")
-        
+		String expression = map.get(ruleId);
+		
 		//..
 		return true;
 	}
