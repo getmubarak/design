@@ -18,7 +18,7 @@ public class Account {
 			//logic
 		}
 		
-		balance+=amount;
+		balance-=amount;
 		
 		if(email) {
 			//logic
