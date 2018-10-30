@@ -9,6 +9,7 @@ public class StopWatch {
 			return false;
 		
 		//logic
+		flag = 1;
 		return true;
 	}
 	public boolean stop()
@@ -17,6 +18,7 @@ public class StopWatch {
 			return false;
 		
 		//logic
+		flag = 0;
 		return true;
 	}
 	public boolean pause()
@@ -25,6 +27,7 @@ public class StopWatch {
 			return false;
 		
 		//logic
+		flag = 2;
 		return true;
 	}
 	public boolean resume()
@@ -33,6 +36,7 @@ public class StopWatch {
 			return false;
 		
 		//logic
+		flag = 1;
 		return true;
 	}
 }
