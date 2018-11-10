@@ -20,3 +20,6 @@
 15. Log library
 16. Statemachine
 17. clone
+
+
+Vertical and Horizontal: Two Approaches to the Decorator Pattern
