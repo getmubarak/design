@@ -1,1 +1,40 @@
 
+package problem6;
+
+interface Tax {
+      doubel calculate(double amt);
+}
+	
+public class Invoice {
+	private Tax taxType;
+	
+	void setTaxType(Tax taxType) {
+		this.taxType = taxType;
+	}
+	
+	public double getTotal()
+	{
+		double amount = getSubtotal();
+		
+		amount += taxType.calculate(amount);
+		
+		return amount;
+	}
+	double getSubtotal()
+	{
+		double subtotal = 0;
+		/* 
+		 * foreach(lineItem in Items)
+		 * {
+		 * 		subtotal += lineItem.getPrice() * lineItem.Qty()
+		 * }
+		 */
+		return subtotal;
+	}
+	
+}
+
+Tax t1 = (double amount)->0.02*amount; 
+Invoice inv = new Invoice();
+inv.setTaxType(t1);
+amount = inv.getTotal();
