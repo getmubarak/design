@@ -23,7 +23,7 @@ public class Entry {
 		if(account instanceof CA) {
 			dao = new CADao();
 		}
-		if(dlg!=null) {
+		if(dao!=null) {
 			dao.save(account);			
 		}
 	}
