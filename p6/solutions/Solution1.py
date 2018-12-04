@@ -10,8 +10,8 @@ class Invoice:
 	
 	def getTotal():
 		amount = getSubtotal();
-		tax = new Tax();
-		amount = amount + tax.compute(amount,taxType); 
+		tax = Tax();
+		amount += tax.compute(amount,taxType); 
 		return amount
 	
 	def getSubtotal():
@@ -37,3 +37,10 @@ class Tax:
 				taxAmount = (amount- 5000) * 0.3
 		return taxAmount
 
+def main():
+	inv = Invoice()
+	inv.setTaxType(3)
+	#add item
+	amount = inv.getTotal()
+
+main()
