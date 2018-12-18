@@ -3,12 +3,12 @@ package problem3;
 public class Entry {
 	public static void main() {
   
-    Factory f = new Factory("Sql");
+                 Factory f = new Factory("Sql");
     
 		Connection connection = f.getCon();
 		connection.open("mydb;scott;tiger");
 	  
-    Transaction transaction = f.getTran();
+                Transaction transaction = f.getTran();
 		transaction.begin(connection);
 		
 		Command cmd1 = f.getCmd();
