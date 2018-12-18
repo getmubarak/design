@@ -5,7 +5,7 @@ public class Entry {
 		Connection connection = new SqlConnection();
 		connection.open("mydb;scott;tiger");
 		
-    Transaction transaction = new SqlTransaction();
+                Transaction transaction = new SqlTransaction();
 		transaction.begin(connection);
 		
 		Command cmd1 = new SqlCommand();
