@@ -11,7 +11,7 @@ class AccountService
   
   public void deposit(double amount){
     acc.deposit(amount);
-    Operation op = new Operation(1,amount);
+    Operation op = new Operation(2,amount);
     stack.push(op)
   }
   
