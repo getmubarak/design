@@ -15,7 +15,7 @@ public class Factory
 public class Entry {
 	public static void ShowUI(Account account) {
 		Factory factory = new Factory();
-    Dialog dlg=dlg.get(account);	
+                Dialog dlg=factory.get(account);	
 		dlg.Display();			
 		
 	}
