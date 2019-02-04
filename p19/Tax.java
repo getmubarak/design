@@ -11,7 +11,7 @@ class Tax
 		this.taxType = taxType;
      }
 	
-      public double compute(int taxType, double amount)
+      public double compute( double amount)
       {
 	      double taxAmount =0;
 
