@@ -1,19 +1,8 @@
 package problem6;
 
 class Tax
-{
-	private int taxType;
-	
-	
-	public int getTaxType() {
-		return taxType;
-	}
-
-	public void setTaxType(int taxType) {
-		this.taxType = taxType;
-	}
-  
-  public double compute(double amount){
+{ 
+  public double compute(int taxType, double amount){
       double taxAmount =0;
   
       switch(taxType)
@@ -34,13 +23,22 @@ class Tax
 }
 
 public class Invoice {
-	Tax tax = new Tax();
-  
+	private int taxType;
+	
+	
+	public int getTaxType() {
+		return taxType;
+	}
+
+	public void setTaxType(int taxType) {
+		this.taxType = taxType;
+	}
+	
 	public double getTotal()
 	{
 		
 		double amount = getSubtotal();
-	  amount += tax.compute(amount);
+	        amount += Tax.compute(taxType,amount);
 		return amount;
 	}
 	double getSubtotal()
