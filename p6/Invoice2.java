@@ -2,7 +2,7 @@ package problem6;
 
 class Tax
 { 
-  public double compute(int taxType, double amount){
+  public static double compute(int taxType, double amount){
       double taxAmount =0;
   
       switch(taxType)
