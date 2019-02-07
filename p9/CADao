@@ -1,3 +1,0 @@
-class CADao implements Dao
-{
-}
