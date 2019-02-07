@@ -1,6 +1,7 @@
 # design
 
 1. stop watch
+19. Tax (polymorphism)
 2. account undo
 3. DbCommand,DdConnection
 4. Flow Chart Traversal
