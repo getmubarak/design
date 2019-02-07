@@ -1,12 +1,22 @@
 
 
-interface Account
+class Account
 {
-     public withdraw(double amount);
-     public deposit(double amount);
+     public abstract withdraw(double amount);
+     public abstract deposit(double amount);
+     
+     void Save(Account a)
+     {
+          if(a instanceof SA)
+             //save logic for SA
+        
+          if(a instanceof CA)
+             //save logic for CA
+             
+     }
 }
 
-class SA implements Account
+class SA extends Account
 {
      public withdraw(double amount)
      {
@@ -18,7 +28,7 @@ class SA implements Account
      }
 }
 
-class CA implements Account
+class CA extends Account
 {
      public withdraw(double amount)
      {
