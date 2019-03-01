@@ -26,4 +26,7 @@
 17. clone
 18. student course
 
+
+21.encryption
+
 Vertical and Horizontal: Two Approaches to the Decorator Pattern
