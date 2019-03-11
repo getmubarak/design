@@ -1,1 +1,9 @@
-A Tetris field is essentially a big collection of stones, some representing empty fields, and some representing parts of a Tetris block, either just falling or landed at the bottom of the play ground some time ago. Whenever a block lands, it dissembles into its individual stones, which are considered independent from then on. It makes sense, therefore, to represent each stone by an individual object in an object-oriented Tetris application. Doing so naively results in a large amount of objects being allocated, deleted, and moved all the time.  What design can be applied to optimize this, taking advantage of the fact that the stones are really very similar?
+Tetris
+-------
+
+A Tetris field is essentially a big collection of stones, some representing empty fields, and some representing parts of a 
+Tetris block, either just falling or landed at the bottom of the play ground some time ago. Whenever a block lands, it 
+dissembles into its individual stones, which are considered independent from then on. It makes sense, therefore, to represent 
+each stone by an individual object in an object-oriented Tetris application. Doing so naively results in a large amount of 
+objects being allocated, deleted, and moved all the time.  What design can be applied to optimize this, taking advantage of 
+the fact that the stones are really very similar?
