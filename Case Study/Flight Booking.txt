@@ -1,3 +1,8 @@
 
 Flight booking 
-Suppose you should design an application, which enables clients to book the cheapest flight to a destination of their choice from a number of providers. Every provider implements an interface IFlightProvider, which provides operations for querying for a connection, and for booking a flight. In this application you will need a way to enable clients to interface to these providers and book the cheapest flight on offer for the destination and date they are interested in. Flight providers should require (and receive) no knowledge on other flight providers known to the system. 
+-----------------
+Suppose you should design an application, which enables clients to book the cheapest flight to a destination of their choice 
+from a number of providers. Every provider implements an interface IFlightProvider, which provides operations for querying for 
+a connection, and for booking a flight. In this application you will need a way to enable clients to interface to these 
+providers and book the cheapest flight on offer for the destination and date they are interested in. Flight providers should 
+require (and receive) no knowledge on other flight providers known to the system. 
