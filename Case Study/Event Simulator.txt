@@ -1,1 +1,7 @@
-Consider a generic event-driven simulator, i.e. a simulator skeleton that may simulate a wide range of systems. The simulator contains a queue of events and a variable indicating the simulated time. Each event has a time stamp that indicates the time at which the event will occur. The queue contains events, which are sorted in the ascending order of the time at which the events occur. 
+Event-driven simulator
+------------------------
+
+Design a generic event-driven simulator, i.e. a simulator skeleton that may simulate a wide range of systems. The simulator 
+contains a queue of events and a variable indicating the simulated time. Each event has a time stamp that indicates the time 
+at which the event will occur. The queue contains events, which are sorted in the ascending order of the time at which the 
+events occur. 
