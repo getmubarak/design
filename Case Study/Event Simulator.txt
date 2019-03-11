@@ -1,7 +1,14 @@
 Event-driven simulator
 ------------------------
+If events aren't guaranteed to occur at regular intervals, and we don't have a good bound on the time step, then it's more appropriate to use an event-driven simulation. A typical example might be simulating a lineup at a bank, where customers don't arrive at regular time intervals, and may be deterred by a long lineup.This approach uses a list of events that occur at various time, and handles them in order of increasing time. 
 
-Design a generic event-driven simulator, i.e. a simulator skeleton that may simulate a wide range of systems. The simulator 
-contains a queue of events and a variable indicating the simulated time. Each event has a time stamp that indicates the time 
-at which the event will occur. The queue contains events, which are sorted in the ascending order of the time at which the 
-events occur. 
+Here is a generic event-driven algorithm:
+1. Initialize event list
+2. While (simulation not finished)
+3.   Remove first event from list, 
+4.   handle it
+6.   Set time to the time of this event.
+
+Design a generic event-driven simulator. The simulator contains a queue of events and a variable indicating the simulated 
+time. Each event has a time stamp that indicates the time at which the event will occur. The queue contains events, which are 
+sorted in the ascending order of the time at which the events occur. 
