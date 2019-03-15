@@ -6,12 +6,18 @@ arrive at regular time intervals, and may be deterred by a long lineup.This appr
 various time, and handles them in order of increasing time. 
 
 Here is a generic event-driven algorithm:
-1. Initialize event list
+1. Initialize events
 2. While (simulation not finished)
-3.   Remove first event from list, 
+3.   get next event 
 4.   handle it
 6.   Set time to the time of this event.
 
-Design a generic event-driven simulator. The simulator contains a queue of events and a variable indicating the simulated 
-time. Each event has a time stamp that indicates the time at which the event will occur. The queue contains events, which are 
-sorted in the ascending order of the time at which the events occur. 
+Design a generic event-driven simulator. 
+1. The simulator contains all the events. 
+2. Each event has a time stamp that indicates the time at which the event will occur. 
+3. The Simulator performs action for the event
+4. The events are in the order of increasing time.
+
+
+Expected Output:
+Design a class structure for a Event Driven Simulator.
