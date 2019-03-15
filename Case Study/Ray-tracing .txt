@@ -1,4 +1,5 @@
-
+Ray-tracing 
+-------------
 Ray-tracing is a technology for generating photo-realistic images from scene description data. Very advanced types of this 
 technology have recently been used for creating quite a few, and very impressive, animated pictures (such as “Shrek", or 
 “Nemo"). 
@@ -6,5 +7,10 @@ technology have recently been used for creating quite a few, and very impressive
 Imagine you have to realize a ray-tracer application. At the core of such an application is a data structure, which maintains 
 and represents the scene graph or the “world". Objects can be very simple objects, which have a geometrically defined shape 
 and a typically algorithmically defined material, but they can also be arbitrarily complex compositions of other objects. The 
-scene graph is then repeatedly traversed to check for intersections with various optical rays. Design a class structure, which 
-can represent a scene graph.
+scene graph is then repeatedly traversed to check for intersections with various optical rays. 
+
+
+Expected output:
+-----------------
+Design a class structure, which can represent a scene graph where each scene is made of one more geometrically defined shape and each shape is further mode of one or more  geometrically defined shape.
+
