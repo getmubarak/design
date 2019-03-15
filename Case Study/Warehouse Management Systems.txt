@@ -5,9 +5,9 @@ Warehouse Management Systems (WMS) are a key part of the supply chain and provid
 directives, automatic consolidation and cross-docking to maximize the use of valuable warehouse space. Having a WMS in place 
 means you don’t depend any more on people’s experience, the system has the intelligence.
 
+Expected Output
+--------------
 * How can we represent real-world Hierarchical storage structures and support their flexible rearrangement?
-
 * How can we support sequential access to the storage elements of the Hierarchical storage structures without exposing its 
 underlying structure?
-
 * How can we build the Hierarchical storage structures easily?
