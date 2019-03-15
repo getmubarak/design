@@ -6,3 +6,8 @@ from a number of providers. Every provider provides operations for querying for 
 this application you will need a way to enable clients to interface to these providers and book the cheapest flight on offer 
 for the destination and date they are interested in. Flight providers should  require (and receive) no knowledge on other 
 flight providers known to the system. 
+
+
+Expected Output:
+Design a class structure for finding the cheapest flight among available providers and adding new flight provider or removing a flight provider without an impact on existing flight providers.
+
