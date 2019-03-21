@@ -1,0 +1,3 @@
+Design a class structure to realize a command like: 
+ls –l * | cut –f1,2 | sort 
+It is totally irrelevant what the three commands do, and you do not even need to know what they are doing.
