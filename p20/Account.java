@@ -5,12 +5,12 @@ class Account
      public abstract withdraw(double amount);
      public abstract deposit(double amount);
      
-     void Save(Account a)
+     void Save()
      {
-          if(a instanceof SA)
+          if(this instanceof SA)
              //save logic for SA
         
-          if(a instanceof CA)
+          if(this instanceof CA)
              //save logic for CA
              
      }
