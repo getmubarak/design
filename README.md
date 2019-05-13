@@ -1,5 +1,6 @@
 # design
-23. error
+p23 error
+
 1. stop watch
   19.Tax (polymorphism)
 2. account undo
