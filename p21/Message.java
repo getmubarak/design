@@ -10,7 +10,7 @@ public class Message {
    public void setText(String key){
          encrypt(key);
    }
-   private void encrypt(String key){
+   private void encrypt(String data){
         if (algorithmName.equals("Aes")){
             System.out.println("Encrypting data using AES algorithm");
             /*Code to encrypt data using AES algorithm*/
@@ -21,7 +21,7 @@ public class Message {
         }
         /*More else if statements for other encryption algorithms*/
    }
-    private void decrypt(String key){
+    private String decrypt(){
         if (algorithmName.equals("Aes")){
             System.out.println("Decrypting cipher using AES algorithm");
             /*Code to decrypt data using AES algorithm*/
