@@ -4,11 +4,11 @@ public class Message {
     public Message(String algorithmName){
        this.algorithmName=algorithmName;
    }
-   public string getText(String key){
-        return decrypt(key);
+   public string getText(){
+        return decrypt(text);
    }
-   public void setText(String key){
-         encrypt(key);
+   public void setText(String text){
+         text = encrypt(text);
    }
    private void encrypt(String data){
         if (algorithmName.equals("Aes")){
