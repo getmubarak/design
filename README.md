@@ -11,12 +11,11 @@ p23 error
 11. Stock Broker
 4. Flow Chart Traversal ,  Pipes and Filter
 5. Rule Engine
-6. Invoice TaxType .   - 1
-7. AccountType - multi dimension - 2
+6. Invoice TaxType    
+7. AccountType - multi dimension 
 8. Stack, List, Queue
 9. SADlg, CADlg, SADao,CADao
 10. Account Enrichment 
-
 12. JobHandler
 13. GameObject 
 14. Extendable Family
