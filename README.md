@@ -1,14 +1,13 @@
 # design
 p23 error
 
-1. stop watch
-  19.Tax (polymorphism)
-2. account undo
-     20. save
-
-24. CA
-3. DbCommand,DdConnection
-11. Stock Broker
+p1. stop watch
+p19.Tax (polymorphism)
+p2. account undo
+p20. save
+p24. CA
+p3. DbCommand,DdConnection
+p11. Stock Broker
 4. Flow Chart Traversal ,  Pipes and Filter
 5. Rule Engine
 6. Invoice TaxType    
