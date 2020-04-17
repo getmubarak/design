@@ -1,8 +1,9 @@
 # design
 p23 error
 
-p1. stop watch
+6. Invoice TaxType  
 p19.Tax (polymorphism)
+p1. stop watch
 p2. account undo
 p20. save
 p24. CA
@@ -10,7 +11,7 @@ p3. DbCommand,DdConnection
 p11. Stock Broker
 4. Flow Chart Traversal ,  Pipes and Filter
 5. Rule Engine
-6. Invoice TaxType    
+  
 7. AccountType - multi dimension 
 8. Stack, List, Queue
 9. SADlg, CADlg, SADao,CADao
