@@ -1,0 +1,80 @@
+P6
+
+public class Invoice {
+	private Tax taxType;
+	Tax getTaxType() {
+		return taxType;
+	}
+	void setTaxType(Tax taxType) {
+		this.taxType = taxType;
+	}
+	public double getTotal()
+	{
+		double amount = getSubtotal();
+    amount += taxType.compute(amount);
+		return amount;
+	}
+	double getSubtotal()
+	{
+		double subtotal = 0;
+		...logic
+		return subtotal;
+	}
+}
+
+P23
+
+class Domain{
+  fun(){
+    ... logic
+    if(cond)
+      throw Ex;
+    ... logic
+  }
+}
+
+void DoJob()
+{
+	Domain domain = new Domain();
+	domain.fun();
+	domain.fun2(100);
+	Repostory rep = new Repository();
+	Emp emp = rep.get(1);
+	...
+}
+
+P1
+
+interface State{
+  start();
+  stop();
+  pause();
+  resume();
+}
+class Idle implement State{
+  start(){ invoke logic }
+  stop() { throw new InvalidState(); }
+  pause() { throw }
+  resume(){ throw }
+}
+class Running implement State{
+  start(){ throw }
+  stop() { invoke logic  }
+  pause() { invoke logic }
+  resume(){ throw }
+}
+class Suspended implement State{
+  start(){ throw }
+  stop() { invoke logic  }
+  pause() { throw }
+  resume(){ invoke logic }
+}
+public class StopWatch {
+	State flag = new Idle();
+	public void start(){ flag.start(); flag= new Running(); }
+	public boolean stop(){ flag.stop(); flag= new Idle(); }
+	public boolean pause(){ flag.pause(); flag= new Suspended(); }
+	public boolean resume(){ flag.resume(); flag= new Running(); }
+}
+
+
