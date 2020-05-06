@@ -1,5 +1,9 @@
 P6
 
+*************************** interface typing
+interface Tax{
+	double compute(double amount);
+}
 public class Invoice {
 	private Tax taxType;
 	Tax getTaxType() {
@@ -21,6 +25,54 @@ public class Invoice {
 		return subtotal;
 	}
 }
+*************************** Duck typing
+
+public class Invoice {
+	private object taxType;
+	
+	void setTaxType(object taxType) {
+		this.taxType = taxType;
+	}
+	public double getTotal()
+	{
+		double amount = getSubtotal();
+    		amount += taxType.compute(amount);
+		return amount;
+	}
+	double getSubtotal()
+	{
+		double subtotal = 0;
+		...logic
+		return subtotal;
+	}
+}
+
+
+
+P6 -2
+public class Invoice {
+	private Lamda taxType;
+	
+	Invoice(Lamda taxType) {
+		this.taxType = taxType;
+	}
+	public double getTotal(){
+		double amount = getSubtotal();
+		amount += taxType(amount);
+		return amount;
+	}
+	double getSubtotal(){
+		...
+	}
+}
+
+Invoice inv = new Invoice(new Gst()); //GST should belong to Tax family
+Invoice inv = new Invoice((amount)=> amount*0.05);
+Invoice inv = new Invoice((amount)=> {
+				Gst gst = new GST();
+				return gst.compute(amount);
+			});
+
 
 P23
 
@@ -77,4 +129,281 @@ public class StopWatch {
 	public boolean resume(){ flag.resume(); flag= new Running(); }
 }
 
+P2
+/*********************************************** flag
+
+class AccountService
+{
+  Stack<Operation> stack = new Stack<Operation>();
+  Account acc = new Account();
+  
+  public void withdraw(double amount){
+    acc.withdraw(amount);
+    Operation op = new Operation(1,amount);
+    stack.push(op);
+  }
+  
+  public void deposit(double amount){
+    acc.deposit(amount);
+    Operation op = new Operation(2,amount);
+    stack.push(op)
+  }
+  
+  public void undo(){
+    Operation op = stack.pop();
+    if(op.Type == 1)
+      acc.deposit(op.amount);
+    if(op.Type == 2)
+      acc.withdraw(op.amount);
+      
+  }
+  
+}
+
+
+/*********************************************** inteface
+
+
+interface Operation{
+  void undo(Account acc);
+}
+class DepositOperation{
+  double amount;
+  
+  public DepositOperation( double amount){
+    this.amount = amount;
+  }
+  public void undo(Account acc){
+    acc.withdraw(amount);
+  }
+}
+class WithdrawOperation{
+  double amount;
+  public WithdrawOperation( double amount){
+    this.amount = amount;
+  }
+  public void undo(Account acc){
+    acc.deposit(amount);
+  }
+}
+class AccountService
+{
+  Stack<Operation> stack = new Stack<Operation>();
+  Account acc = new Account();
+  
+  public void withdraw(double amount){
+    acc.withdraw(amount);
+    Operation op = new WithdrawOperation(amount);
+    stack.push(op);
+  }
+  public void deposit(double amount){
+    acc.deposit(amount);
+    Operation op = new DepositOperation(amount);
+    stack.push(op)
+  }
+  public void undo(){
+    Operation op = stack.pop();
+    op.undo(acc);
+  }
+}
+
+/*********************************************** lambda
+class AccountService
+{
+  Stack<Lamda> stack = new Stack<Lamda>();
+  Account acc = new Account();
+  
+  public void withdraw(double amount){
+    acc.withdraw(amount);
+    stack.push((acc)=> acc.deposit(amount));
+  }
+  public void deposit(double amount){
+    acc.deposit(amount);
+    stack.push((acc)=> acc.withdraw(amount));
+  }
+  public void undo(){
+    Lamda op = stack.pop();
+    op(acc);
+  }
+}
+
+P21
+
+interface Encryption{ 
+String encrypt(String message); 
+String decrypt(String message); 
+} 
+
+class AESEncrption implements Encryption{ 
+String encrypt(String message){ 
+//logic 
+} 
+String decrypt(String message){ 
+//logic 
+} 
+} 
+
+class BlowFishEncrption implements Encryption{ 
+String encrypt(String message){ 
+//logic 
+} 
+String decrypt(String message){ 
+//logic 
+} 
+} 
+
+public class Message { 
+private Encryption algorithmName; 
+private String text; 
+public Message(Encryption algorithmName){ 
+this.algorithmName=algorithmName; 
+} 
+public string getText(){ 
+return algorithmName.decrypt(text); 
+} 
+public void setText(String text){ 
+text = algorithmName.encrypt(text); 
+} 
+}
+
+P22
+
+for(Vehicle vehicle : vehicles) { 
+vehicle.action(); 
+vehicle.stop(); 
+} 
+
+
+Interface Vehicle { 
+action(); 
+stop(); 
+} 
+
+Class CAR implements Vehicle { 
+action(){ 
+lock(); 
+go(); 
+} 
+} 
+
+Class SHIP implements Vehicle { 
+action() { 
+balance(); 
+swim(); 
+} 
+} 
+
+Class AIRPLANE implements Vehicle { 
+action(){ 
+go(); 
+fly(); 
+} 
+} 
+
+Class TANK implements Vehicle { 
+action() { 
+move(); 
+stop(); 
+fire(); 
+} 
+}
+
+
+P24
+
+interface IX
+{
+          void f1();
+          void f2();
+}
+public class CA implements IX
+{
+    public void f1() {}
+    public void f2() {}
+}
+class IXFactory
+{
+    public IX getInsatnce(){
+           return new CA(); 
+    }
+}
+//*******************************
+class Client
+{
+      public static void main()
+      {
+          IXFactory factory = new IXFactory();  
+          IX obj = factory.getInsatnce();
+          obj.f1();
+          obj.f2();
+      }
+}
+
+
+P11
+
+public class Stock { 
+double rate; 
+
+public void changeRate(double newRate, Broker broker) { 
+rate = newRate; 
+//if(condition) 
+broker.trade(); 
+} 
+} 
+
+interface Broker { 
+void trade(); 
+}
+
+
+P3
+package problem3;
+
+public class Workflow{
+	public void execute(Factory factory){
+		Connection connection = factory.getConnection();
+		connection.open("mydb;scott;tiger");
+		Transaction transaction = factory.getTransaction();
+		transaction.begin(connection);	
+		Command cmd1 = factory.getCommand();
+		cmd1.execute(transaction, "insert into emp values(10,'jack',2500')");
+		Command cmd2 = factory.getCommand();
+		cmd2.execute(transaction, "insert into emp values(20,'jill',4300')");		
+		transaction.commit();
+		connection.close();
+	}
+}
+public class Entry {
+	public static void main() {
+		Workflow wf = new Workflow();
+		wf.execute(new SqlFactory());			
+	}
+}
+
+
+P3 - 2
+interface Connection{
+	open();
+	close();
+}
+class PostConnection{
+	connect();
+	disconnect();
+}
+class PostConnectionAdapter  implements Connection{
+	PostConnection connection = new PostConnection();
+	open(){
+		connection.connect();	
+	}
+	close();
+}
+class SqlConnection implements Connection{
+	open();
+	close();
+}
+class OraConnection implements Connection{
+	open();
+	close();
+}
 
