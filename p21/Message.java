@@ -21,7 +21,7 @@ public class Message {
         }
         /*More else if statements for other encryption algorithms*/
    }
-    private String decrypt(){
+    private String decrypt(String data){
         if (algorithmName.equals("Aes")){
             System.out.println("Decrypting cipher using AES algorithm");
             /*Code to decrypt data using AES algorithm*/
@@ -31,7 +31,5 @@ public class Message {
             /*Code to decrypt data using Blowfish algorithm */
         }
         /*More else if statements for other encryption algorithms*/
-    }
-    
-        
+    }     
 }
