@@ -3,20 +3,12 @@ package problem6;
 public class Invoice {
 	private int taxType;
 	
-	
-	int getTaxType() {
-		return taxType;
-	}
-
 	void setTaxType(int taxType) {
 		this.taxType = taxType;
 	}
 	
-	public double getTotal()
-	{
-		
+	public double getTotal(){
 		double amount = getSubtotal();
-		
 		switch(taxType)
 		{
 			case 1:
@@ -42,6 +34,4 @@ public class Invoice {
 		 */
 		return subtotal;
 	}
-
-	
 }
