@@ -19,6 +19,6 @@ public class Entry {
 	{
 		Account account = new SA();
 		ShowUI(account);
-		Save(account);
+		
 	}
 }
