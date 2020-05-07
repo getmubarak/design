@@ -1,11 +1,11 @@
 # design
 p23 error
 
-6. Invoice TaxType  \n
-p19.Tax (polymorphism) \n
-p25. Data Flag \n
-p1. stop watch \n
-p2. account undo \n
+6. Invoice TaxType  <br>
+p19.Tax (polymorphism) <br>
+p25. Data Flag <br>
+p1. stop watch <br>
+p2. account undo <br>
 p20. save
 p24. CA
 p3. DbCommand,DdConnection
