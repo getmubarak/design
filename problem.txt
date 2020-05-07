@@ -1,0 +1,64 @@
+// *******. s1 ********************************
+public static void ShowUI(Account account) {
+		Dialog dlg=null;	
+		if(account instanceof SA) {
+			dlg = new SADialog();
+		}
+		if(account instanceof CA) {
+			dlg = new CADialog();
+		}
+		if(dlg!=null) {
+			dlg.Display();			
+		}
+} (reflection,cyclomatic complexity)
+// *******. s2 ********************************
+interface Account{
+  ...
+  Dialog getDialog();
+}
+public static void ShowUI(Account account) {
+		Dialog dlg= account.getDialog();			
+		dlg.Display();
+} (SRP, Coupling)
+// *******. s3 ********************************
+class Factory{
+  Dialog getDialog(CA ca){
+    return new CADialog();
+  }
+  Dialog getDialog(CB cb){
+    return new CBDialog();
+  }
+}
+public static void ShowUI(Account account) {
+    Factory f = new Factory();
+		Dialog dlg= f.getDialog(account);			
+		dlg.Display();
+} 
+
+
+class CA{
+  void call(Util u) { u.f(this);  } 
+}
+class CB extends CA {
+  void call(Util u) { u.f(this);  } 
+}
+class CC extends CB {
+  void call(Util u) { u.f(this);  } 
+}
+class Util{
+  void f(CA a){}//1
+  void f(CB b){}//2
+  void f(CC c){}//3
+}
+do(CA a)
+{
+  Util util = new Util();
+  //util.f(a);
+  a.call(util);
+}
+do(new CA());
+do(new CB());
+do(new CC());
+1,1,1 - A
+1,2,3 - B
+
