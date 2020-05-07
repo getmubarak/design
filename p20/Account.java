@@ -7,12 +7,14 @@ class Account
      
      void Save()
      {
+          ... logic 1 
           if(this instanceof SA)
-             //save logic for SA
+             ... save logic for SA
         
           if(this instanceof CA)
-             //save logic for CA
-             
+             ... save logic for CA
+          
+          ... logic 2         
      }
 }
 
