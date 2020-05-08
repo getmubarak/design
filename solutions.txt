@@ -407,3 +407,375 @@ class OraConnection implements Connection{
 	close();
 }
 
+P25
+
+
+class SurveyDataType:
+    public void SurveyDataType(string baseFileName,  bool hideDataFile){
+        this.baseFileName = baseFileName;
+        this.hideDataFile = "c:/application/data/" + baseFileName + ".dat";
+    }
+    static SurveyDataType rawDataType = SurveyDataType("raw", True);
+    static SurveyDataType cleanedUpDataType = SurveyDataType("cleanedUp", True);
+    static SurveyDataType processedDataType = SurveyDataType("processed", True);
+    static SurveyDataType publicationDataType = SurveyDataType("publication", False);
+}
+
+v1 = SurveyDataType.processedDataType.baseFileName;
+v2 = SurveyDataType.processedDataType.hideDataFile;
+
+
+P20
+
+interface Account {
+     void withdraw(double amount);
+     void deposit(double amount);
+}
+interface AccountDAO{
+     void persisit();
+}
+class AccountService{
+     void doTransaction(Account acc,AccountDAO dao)
+     {
+          acc.withdraw(3434);
+          acc.deposit(34);
+          ...
+          dao.persist(acc);
+          ...
+     }
+}
+
+abstarct class Account
+{
+     public abstract withdraw(double amount);
+     public abstract deposit(double amount);
+     protected abstarct persisit();
+     
+     public void Save()
+     {
+          ... logic 1 
+          persisit();
+          ... logic 2         
+     }
+}
+
+P8
+
+class Collection{
+  ... common code ...
+  public void add(index, item) {}
+}
+class Stack extends Collection{}
+class Queue extends Collection{}
+class List extends Collection{}
+
+class Stack  {
+  Collection ref = new Collection();
+}
+class Queue{
+  Collection ref = new Collection();
+}
+class List {
+  Collection ref = new Collection();
+}
+
+p7
+interface AccountType {
+	boolean withDraw(double amount);
+}
+interface AccountPriv {
+	boolean withDraw(double amount);
+}
+class SavingAccount implements AccountType{
+	boolean withDraw(double amount){
+		if((balance - amount) < 5000){
+			return false;
+		}
+	}
+}
+class CurrentAccount implements AccountType{
+	boolean withDraw(double amount){
+		if((balance - amount) < 100000){
+			return false;
+		}
+	}
+}
+class SilverAccount implements AccountPriv{
+	boolean withDraw(double amount){
+		if(amount > 10000){
+			return false; 
+		}
+	}
+}
+class PlatinumAccount implements AccountPriv{
+	boolean withDraw(double amount){
+		if(amount > 20000){
+			return false; 
+		}
+	}
+}
+class AccountService{
+	AccountType type;
+	AccountPriv priv;
+	
+	public AccountService( AccountType type,AccountPriv priv){
+		this.type = type;
+		this.priv = priv;
+	}
+	boolean withDraw(double amount){
+		if(!type.withdraw(amount))
+			return false;
+		if(!priv.withdraw(amount))
+			return false;
+	}
+}
+
+P4
+package problem4;
+interface Step { 
+	void invoke(Plugin p); 
+} 
+Start implements Step { 
+	void invoke(Plugin p) { 
+		p.do(this); 
+	} 
+}
+interface Plugin{
+	void do (Start); 
+	void do (Action); 
+	void do (Branch); 
+	void do (Stop); 
+}
+Class TreeSerializer implements Plugin { 
+	void do (Start start){
+		...logic...
+		start.next.invoke(this);
+	} 
+	void do (Action action){
+		... logic ...
+		action.next.invoke(this);
+	} 
+	void do (Branch branch){
+		... logic ...
+		branch.left.invoke(this);
+		... logic ...
+		branch.right.invoke(this);
+	}
+	void do (Stop stop){
+		... logic ...
+	} 
+} 
+Class TreePrinter implements Plugin { 
+	void do (Start start){
+		System.out.println("start");
+		start.next.invoke(this);
+	} 
+	void do (Action action){
+		System.out.println("Action");
+		action.next.invoke(this);
+	} 
+	void do (Branch branch){
+		System.out.println("Branch");
+		System.out.println("--> left");
+		branch.left.invoke(this);
+		System.out.println("--> rigth");
+		branch.right.invoke(this);
+	}
+	void do (Stop stop){
+		System.out.println("stop");
+	} 
+} 
+public class Entry {
+	public static void main(String[] args) {
+		Factory factory = new Factory();
+		Step root = factory.Load("flow1");
+		TreePrinter treePrinter = new TreePrinter();
+		root.invoke(treePrinter);
+		TreeSerializer treeSerializer = new TreeSerializer();
+		root.invoke(treeSerializer);
+	}
+}
+
+P13
+lookup
+//************** s3 ********************************
+interface Handler{
+     void collide(GO o1,GO o2);
+}
+class ShipStation implments Handler{
+}
+class ShipCommet implments Handler{
+}
+...
+class HandlerFactory{
+     Dictionary<string,Handler> lookup = new Dictionary<string,Handler>();
+     
+     public HandlerFactory(){
+          lookup.add("ShipStation",new ShipStation());
+          ....
+     }
+     public Handler Get(GO o1,GO o2){
+          return lookup[o1.getName() + o2.getName()];
+     }
+}
+ public void Collide(GameObject go1,GameObject go2)
+ {
+      HandlerFactory factory = new HandlerFactory();
+      Handler handler = factory.Get(go1,go2);
+      handler.collide(go1,go2);
+ }
+
+lhs -> poly, rhs -> if
+//************** s2 ********************************
+interface GO{
+     void collide(Ship); 
+     void collide(Station); 
+     void collide(Commet); 
+     void collide (Aestroid); 
+}
+class Ship implements GO{
+     void collide(Ship) {} //ship - ship
+     void collide(Station) {} // ship - station
+     void collide(Commet){} // ship - commet
+     void collide (Aestroid){} // ship - Aestroid
+}
+class Handler
+{
+     public void Collide(GameObject go1,GameObject go2)
+     {
+          if(type(go2) == type(Ship))
+               go1.collide((Ship) go2);
+          if(type(go2) == type(Station))
+               go1.collide((Station) go2);
+          if(type(go2) == type(Commet))
+               go1.collide((Commet) go2);
+          if(type(go2) == type(Aestroid))
+               go1.collide((Aestroid) go2);
+     }
+}
+lhs -> if, rhs -> if
+//************** s1 ********************************
+class Handler
+{
+     public void Collide(GameObject go1,GameObject go2)
+     {
+          if(type(o1)==type(Ship) && type(o2)==type(Station))
+          {
+            //logic1
+          }
+           if(type(o1)==type(Station) && type(o2)==type(Aestroid))
+          {
+            //logic2
+          }
+           if(type(o1)==type(Ship) && type(o2)==type(Commet))
+          {
+            //logic3
+          }
+     }
+}
+
+
+P5
+
+interface Rule
+{
+  bool eval(HashMap<string,string> obj);
+}
+class GreaterRule implements Rule{
+  string property;
+  double value;
+  public GreaterRule(string property,double value){
+    this.property = property;
+    this.value = value;
+  }
+  bool eval(HashMap<string,object> obj){
+    cur_value = obj.get(property);
+    if(double.parse(cur_value) > value)
+      return true;
+    else
+      return false;
+  }
+}
+class LesserRule implements Rule{
+  string property;
+  double value;
+  public LesserRule(string property,double value){
+    this.property = property;
+    this.value = value;
+  }
+  bool eval(HashMap<string,object> obj){
+    cur_value = obj.get(property);
+    if(double.parse(cur_value) < value)
+      return true;
+    else
+      return false;
+  }
+}
+class EqualStringRule implements Rule{
+  string property;
+  string value;
+  public EqualStringRule(string property,string value){
+    this.property = property;
+    this.value = value;
+  }
+  bool eval(HashMap<string,object> obj){
+    cur_value = obj.get(property);
+    if(cur_value.equals(value))
+      return true;
+    else
+      return false;
+  }
+}
+class AndRule implements Rule{
+  Rule lhs;
+  Rule rhs;
+  public AndRule(Rule lhs,Rule rhs){
+    this.lhs = lhs;
+    this.rhs = rhs;
+  }
+  bool eval(HashMap<string,object> obj){
+    return lhs.eval(obj) && rhs.eval(obj);
+  }
+}
+
+
+HashMap<string,string> object = new HashMap<>(); 
+        object.put("Salary", 3500);
+        object.put("Age", 45);
+        object.put("Department", "Sales");
+        
+        //Composite Pattern
+        Rule r1 = new GreaterRule("Salary",5000.00);
+	Rule r2 = new LesserRule("Age",50);
+	Rule r3 = new EqualStringRule("Department","Purchase");
+	Rule r4 = new AndRule(r1,r2);
+	Rule r5 = new OrRule(r4,r3);    
+	    
+	res = r5.eval(object);	
+	//"((Salary > 5000 && Age < 50) || (Department == 'Purchase'))"    
+        System.out.print(res);   
+
+P10
+
+interface Account{
+	void withDraw(double Amount);
+}
+class SA implements Account{
+	public void withDraw(double Amount){
+		balance-=amount;
+	}
+}
+class Otp implements Account{
+	Account a;
+	public Otp(Account a){
+		this.a = a;
+	}
+	public void withDraw(double Amount){
+		... pre otp logic ..
+		a.withdraw(amount);
+		... post otp logic ..
+	}
+}
+Account a = new Sms(new Otp(new SA()));
+a.withdraw(340);
+
