@@ -30,35 +30,48 @@ class Factory{
   }
 }
 public static void ShowUI(Account account) {
-    Factory f = new Factory();
-		Dialog dlg= f.getDialog(account);			
-		dlg.Display();
+    	Factory f = new Factory();
+	Dialog dlg= f.getDialog(account);			
+	dlg.Display();
 } 
-
-
-class CA{
-  void call(Util u) { u.f(this);  } 
+// *******. s4 ********************************
+interface Plugin{
+	void do(SA sa);
+	void do(CA ca);
 }
-class CB extends CA {
-  void call(Util u) { u.f(this);  } 
+interface Account{
+	void withdraw();
+	void deposit();
+	void invoke(Plugin plugin);
 }
-class CC extends CB {
-  void call(Util u) { u.f(this);  } 
+class SA implements Account{
+	void withdraw(){}
+	void deposit(){}
+	void invoke(Plugin plugin){
+		plugin.do(this);
+	}
 }
-class Util{
-  void f(CA a){}//1
-  void f(CB b){}//2
-  void f(CC c){}//3
+class CA implements Account{
+	void withdraw(){}
+	void deposit(){}
+	void invoke(Plugin plugin){
+		plugin.do(this);
+	}
 }
-do(CA a)
-{
-  Util util = new Util();
-  //util.f(a);
-  a.call(util);
+-----------------------------------------
+class Factory implements Plugin{
+  Dialog res;
+  void do(CA ca){
+    res= new CADialog();
+  }
+  void do(SA sa){
+    res= new SADialog();
+  }
 }
-do(new CA());
-do(new CB());
-do(new CC());
-1,1,1 - A
-1,2,3 - B
+public static void ShowUI(Account account) {
+    	Factory f = new Factory();
+	//f.do(account); <-- will not work "base pointer"
+	account.invoke(f);
+	f.res.Display();
+} 
 
