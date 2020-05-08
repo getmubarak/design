@@ -6,15 +6,13 @@ public class Account {
 	boolean sms=false;
 	boolean otp=false;
 	double limit=0;
-    //rsa
-	//secret question
-	
+    	
 	public void withDraw(double amount) {
 		
 		if(otp) {
 			//logic
 		}
-		if(limit > 0) {
+		if(secretQuestion) {
 			//logic
 		}
 		
