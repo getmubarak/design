@@ -1,26 +1,27 @@
 class StatisticsReport
 {
-    protected data;
+    protected string document;
 
-    public function getData(string format)
+    public string getData(string format)
     {
         switch(format) {
-            case 'csv':
-                $lines = [];
-                foreach ($this->data as $row) {
-                    $lines = implode(",", $row);
+            case "csv":
+                lines = [];
+                foreach (this->document as row) {
+                    lines = implode(",", row);
                 }
-                return implode("\n", $lines);
+                return implode("\n", lines);
 
-            case 'word': 
+            case "word": 
+                word="";
                 ...
                 //format as word
-                return $word
+                return word
 
-            case 'html':
-                $html = '';
+            case "html":
+                html = "";
                 // format as HTML ...
-                return $html;
+                return html;
         }
     }
 }
