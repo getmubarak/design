@@ -1,7 +1,18 @@
-class CA{}
-class CB extends CA {}
-class CC extends CA {}
-
+class CA{
+  void invoke(CX x){ //step 2
+    x.f(this);
+  }
+}
+class CB extends CA {
+  void invoke(CX x){//step 2
+    x.f(this);
+ }
+}
+class CC extends CA {
+  void invoke(CX x){//step 2
+    x.f(this);
+ }
+}
 class CX{
   void f(CA a) {} //1
   void f(CB b) {} //2
@@ -19,8 +30,11 @@ class CZ extneds CX{
 }
 
 void do(CX x, CA a){
-   //x.f(a); //<-- 1 | 4 | 7
-   if(a instanceof(CB))
+  a.invoke(x);//step 1 
+  
+  //x.f(a); //<-- 1 | 4 | 7
+   
+  if(a instanceof(CB))
      x.f((CB)a);
    else if(a instanceof(CC))
      x.f((CC)a);
