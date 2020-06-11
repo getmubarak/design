@@ -43,12 +43,34 @@ class PrintUtil implements Plugin
 		branch.right.invoke(this);
 	}
 }
+class TreeUtil implements Plugin
+{
+	void do(Start start){
+		//logic
+		start.next.invoke(this);
+	}
+	void do(Stop){
+		//logic
+	}
+	void do(Action action){
+		//logic
+		action.next.invoke(this);
+	}
+	void do(Branch branch){
+		//logic
+		branch.left.invoke(this);
+		//logic
+		branch.right.invoke(this);
+	}
+}
 public class Entry {
 	public static void main(String[] args) {
 		Factory factory = new Factory();
 		Step flow1 = factory.Load("flow1");
 		PrintUtil printUtil = new PrintUtil();
-		flow1.invoke(printUtil)
+		flow1.invoke(printUtil);
+		TreeUtil treeUtil = new TreeUtil();
+		flow1.invoke(treeUtil);
 	}
 	
 }
