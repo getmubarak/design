@@ -17,8 +17,13 @@ class CZ extneds CX{
   void f(CB b) {} //8
   void f(CC c) {} //9 
 }
-void Main(){
-  CA a = new CC();
-  CX x = new CZ();
-  x.f(a);
+
+void do(CX x, CA a){
+   //x.f(a); //<-- 1 | 4 | 7
+   if(a instanceof(CB))
+     x.f((CB)a);
+   else if(a instanceof(CC))
+     x.f((CC)a);
+  else
+    x.f(a)
 }
