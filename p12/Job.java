@@ -1,3 +1,4 @@
+//flag comes from outside world
 
 class JobServer
 {
