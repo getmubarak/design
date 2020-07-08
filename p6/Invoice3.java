@@ -2,21 +2,14 @@ package problem6;
 
 interface Tax
 {
- double compute(int taxType, double amount);
+ 	double compute(int taxType, double amount);
 }
-
 public class Invoice {
-	private Tax tax;
-	
-	
-	public Tax getTaxType() {
-		return tax;
-	}
+	private Tax tax;	
 
 	public void setTaxType(Tax tax) {
 		this.tax = tax;
-	}
-	
+	}	
 	public double getTotal()
 	{
 		
