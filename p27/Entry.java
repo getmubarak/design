@@ -14,13 +14,14 @@ class StatisticsReport
 
             case "word": 
                 word="";
-                ...
-                //format as word
+                
+                //some logic for formating as word ...
                 return word
 
             case "html":
                 html = "";
-                // format as HTML ...
+                
+                //  some logic for formating as HTML ...
                 return html;
         }
     }
