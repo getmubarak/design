@@ -22,11 +22,11 @@ class SA extends Account
 {
      public withdraw(double amount)
      {
-        //logic
+        //logic 3
      }
      public deposit(double amount)
      {
-        //logic
+        //logic 4
      }
 }
 
@@ -34,10 +34,10 @@ class CA extends Account
 {
      public withdraw(double amount)
      {
-        //logic
+        //logic 5
      }
      public deposit(double amount)
      {
-        //logic
+        //logic 6
      }
 }
