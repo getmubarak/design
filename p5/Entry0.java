@@ -12,7 +12,7 @@ public class Entry {
         object.put("Age", 45);
         object.put("Department", "Sales");
         
-        result = Eval(r1,object)
+        result = r1.Eval(object)
         System.out.print(result);   
     }
 }
