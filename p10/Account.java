@@ -26,3 +26,14 @@ public class Account {
 		}
 	}
 }
+
+Authentication
+otp
+secret
+rsa
+
+Notification:
+Email
+SMS
+whats App
+phone
