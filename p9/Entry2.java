@@ -1,6 +1,18 @@
 package problem9;
-
-
+class Account{
+}
+class SA extends Account{
+}
+class CA extends Account{
+}
+//--------------------
+class Dialog{
+}
+class SADilaog extends Dialog{
+}
+class CADialog extends Dialog{
+}
+//--------------------
 public class Factory
 {
   public Dialog get(SA a)
@@ -17,11 +29,8 @@ public class Entry {
 		Factory factory = new Factory();
                 Dialog dlg=factory.get(account);	
 		dlg.Display();			
-		
 	}
-
-	static void main()
-	{
+	static void main(){
 		Account account = new SA();
 		ShowUI(account);
 	}
