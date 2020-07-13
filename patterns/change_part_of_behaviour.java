@@ -23,7 +23,7 @@ class CB extends CA{
 };
 
 //2 has a - interface <-- statergy pattern
-interface IX{
+interface Statergy{
    void partB();
 }
 class CA{
@@ -33,7 +33,7 @@ class CA{
     //part C logic    
   }
 };
-class CB implements IX{
+class Statergy1 implements IX{
   public void partB(){
     //modify logic
   } 
