@@ -5,7 +5,7 @@ class CA{
     //part C logic    
   }
 };
-//1 is a
+//1 is a <-- template method pattern / Holly wood pattern
 class CA{
   public void partB(){
     //part B logic (modifiable)
@@ -22,7 +22,7 @@ class CB extends CA{
   } 
 };
 
-//2 has a - interface
+//2 has a - interface <-- statergy pattern
 interface IX{
    void partB();
 }
@@ -39,7 +39,7 @@ class CB implements IX{
   } 
 };
 
-//3 has a - Lamda
+//3 has a - Lamda <-- Hi order fun
 class CA{
   public void b1(Lamda partB){ 
     //part A logic
