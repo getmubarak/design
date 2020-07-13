@@ -11,6 +11,8 @@ class CB extends CA{
      //extra logic
   }
 }
+
+
 //2. has a <-- proxy pattern
 class CB {
   CA ref = new CA();
@@ -21,6 +23,9 @@ class CB {
      //extra logic
   }
 }
+
+
+
 //3. linked list of has a (chain of proxy) <-- docrator pattern
 interface IX{
   void b1();
@@ -40,6 +45,9 @@ class CB implements IX {
 }
 IX obj = new CB(new CB(new CB(new CA())));
 obj.b1();
+
+
+
 //4. collection of has a
 class CA {
   List<IX> enrichers;
