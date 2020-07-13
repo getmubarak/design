@@ -1,0 +1,43 @@
+class CA
+{
+  int flag;
+  
+  void f1(){
+    if(flag == 0)
+      //lgic 1.1
+    if(flag == 1)
+      //lgic 1.2
+  }
+  void f2(){
+    if(flag == 0)
+      //lgic 2.1
+    if(flag == 1)
+      //lgic 2.2
+  }
+}
+//**********************
+interface State{
+  void f1();
+  void f2();
+}
+class State1 implements State{
+  void f1() {}
+  void f2() {}
+}
+class State2 implements State{
+  void f1() {}
+  void f2() {}
+}
+class CA
+{
+  State state;
+  
+  void f1(){
+    state.f1();
+    //change state
+  }
+  void f2(){
+    state.f1();
+    //change state
+  }
+}
