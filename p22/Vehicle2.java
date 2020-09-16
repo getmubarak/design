@@ -15,6 +15,9 @@ do(Tank v){
      vehicle.stop();
      vehicle.fire();
 }
-for(Vehicle vehicle : vehicles) {
-    do(vehicle)
+
+execute(List<Vehicle> vehicles){
+    for(Vehicle vehicle : vehicles) {
+        do(vehicle)
+    }
 }
