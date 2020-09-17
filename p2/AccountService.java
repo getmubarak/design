@@ -1,7 +1,7 @@
-class AccountService
+class AccountService //<-- root entity
 {
-  Stack<Operation> stack = new Stack<Operation>();
-  Account acc = new Account();
+  Stack<Operation> stack = new Stack<Operation>(); //< value object
+  Account acc = new Account(); //<-- entity
   
   public void withdraw(double amount){
     acc.withdraw(amount);
