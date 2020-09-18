@@ -33,4 +33,5 @@ void Main(){
   CX x= new CZ();
   CA a = new CC();
   a.invoke(x);
+  x.f(a);
 }
