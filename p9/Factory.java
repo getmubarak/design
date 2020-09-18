@@ -24,11 +24,12 @@ public:
 }
 
 # factory Method
-
-class Account
+class Connection
 {
 public:
-      abstract Account Create();
+      Open();
+      Close();    
+      abstract Transaction CreateTransaction();
 }
 
 # abstract factory 
