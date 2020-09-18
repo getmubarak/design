@@ -32,12 +32,6 @@ class CA{
        //logic3
   }
 }
-*******************************
-class CX implements IX
- void logic2(){
-       //logic2 
-  }
-}
 -------------------------------
 function objects (Lamda )
 
