@@ -19,6 +19,23 @@ class CZ extneds CX{
   void f(CB b) {} //8
   void f(CC c) {} //9 
 }
-void do(CX x, CA a){
+void Main(){
+  CX x = new CZ();
+  CY y = new CZ();
+  CZ z = new CZ();
+  
+  CC c = new CC();
+  CB b = c;
+  CA a = b;
   x.f(a); 
+  x.f(b); 
+  x.f(c); 
+
+  y.f(a); 
+  y.f(b); 
+  y.f(c); 
+
+  z.f(a); 
+  z.f(b); 
+  z.f(c); 
 }
