@@ -29,6 +29,10 @@ class CZ extneds CX{
   void f(CC c) {} //9 
 }
 
+do(CX x,CA a){
+  a.invoke(x); // any of the 9 
+}
+
 void Main(){
   CX x= new CZ();
   CA a = new CC();
