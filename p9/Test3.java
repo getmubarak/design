@@ -2,7 +2,7 @@ class CA{
 }
 class CB extends CA {
 }
-class CC extends CA {
+class CC extends CB {
 }
 class CX{
   void f(CA a) {} //1
@@ -14,7 +14,7 @@ class CY extneds CX{
   void f(CB b) {} //5
   void f(CC c) {} //6 
 }
-class CZ extneds CX{
+class CZ extneds CY{
   void f(CA a) {} //7
   void f(CB b) {} //8
   void f(CC c) {} //9 
