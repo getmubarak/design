@@ -23,8 +23,8 @@ interface IX{
     void logic2();
 }
 class CA{
-  IX ref;
-  void fun(){<-- template method
+  IX ref; <-- statergy (based on injected statergy logic2 changes)
+  void fun(){
        //logic1
        ref.logic2(); <-- can be changed later
        //logic3
@@ -34,8 +34,8 @@ class CA{
 function objects (Lamda )
 
 class CA{
-  Lamda logic2;
-  void fun(){<-- template method
+  Lamda logic2; <-- function object(
+  void fun(){
        //logic1
        logic2(); <-- can be changed later
        //logic3
