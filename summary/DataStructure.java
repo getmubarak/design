@@ -9,7 +9,7 @@ e1->e2->e3->e4->
 ------------------------
 Tree
 
-class Emp{
+class Emp{ <--Composite Pattern
   List<Emp> emps;
 }
 
