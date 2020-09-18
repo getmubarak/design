@@ -16,4 +16,6 @@ class CB extends CA{
   }
 }
 
-
+do(CA a){
+   a.fun(600);
+}
