@@ -23,9 +23,9 @@ class CC extends CA{
 //----------------------------------
 class CX
 {
-  void f3(CA a) {}
-  void f3(CB b) {}
-  void f3(CC c) {}
+  void f3(CA a) {} //7
+  void f3(CB b) {} //8
+  void f3(CC c) {} //9
 }
 
 //----------------------------------
@@ -35,5 +35,5 @@ void do(CA obj){
   
   CX x = new CX();
   //x.f3(obj); ?
-  obj.call(x);
+  obj.call(x); //<- 7| 8 | 9
 }
