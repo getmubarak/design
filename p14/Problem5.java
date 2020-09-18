@@ -43,8 +43,8 @@ void do(CA obj){
   obj.f2(); //<- 2 | 4 | 6
   
   F3 f3 = new F3();
-  f3.call(obj); //<- 7| 8 | 9
+  obj.call(f3); //<- 7| 8 | 9
   
   F4 f4 = new F4();
-  f4.call(obj); //<- 10| 11 | 12
+  obj.call(f3); //<- 10| 11 | 12
 }
