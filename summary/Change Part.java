@@ -9,9 +9,7 @@ class CA{
 template method pattern (extends- is a)
 
 class CA{
-  void logic2(){
-       //logic2 
-  }
+  abstract void logic2();
   void fun(){<-- template method
        //logic1
        logic2(); <-- can be changed later
