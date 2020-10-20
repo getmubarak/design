@@ -2,7 +2,7 @@ package problem6;
 
 interface Tax
 {
- 	double compute(int taxType, double amount);
+ 	double compute(double amount);
 }
 public class Invoice {
 	private Tax tax;	
