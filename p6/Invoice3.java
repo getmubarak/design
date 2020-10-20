@@ -5,28 +5,19 @@ interface Tax
  	double compute(double amount);
 }
 public class Invoice {
-	private Tax tax;	
-
-	public void setTaxType(Tax tax) {
+	private Tax tax; //= new TaxImp();
+	
+	public void setTaxType(Tax tax) { //<-- DI
 		this.tax = tax;
 	}	
 	public double getTotal()
-	{
-		
+	{	
 		double amount = getSubtotal();
 	        amount += tax.Compute(amount);
 		return amount;
 	}
-	double getSubtotal()
-	{
-		double subtotal = 0;
-		/* 
-		 * foreach(lineItem in Items)
-		 * {
-		 * 		subtotal += lineItem.getPrice() * lineItem.Qty()
-		 * }
-		 */
-		return subtotal;
+	double getSubtotal(){
+		...
 	}	
 }
 class TaxImp  implements Tax
