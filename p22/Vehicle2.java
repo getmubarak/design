@@ -18,6 +18,7 @@ do(Tank v){
 
 execute(List<Vehicle> vehicles){
     for(Vehicle vehicle : vehicles) {
-        do(vehicle)
+        do(vehicle);
+        vehicle.stop();
     }
 }
