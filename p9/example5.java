@@ -13,7 +13,7 @@ class CC exends CA{
       x.f(this);
     }
 }
-
+//----------------------------------
 class CX{
   void f(CA) {}//1
   void f(CB) {}//2
@@ -29,6 +29,10 @@ class CZ. extends CX {
   void f(CB) {}//8
   void f(CC) {}//9
 }
+//----------------------------------
 do(CA a, CX x){
-   a.invoke(x); //1|2|3|4|5|6|7|8|9 
+   a.invoke(x); <-- 5      //1|2|3|4|5|6|7|8|9 
+   x.f(a);  <-- 4
 }
+//----------------------------------
+do(new CB(), new CY());
