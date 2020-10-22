@@ -1,38 +1,27 @@
-interface Plugin{
-  void do(CB cb);
-  void do(CA ca);
+
+class CA{
+  void f1(){} //1A
+  void f2(){} //2A
 }
-interface IA{
-  void f1();
-  void f2();
-  void invoke(Plugin p);
-};
-class CB implemens IA{
-  void f1() {}  //1
-  void f2() {}  //2
-  void invoke(Plugin p) { p.do(this); }
-};
-class CC implemens IA{
-  void f1() {}  //3 
-  void f2() {}  //4  
-  void invoke(Plugin p) { p.do(this); }
-};
-//**************************************
-class f3Imp implements Plugin{
-  void do(CB cb) {} // 5 ... f3.. CB
-  void do(CA ca) {} //  6... f3 ... CA 
-} 
-class f4Imp implements Plugin{
-  void do(CB cb) {} // 7 ... f4.. CB
-  void do(CA ca) {} //  8... f4 ... CA 
-} 
-do(IA a){
-  a.f1();  //1 | 3
-  a.f2();  //2 | 4
-  f3Imp f3 = new f3Imp();
-  a.invoke(f3); // 5 | 6
-  f4Imp f4 = new f4Imp();
-  a.invoke(f4); // 7 | 8
+class CB extends CA{
+  void f1(){} //1B
+  void f2(){} //2B
+}
+class CC extends CA{
+  void f1(){} //1C
+  void f2(){} //2C
+}
+//==========================
+
+void doJob(CA a){
+  a.f1(); <--1? A|B|C
+  a.f2(); <--2? A|B|C
+  if(type(a) == type(CA))
+    //3A
+  if(type(a) == type(CB))
+    //3B
+  if(type(a) == type(CC))
+    //3C  
 }
 
-do(new ?);  //CB or CC
+doJob(new ?); <-- CA | CB | CC
