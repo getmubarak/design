@@ -1,0 +1,7 @@
+## Clean Code
+## Pragmatic Programmer
+## Refactoring to Patterns
+## Refactoring
+## implementation Patterns
+## Beautiful Code
+## Solid Code
