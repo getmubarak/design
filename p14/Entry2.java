@@ -1,49 +1,42 @@
-interface Plugin
-{
-  void do(CA ca);   //doCA();
-  void do(CB cb);   //doCB();
-  void do(CC cc);   //doCC();
+interface Plugin{
+  void do(CA);
+  void do(CB); 
+  void do(CC);  
 }
 class CA{
-  void f1(){} //1
-  void f2(){} //2
+  void f1(){} //1A
+  void f2(){} //2A
   void invoke(Plugin p){
-    p.do(this);    //p.doCA();
+    p.do(this);
   }
 }
 class CB extends CA{
-  void f1(){} //3
-  void f2(){} //4
+  void f1(){} //1B
+  void f2(){} //2B
   void invoke(Plugin p){
-    p.do(this);    //p.doCB();
+    p.do(this);
   }
 }
 class CC extends CA{
-  void f1(){} //5
-  void f2(){} //6
+  void f1(){} //1C
+  void f2(){} //2C
   void invoke(Plugin p){
-    p.do(this);    //p.doCC();
+    p.do(this);
   }
 }
-//----------------------------------
-class F3Impl implements Plugin
-{
-  void do(CA ca){
-    ...f3 CA
-  }
-  void do(CB cb){
-    ...f3 CB
-  }
-  void do(CC cc){
-    ...f3 CC
-  }
+//==========================
+class F3Imp implements Plugin{
+  void do(CA){}//3A
+  void do(CB){}//3B
+  void do(CC){}//3C  
 }
-void do(CA obj){
-  obj.f1(); //<- 1 | 3 | 5
-  obj.f2(); //<- 2 | 4 | 6
- 
-  F3Impl f3 = new F3Impl();
-  obj.invoke(f3); //<-- ? | ? | ?
+
+void doJob(CA a){
+  a.f1(); <--1? A|B|C. (1B)
+  a.f2(); <--2? A|B|C  (2B)
     
-    
+  F3Imp f3 = new F3Imp();
+  a.invoke(f3);<--3? A|B|C. (CB::invoke(f3))-->(3B)
 }
+
+doJob(new ?); <-- CA | CB | CC
