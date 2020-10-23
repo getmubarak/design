@@ -7,7 +7,6 @@ public class List {
 		//logic to remove item from collection
 	}
 }
-
 public class Queue extends List {
 	public void enqueue(Object item) {
 		//delegate to List methods
@@ -16,7 +15,6 @@ public class Queue extends List {
 		//delegate to List methods
 	}
 }
-
 public class Stack extends List {
 	public void push(Object item) {
 		//delegate to List methods
