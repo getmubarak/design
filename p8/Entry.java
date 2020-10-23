@@ -20,10 +20,10 @@ public class Queue {
 
 public class Stack {
 	//collection
-	public void push(Object item,int index ) {
+	public void push(Object item) {
 		//logic to add item into collection
 	}
-	public void pop(int index ) {
+	public void pop() {
 		//logic to remove item from collection
 	}
 }
