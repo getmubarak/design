@@ -1,11 +1,10 @@
 double getSalary(int empCode)
 {
-	Domain domain = new Domain();
-	bool res = domain.fun();
+	Repostory repo = new Repository();
+	res = repo.connect();
 	if(res == true){
-		res = domain.fun2(100);
+		res = repo.authenticate();
 		if(res == true){
-			Repostory rep = new Repository();
 			Emp emp = rep.get(empCode);
 			if(emp != null){	
 				return emp.getSalary();
