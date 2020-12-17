@@ -11,9 +11,10 @@ class CX{
 }
 
 void Main(){
+  do(? );
+}
+void do(CA a){
   CX x = new CX();
-  CA a = new CC();
- 
   x.f(a); 
 }
   
