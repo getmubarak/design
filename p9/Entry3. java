@@ -1,5 +1,21 @@
 package problem9;
 
+interface Account{
+	Diaglog Create();
+	...
+}
+class SA implements Account {
+	Dialog Create(){
+		return new SADialog();
+	}
+	...
+}
+class CA implements Account {
+	Dialog Create(){
+		return new CADialog();
+	}
+	...
+}
 public class Entry {
 	public static void ShowUI(Account account) {
 		Dialog dlg=account.getDialog();
