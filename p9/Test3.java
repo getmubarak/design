@@ -21,8 +21,6 @@ class CZ extneds CY{
 }
 void Main(){
   CX x = new CZ();
-  CY y = new CZ();
-  CZ z = new CZ();
   
   CC c = new CC();
   CB b = c;
@@ -30,12 +28,4 @@ void Main(){
   x.f(a); 
   x.f(b); 
   x.f(c); 
-
-  y.f(a); 
-  y.f(b); 
-  y.f(c); 
-
-  z.f(a); 
-  z.f(b); 
-  z.f(c); 
 }
