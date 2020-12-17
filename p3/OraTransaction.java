@@ -1,7 +1,7 @@
 package problem3;
 
 public class OraTransaction {
-	public void begin(SqlConnection connection) {
+	public void begin(OraConnection connection) {
 		//logic
 	}
 	public void commit() {
