@@ -20,10 +20,7 @@ class CZ extneds CY{
   void f(CC c) {} //9 
 }
 void Main(){
-  CX x = new CZ();
-  
+  CX x = new CZ(); 
   CA a = new CC();
-  x.f(a); 
-  x.f(a); 
   x.f(a); 
 }
