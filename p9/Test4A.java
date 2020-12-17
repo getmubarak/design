@@ -10,9 +10,10 @@ class CX{
   void f(CC c) {} //3 
 }
 void Main(){
-  do( new CX(), new CC() );
+  do( ? );
 }
-void do(CX x, CA a){
+void do( CA a){
+  CX x = new CX();
   if(a isInstanceof CB)
       x.f((CB) a); 
   else if(a isInstanceof CC)
