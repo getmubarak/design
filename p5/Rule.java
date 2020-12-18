@@ -3,9 +3,9 @@
 
 class Rule
 {
-  String property;
-  String value;
-  char operator;
+  String property; //dept
+  String value;//sales
+  char operator; //==
   
   public Rule(String property,String value,char operator)
   {
@@ -13,17 +13,24 @@ class Rule
     this.value = value;
     this.operator = operator;
   }
+  /*
+    | age    | 30    |
+    | salary | 2500. | 
+    | dept   | purchase |
+  */
   bool eval(Map<string,object> obj)
   {
-    if(!obj.contains(property))
+    if(!obj.contains(property)) //dept
       return false;
     
-    curValue = obj.get(property);
+    curValue = obj.get(property); //purchase
     switch(operator)
     {
+      case '==':
+        return value.equeals(curValue); sales == purchase
+        break;
       case '>':
         ...
-        break;
     }
   }
 }
