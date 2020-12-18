@@ -1,3 +1,15 @@
+# books
+1. Refactoring
+2. Refactoring to patterns
+3. clean code
+4. beautiful code
+5. effective Java 
+6. inside c++ object model
+7. Solid Code
+8. implemenatation patterns
+9. Xunit patterns
+10. 
+
 # design
 p22. vehicle<br>
 p27. formatting <br>
