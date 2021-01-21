@@ -11,7 +11,7 @@ class CX{
 }
 
 void Main(){
-  do(? );
+  do(new ? );  //CA | CB | CC
 }
 void do(CA a){
   CX x = new CX();
