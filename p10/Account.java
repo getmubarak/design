@@ -5,6 +5,7 @@ public class Account {
 	boolean email=false;
 	boolean sms=false;
 	boolean otp=false;
+	boolean secretQuestion=false;
 	double limit=0;
     	
 	public void withDraw(double amount) {
@@ -26,14 +27,3 @@ public class Account {
 		}
 	}
 }
-
-Authentication
-otp
-secret
-rsa
-
-Notification:
-Email
-SMS
-whats App
-phone
