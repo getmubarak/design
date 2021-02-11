@@ -21,9 +21,9 @@ class CX{
 
 void Main(){
   CX x = new CX();
-  CA a = new CC();
+  CA a = new CA/CB/CC();
  
   //x.f(a); <-- 1
-  a.call(x); <-- 3
+  a.call(x); <-- 1/2/3
 }
   
