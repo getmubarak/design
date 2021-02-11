@@ -1,7 +1,7 @@
 package problem9;
 
 interface Account{
-	Diaglog Create();
+	Dialog Create();
 	...
 }
 class SA implements Account {
@@ -18,7 +18,7 @@ class CA implements Account {
 }
 public class Entry {
 	public static void ShowUI(Account account) {
-		Dialog dlg=account.getDialog();
+		Dialog dlg=account.Create();
 		dlg.Display();			
 	}
 	
