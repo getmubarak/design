@@ -18,7 +18,7 @@ class CA implements Account {
 }
 public class Entry {
 	public static void ShowUI(Account account) {
-		Dialog dlg=account.Create();
+		Dialog dlg=account.Create(); //<-- factory method pattern
 		dlg.Display();			
 	}
 	
