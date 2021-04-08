@@ -1,3 +1,5 @@
+@Author: Yash
+
 class Ship extends GO{
   void Collide(GameObject go2){
     go2.collide(this);
