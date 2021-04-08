@@ -1,5 +1,12 @@
 package problem9;
 
+class Account{}
+class CA : Account{}
+class SA : Account{}
+class Dialog {}
+class SADialog : Dialog {}
+class CADialog : Dialog {}
+
 public class Entry {
 	public static void ShowUI(Account account) {
 		Dialog dlg=null;
