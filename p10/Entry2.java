@@ -1,5 +1,6 @@
 package problem10;
 
+//vertical
 interface Account{
 	void withDraw(double amount);
 }
