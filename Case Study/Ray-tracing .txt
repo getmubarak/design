@@ -12,5 +12,6 @@ scene graph is then repeatedly traversed to check for intersections with various
 
 Expected output:
 -----------------
-Design a class structure, which can represent a scene graph where each scene is made of one more geometrically defined shape and each shape is further mode of one or more  geometrically defined shape.
+Design a class structure, which can represent a scene graph where each scene is made of one more geometrically defined shape and each 
+shape is further mode of one or more  geometrically defined shape.
 
