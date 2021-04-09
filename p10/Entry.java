@@ -1,5 +1,7 @@
 @Author :Ankur
 
+//Horizontal
+
 interface Enricher{	
 	abstract void do(Account a);
 }
