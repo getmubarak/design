@@ -1,25 +1,29 @@
+//AOP : Aspect oriented Programing
+// poor mans decorator
 
 class AccountImp  {
 	double balance;
 	double limit=0;
 	
-  //<-- inject all beforeadvice
+    	@ AccountEmailNotify
+	@ AccountOtpAuth
 	public void withDraw(double amount) {
 		balance-=amount;
 	}
-  //<-- inject all afteradvice
+        
 }
 class AccountEmailNotify implements AfterAdvice {
-	public void withDraw(double amount) {
+	public void do(AccountImp a) {
 		//email 
 	}
 }
 class AccountOtpAuth implements BeforeAdvice {
-	public void withDraw(double amount) {
+	public void do(AccountImp a) {
 		//otp
 	}
 }
 void Main(){
 	Account acc = AopEngine.create<AccountImp>();
+	
 	acc.withdraw(100); 
 }
