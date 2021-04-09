@@ -34,3 +34,10 @@ public class Account {
 		}
 	}
 }
+
+void Main(){
+	Account acc = new Account();
+	acc.AddPreEnricher(new AccountEmailNotify());
+	acc.AddPostEnricher(new AccountSmsNotify());
+	acc.withdraw(100); 
+}
