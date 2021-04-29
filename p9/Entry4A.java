@@ -36,7 +36,7 @@ public class Factory implements Visitor
 public class Entry {
 	public static void ShowUI(Account account) {
 		Factory factory = new Factory();
-                //Dialog dlg=factory.get(account);
+                //factory.visit?()
 		account.accept(factory);
 		Dialog dlg=factory.getDialog();
 		dlg.Display();			
