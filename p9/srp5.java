@@ -5,7 +5,7 @@ interface Plugin{
 }
 //-------------------------------------
 class CA{
-    void do() {} 
+    void do() { .. logic ... } 
     void exe() { 
       Util u = new Util();
       u.doCA(); 
@@ -13,7 +13,7 @@ class CA{
     void invoke(Plugin p){  p.doCA();  }
 }
 class CB extends CA{
-   void do() {} 
+   void do() { .. logic ... } 
    void exe() { 
       Util u = new Util();
       u.doCB(); 
@@ -21,7 +21,7 @@ class CB extends CA{
    void invoke(Plugin p){  p.doCB();  }
 }
 class CC extends CB{
-  void do() {} 
+  void do() { .. logic ... } 
   void exe() { 
       Util u = new Util();
       u.doCC(); 
@@ -36,10 +36,11 @@ class Util implements Plugin{
 }
 
 void fun(CA a){
-  a.do();
-  a.exe();
+  a.do();// 1 ? 2 ? 3 (logic in the family
+  a.exe();// 1 ? 2 ? 3 (logic delegated to util with coupling )
   Util util = new Util();
-  a.invoke(util);
+  a.invoke(util);// 1 ? 2 ? 3 
+                 (logic delegated to util without coupling)
 }
 
 void Main(){
