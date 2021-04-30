@@ -1,3 +1,5 @@
+@Author : Amal
+
 public class Account {
  double balance;
  private AccountType acctype=AccountType.SavingPlatinum;
