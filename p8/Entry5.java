@@ -1,21 +1,23 @@
 
-class CA{
-  void fun(int x){
-    if(x < 500)
+class CurrentAccount{
+  void withdraw(int amount){
+    if(amount < 500)
       throw
       
     //logic
   }
 }
-class CB extends CA{
-  void fun(int x){
-    if(x < 800)
+class OverDraftAccount extends CurrentAccount{
+  void withdraw(int amount){
+    if(amount < 800)
       throw
       
     //logic2
   }
 }
 
-do(CA a){
-   a.fun(600);
+
+do(CurrentAccount a){
+   a.withdraw(600);
 }
+
