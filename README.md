@@ -9,7 +9,7 @@
 7. Solid Code
 8. implemenatation patterns
 9. Xunit patterns
-10. 
+10. Pragmatic Programmer
 
 # design
 p22. vehicle<br>
