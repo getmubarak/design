@@ -5,7 +5,7 @@ class Account
      protected abstract persist();   
      void save(){
           … logic 1
-          persist()
+          persist(); <-- hollywood style
           … logic 2         
      }
 }
