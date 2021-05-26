@@ -2,8 +2,8 @@ class Account
 {
      public abstract withdraw(double amount);
      public abstract deposit(double amount);
-     public abstract save();   
-     void savedetails(){
+     protected abstract persist();   
+     void save(){
           … logic 1
           save()
           … logic 2         
@@ -16,7 +16,7 @@ class SA extends Account{
      public deposit(double amount){
         //logic 4
      }
-    public save(){
+    protected persist(){
        //logic
     }
 }
@@ -27,7 +27,7 @@ class CA extends Account{
      public deposit(double amount){
         //logic 6
      }
-     public save(){
+     protected persist(){
         //logic
      }
 }
