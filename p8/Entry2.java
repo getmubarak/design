@@ -9,16 +9,17 @@ public class List {
 }
 public class Queue extends List {
 	public void enqueue(Object item) {
-		//delegate to List methods
+		//add to the list methods
 	}
 	public void dequeue() {
-		//delegate to List methods
+		//remove first item from the list
 	}
 }
 public class Stack extends List {
 	public void push(Object item) {
-		//delegate to List methods
+		//add to the list methods
 	}
 	public void pop() {
-		//delegate to List methods
+		//remove last item from the list
+	}
 }
