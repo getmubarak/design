@@ -1,5 +1,5 @@
 
-class GameObject
+interface GameObject
 {
 }
 
