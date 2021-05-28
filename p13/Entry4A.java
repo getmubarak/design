@@ -7,6 +7,15 @@ class Ship extends GO{
   void Collide(Station go2){
     // logic to  collide ship and station
   }
+  void Collide(Commet go2){
+    // logic to  collide ship and Commet
+  }
+  void Collide(Aestroid go2){
+    // logic to  collide ship and Aestroid
+  }
+  void Collide(Ship go2){
+    // logic to  collide ship and Ship
+  }
 }
 
 class Station extends GO{
@@ -14,8 +23,18 @@ class Station extends GO{
     go2.collide(this);
   }
   void Collide(Ship go2){
-    // logic to  collide ship and station
+    // logic to  collide station and ship
   }
+  void Collide(Station go2){
+    // logic to  collide station and station
+  }
+  void Collide(Commet go2){
+    // logic to  collide station and Commet
+  }
+  void Collide(Aestroid go2){
+    // logic to  collide station and Aestroid
+  }
+  
 }
 
 class Handler
