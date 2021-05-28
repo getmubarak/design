@@ -9,7 +9,7 @@ class CX  {
   Parent parent;
 }
 CX o1 = new CX(new CA);
-CX o2 = new CY(new CB);
+CY o2 = new CY(new CB);
 
 // lazy load parent
 class CX {
