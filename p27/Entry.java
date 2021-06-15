@@ -15,7 +15,7 @@ class StatisticsReport
             case "json": 
                 json="";
                 
-                //some logic for formating as word ...
+                //some logic for formating as json ...
                 return word
 
             case "html":
@@ -27,7 +27,7 @@ class StatisticsReport
              case "xml":
                 xml = "";
                 
-                //  some logic for formating as HTML ...
+                //  some logic for formating as xml ...
                 return xml;
         }
     }
