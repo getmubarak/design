@@ -12,8 +12,8 @@ class StatisticsReport
                 }
                 return implode("\n", lines);
 
-            case "word": 
-                word="";
+            case "json": 
+                json="";
                 
                 //some logic for formating as word ...
                 return word
@@ -23,6 +23,12 @@ class StatisticsReport
                 
                 //  some logic for formating as HTML ...
                 return html;
+                
+             case "xml":
+                xml = "";
+                
+                //  some logic for formating as HTML ...
+                return xml;
         }
     }
 }
