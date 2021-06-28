@@ -41,7 +41,7 @@ public class Factory implements Plugin
 public class Entry {
 	public static void ShowUI(Account account) {
 		Factory factory = new Factory();
-		factory.do?();
+		//factory.do?();
 		account.invoke(factory);
                 Dialog dlg=factory.getDialog();	
 		dlg.Display();			
