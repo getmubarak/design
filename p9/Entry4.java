@@ -1,25 +1,21 @@
-interface Plugin
-{
-  void do(CA);
-  void do(SA);
-}
+
 clasa Account{
-  abstract void invoke(Plugin p);
+  abstract void invoke(Factory f);
 }
 -------------------------------------
 class SA extends Account{
- void invoke(Plugin p){
-    p.do(this);
+ void invoke(Factory f){
+    f.do(this);
   }
 }
 class CA extends Account{
- void invoke(Plugin p){
-    p.do(this);
+ void invoke(Factory f){
+    f.do(this);
   }
 }
 -------------------------------------
 
-public class Factory implements Plugin
+public class Factory 
 {
   Dialog dlg;
   public void do(SA a)
