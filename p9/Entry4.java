@@ -1,3 +1,4 @@
+Entry2 + Srp2 = Entry4
 
 clasa Account{
   abstract void invoke(Factory f);
