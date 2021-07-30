@@ -17,7 +17,7 @@ public class Start extends Step {
 public class Action extends Step{
  Step next;
  public Action(Step next) { this.next = next; }
- void call(Plugin p) { p.doStop(); }
+ void call(Plugin p) { p.doAction(); }
 }
 public class Branch extends Step{
  Step left;
@@ -29,6 +29,7 @@ public class Branch extends Step{
  }
  void call(Plugin p) { p.doBranch(); }
 }
+
 public class Stop extends Step{
   void call(Plugin p) { p.doStop(); }
 }
