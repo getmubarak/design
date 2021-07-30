@@ -1,27 +1,25 @@
 
-class CA{
-  void f1(){} //1A
-  void f2(){} //2A
+interface CA{
+  void f1();
+  void f2();
 }
-class CB extends CA{
+class CB implements CA{
   void f1(){} //1B
   void f2(){} //2B
 }
-class CC extends CA{
+class CC implements CA{
   void f1(){} //1C
   void f2(){} //2C
 }
 //==========================
 
 void doJob(CA a){
-  a.f1(); <--1? A|B|C
-  a.f2(); <--2? A|B|C
-  if(type(a) == type(CA))
-    //3A
+  a.f1(); <--1? B|C
+  a.f2(); <--2? B|C
   if(type(a) == type(CB))
     //3B
   if(type(a) == type(CC))
     //3C  
 }
 
-doJob(new ?); <-- CA | CB | CC
+doJob(new ?); <-- CB | CC
