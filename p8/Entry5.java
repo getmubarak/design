@@ -4,7 +4,7 @@ class CurrentAccount{
     if(amount < 500)
       throw new InvalidTransactionException();
       
-      //logic for withdrawl
+      //logicA for withdrawl
   }
 }
 class OverDraftAccount extends CurrentAccount{
@@ -12,7 +12,7 @@ class OverDraftAccount extends CurrentAccount{
     if(amount < 800)
       throw new InvalidTransactionException();
       
-      //logic for withdrawl
+      //logicB for withdrawl
   }
 }
 
