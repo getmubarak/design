@@ -1,16 +1,16 @@
-do(Car v){
+do(Car vehicle){
     vehicle.lock();
     vehicle.go();
 }
-do(Ship v){
+do(Ship vehicle){
      vehicle.balance();
      vehicle.swim();
 }
-do(Airplane v){
+do(Airplane vehicle){
      vehicle.go();
      vehicle.fly();
 }
-do(Tank v){
+do(Tank vehicle){
      vehicle.move();
      vehicle.stop();
      vehicle.fire();
