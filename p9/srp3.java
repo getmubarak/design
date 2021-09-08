@@ -1,21 +1,21 @@
 class CA{
-    void invoke(Util u){  u.doCA();  }
+    void invoke(Util u){  u.do(this);  }
 }
 class CB extends CA{
-   void invoke(Util u){  u.doCB();  }
+   void invoke(Util u){  u.do(this);  }
 }
 class CC extends CB{
-  void invoke(Util u){  u.doCC();  }
+  void invoke(Util u){  u.do(this);  }
 }
 class Util{
-  void doCA(){} //1
-  void doCB(){} //2
-  void doCC(){} //3
+  void do(CA){} //1
+  void do(CB){} //2
+  void do(CC){} //3
 }
 
 void fun(CA a){
   
-  //uitl.do?();
+  //uitl.do(a);
   a.invoke(util);
   
 }
