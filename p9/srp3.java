@@ -14,12 +14,11 @@ class Util{
 }
 
 void fun(CA a){
-  
   //uitl.do(a);
   a.invoke(util);
   
 }
-
 void Main(){
-  fun(new CA/CB/CC);
+  CA a = new CA/CB/CC();
+  fun(a);
 }
