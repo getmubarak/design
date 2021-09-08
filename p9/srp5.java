@@ -1,46 +1,23 @@
-interface Plugin{
-  void doCA();
-  void doCB();
-  void doCC();
-}
-//-------------------------------------
 class CA{
-    void do() { .. logic ... } 
-    void exe() { 
-      Util u = new Util();
-      u.doCA(); 
-    }
-    void invoke(Plugin p){  p.doCA();  }
+    void invoke(Util u){  u.doCA();  }
 }
 class CB extends CA{
-   void do() { .. logic ... } 
-   void exe() { 
-      Util u = new Util();
-      u.doCB(); 
-    }
-   void invoke(Plugin p){  p.doCB();  }
+   void invoke(Util u){  u.doCB();  }
 }
 class CC extends CB{
-  void do() { .. logic ... } 
-  void exe() { 
-      Util u = new Util();
-      u.doCC(); 
-    }
-  void invoke(Plugin p){  p.doCC();  }
+  void invoke(Util u){  u.doCC();  }
 }
-//*************************************
-class Util implements Plugin{
+class Util{
   void doCA(){} //1
   void doCB(){} //2
   void doCC(){} //3
 }
 
 void fun(CA a){
-  a.do();// 1 ? 2 ? 3 (logic in the family
-  a.exe();// 1 ? 2 ? 3 (logic delegated to util with coupling )
-  Util util = new Util();
-  a.invoke(util);// 1 ? 2 ? 3 
-                 (logic delegated to util without coupling)
+  
+  //uitl.do?();
+  a.invoke(util);
+  
 }
 
 void Main(){
