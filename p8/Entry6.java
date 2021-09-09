@@ -1,7 +1,13 @@
 Design by contract
-# pre condition
-# post condition
-# invariant
+
+fun(){
+ 1. contract
+ 2. logic
+}
+Types of Contract
+# 1. pre condition <-- expectation from caller (eg, input > 1000)
+# 2. post condition <-- what caller can expect (eg, return > 0)  
+# 3. invariant <-- what will not change (input will be const)
 
 class CurrentAccount{
   void withdraw(int amount){
