@@ -10,12 +10,16 @@ public class Entry {
         object.put("Age", 45);
         object.put("Department", "Sales");
         
-	//Department == 'purchase'
-        Rule r1 = new Rule("Department","Purchase","==");
+        //((Department == 'purchase') and (age < 28 or salary > 25000))
+        Rule r1 = new Rule("Department","==","Purchase");
+	Rule r2 = new Rule("Age","<","28");
+	Rule r3 = new Rule("salary",">","25000");
+
 	ans1 = r1.Eval(object);
-        System.out.print(ans1);  
-	    
-	    
-        //((Department == 'purchase') and (age > 28 or salary > 25000))
+        ans2 = r2.Eval(object);
+        ans3 = r3.Eval(object);
+	ans  = ans1 && ( ans2 || ans3); 
+        System.out.print(ans);  
+	        
     }
 }
