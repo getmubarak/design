@@ -10,6 +10,7 @@
 8. implemenatation patterns
 9. Xunit patterns
 10. Pragmatic Programmer
+11. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
 
 # design
 p22. vehicle<br>
