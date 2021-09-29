@@ -23,7 +23,10 @@ public class Invoice {
 class KST  implements Tax
 { 
   public double compute(double amount){
-      return amount * 0.05;
+      if(amount > 5000)
+      	return amount * 0.05;
+      else
+      	return amount * 0.05 + 200;
   }
 }
 class GST  implements Tax
