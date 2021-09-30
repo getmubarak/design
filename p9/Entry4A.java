@@ -31,7 +31,7 @@ public class Factory implements Plugin
 public class Entry {
 	public static void ShowUI(Account account) {
 		Factory factory = new Factory();
-		factory.do(account)<-- error
+		//factory.do(account)<-- error
      		account.invoke(factory);//3
 		factory.dlg.Display();				
 	}
