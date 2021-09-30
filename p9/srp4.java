@@ -1,26 +1,42 @@
+interface Plugin{
+  void doa();
+  void dob();
+  void doc();
+}
 class CA{
-    void do() {} //1
-    void invoke(Util u){  u.doCA();  }
+    void do1() {} //1a
+    void do2() {} //2a
+    void invoke(Plugin p){  u.doa();  }
 }
 class CB extends CA{
-   void do() {} //2
-   void invoke(Util u){  u.doCB();  }
+   void do1() {} //1b
+   void do2() {} //2b 
+   void invoke(Plugin p){  u.dob();  }
 }
 class CC extends CB{
-  void do() {} //3
-  void invoke(Util u){  u.doCC();  }
+  void do1() {} //1c
+  void do2() {} //2c
+  void invoke(Plugin p){  u.doc();  }
 }
-class Util{
-  void doCA(){} //1
-  void doCB(){} //2
-  void doCC(){} //3
+//============================================
+class Ext3{
+  void doa(){} //3a
+  void dob(){} //3b
+  void doc(){} //3c
+}
+class Ext4{
+  void doa(){} //4a
+  void dob(){} //4b
+  void doc(){} //4c
 }
 
 void fun(CA a){
-  a.do();
-  //uitl.do?();
-  a.invoke(util);
-  
+  a.do1(); <-- 1a | 1b | 1c
+  a.do2(); <-- 2a | 2b | 2c
+  Ext3 fun3 = new Ext3()
+  a.invoke(fun3); <-- 3a | 3b | 3c
+  Ext4 fun4 = new Ext4()
+  a.invoke(fun4); <-- 4a | 4b | 4c
 }
 
 void Main(){
