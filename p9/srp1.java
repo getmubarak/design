@@ -10,6 +10,6 @@ class Util{
 
 do(CA a){  
   Util util = new Util();
-  uitl.f((CC)a); 
+  uitl.f(a); 
 }
 
