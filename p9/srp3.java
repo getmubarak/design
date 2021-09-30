@@ -13,12 +13,17 @@ class Util{
   void do(CC){} //3
 }
 
-void fun(CA a){
-  //uitl.do(a);
-  a.invoke(util);
-  
-}
-void Main(){
-  CA a = new CA/CB/CC();
-  fun(a);
-}
+
+CC c = new CC();
+CB b = c; <--upcast
+CA a = c; <--upcast
+
+Util util = new Util();
+//uitl.f(a);
+a.invoke(util);
+
+//uitl.f(b);
+b.invoke(util);
+
+/uitl.f(c);
+c.invoke(util);
