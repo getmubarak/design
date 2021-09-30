@@ -1,9 +1,12 @@
 package problem9;
 
-class Account{}
+interface Account{}
 class CA : Account{}
 class SA : Account{}
-class Dialog {}
+
+interface Dialog {
+	void Display();
+}
 class SADialog : Dialog {}
 class CADialog : Dialog {}
 
