@@ -6,17 +6,17 @@ interface Plugin{
 class CA{
     void do1() {} //1a
     void do2() {} //2a
-    void invoke(Plugin p){  u.doa();  }
+    void invoke(Plugin p){  p.doa();  }
 }
 class CB extends CA{
    void do1() {} //1b
    void do2() {} //2b 
-   void invoke(Plugin p){  u.dob();  }
+   void invoke(Plugin p){  p.dob();  }
 }
 class CC extends CB{
   void do1() {} //1c
   void do2() {} //2c
-  void invoke(Plugin p){  u.doc();  }
+  void invoke(Plugin p){  p.doc();  }
 }
 //============================================
 class Ext3 implements Plugin{
