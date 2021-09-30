@@ -19,12 +19,12 @@ class CC extends CB{
   void invoke(Plugin p){  u.doc();  }
 }
 //============================================
-class Ext3{
+class Ext3 implements Plugin{
   void doa(){} //3a
   void dob(){} //3b
   void doc(){} //3c
 }
-class Ext4{
+class Ext4 implements Plugin{
   void doa(){} //4a
   void dob(){} //4b
   void doc(){} //4c
