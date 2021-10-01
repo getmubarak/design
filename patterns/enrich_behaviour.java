@@ -50,20 +50,23 @@ obj.b1();
 
 //4. collection of has a
 class CA {
-  List<IX> enrichers;
+  List<IEnrich> enrichers;
   public void b1(){
-    for(IX enricher in enrichers)
+    for(IEnrich enricher in enrichers)
       enricher.enrich(this);
     //logic
   }
 }
-interface IX{
+interface IEnrich{
   void enrich(CA obj);
 }
-class CB implements IX {
+class Enricher1 implements IEnrich {
   public void enrich(CA obj){
     //extra logic
-      obj.b1();
-     //extra logic
+  }
+}
+class Enricher2 implements IEnrich {
+  public void enrich(CA obj){
+    //extra logic
   }
 }
