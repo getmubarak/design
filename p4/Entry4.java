@@ -1,10 +1,10 @@
 package problem4;
 
 interface Plugin{
-  void doStart();
-  void doStop();
-  void doBranch();
-  void doAction();
+  void doStart(Start start);
+  void doStop(Stop stop);
+  void doBranch(Branch branch);
+  void doAction(Action action);
 }
 public interface Step {
  void call(Plugin p);
@@ -12,12 +12,12 @@ public interface Step {
 public class Start extends Step {
  Step next; 
  public Start(Step next) {this.next = next;}
- void call(Plugin p) { p.doStart(); }
+ void call(Plugin p) { p.doStart(this); }
 }
 public class Action extends Step{
  Step next;
  public Action(Step next) { this.next = next; }
- void call(Plugin p) { p.doAction(); }
+ void call(Plugin p) { p.doAction(this); }
 }
 public class Branch extends Step{
  Step left;
@@ -27,30 +27,30 @@ public class Branch extends Step{
   this.left = left;
   this.right = right;
  }
- void call(Plugin p) { p.doBranch(); }
+ void call(Plugin p) { p.doBranch(this); }
 }
 
 public class Stop extends Step{
-  void call(Plugin p) { p.doStop(); }
+  void call(Plugin p) { p.doStop(this); }
 }
 
 class FlowPrinter implement Plugin{
-  void doStart() {... }
-  void doStop(){... }
-  void doBranch(){... }
-  void doAction(){... }
+  void doStart(Start start) { Write("Start"); }
+  void doStop(Stop stop){... }
+  void doBranch(Branch branch){... }
+  void doAction(Action action){... }
 }
 class FlowDAO implement Plugin{
-  void doStart() {... }
-  void doStop(){... }
-  void doBranch(){... }
-  void doAction(){... }
+  void doStart(Start start) {...}
+  void doStop(Stop stop){... }
+  void doBranch(Branch branch){... }
+  void doAction(Action action){... }
 }
 class FlowUI implement Plugin{
-  void doStart() {... }
-  void doStop(){... }
-  void doBranch(){... }
-  void doAction(){... }
+  void doStart(Start start) { ...}
+  void doStop(Stop stop){... }
+  void doBranch(Branch branch){... }
+  void doAction(Action action){... }
 }
 public class Entry {
 	public static void main(String[] args) {
