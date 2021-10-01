@@ -35,10 +35,13 @@ public class Stop extends Step{
 }
 
 class FlowPrinter implement Plugin{
-  void doStart(Start start) { Write("Start"); }
-  void doStop(Stop stop){... }
-  void doBranch(Branch branch){... }
-  void doAction(Action action){... }
+  void doStart(Start start) { Write("Start"); start.next.call(this); }
+  void doStop(Stop stop){ Write("Stop"); }
+  void doBranch(Branch branch){  Write("Branch"); 
+			       branch.left.call(this);
+			       branch.right.call(this);
+			      }
+  void doAction(Action action){ Write("Action"); action.next.call(this);  }
 }
 class FlowDAO implement Plugin{
   void doStart(Start start) {...}
@@ -57,6 +60,6 @@ public class Entry {
 		Factory factory = new Factory();
 		Step flow = factory.Load("flow1");
 		FlowPrinter fp = new FlowPrinter();
-		flow.call(fp);
+		flow.call(fp); //1
 	}
 }
