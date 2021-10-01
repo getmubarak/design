@@ -23,7 +23,7 @@ class CB extends CA{
 };
 
 //2 has a - interface <-- statergy pattern
-interface Statergy{
+interface IX{
    void partB();
 }
 class CA{
