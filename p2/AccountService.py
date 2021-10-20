@@ -10,7 +10,7 @@ class AccountService:
  
   def deposit(amount):
     acc.deposit(amount)
-    op = new Operation(2,amount)
+    op = Operation(2,amount)
     stack.push(op)
 
   def undo():
