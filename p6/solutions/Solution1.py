@@ -25,15 +25,15 @@ class Tax:
   def __init__(self):
   pass
 
-def compute(amount, taxType):
-  taxAmount = 0;
-  if taxType == 1:
-    taxAmount = amount * 0.05
-  if taxType == 2:
-    taxAmount = amount * 0.025 + 500
-  if taxType == 3:
-    taxAmount = (amount - 5000) * 0.3
-  return taxAmount
+  def compute(amount, taxType):
+    taxAmount = 0;
+    if taxType == 1:
+      taxAmount = amount * 0.05
+    if taxType == 2:
+      taxAmount = amount * 0.025 + 500
+    if taxType == 3:
+      taxAmount = (amount - 5000) * 0.3
+    return taxAmount
 
 def main():
   inv = Invoice()
