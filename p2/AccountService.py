@@ -12,8 +12,7 @@ class AccountService:
     acc.deposit(amount)
     op = new Operation(2,amount)
     stack.push(op)
-  
-  
+
   def undo():
     op = stack.pop();
     if(op.Type == 1):
