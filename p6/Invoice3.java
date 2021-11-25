@@ -5,11 +5,8 @@ interface Tax
  	double compute(double amount);
 }
 public class Invoice {
-	private Tax tax; //= new TaxImp();
+	private Tax tax= new TaxImp();
 	
-	public void setTaxType(Tax tax) { //<-- DI
-		this.tax = tax;
-	}	
 	public double getTotal()
 	{	
 		double amount = getSubtotal();
