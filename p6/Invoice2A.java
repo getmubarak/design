@@ -2,7 +2,7 @@ package problem6;
 
 class Tax
 { 
-  public static double compute(int taxType, double amount){
+  public double compute(int taxType, double amount){
       double taxAmount =0;
   
       switch(taxType)
@@ -40,9 +40,9 @@ public class Invoice {
 	
 	public double getTotal()
 	{
-		
+		Tax tax = new Tax();
 		double amount = getSubtotal();
-	        amount += Tax.compute(taxType,amount);
+	        amount += tax.compute(taxType,amount);
 		return amount;
 	}
 	double getSubtotal()
