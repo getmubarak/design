@@ -38,6 +38,11 @@ class InternationalTax
 }
 Invoice inv = new Invoice();
 CentralTax tax = new  CentralTax();
-inv.setTax((amount)->tax.computeKST(amount));
+FUNCTION funObj = (amount)->tax.computeKST(amount);
+inv.setTax(funObj);
 ...
 amount = inv.getTotal();
+
+
+
+
