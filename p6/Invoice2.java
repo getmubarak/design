@@ -2,9 +2,7 @@ package problem6;
 
 class Tax
 { 
-  public static double compute(int taxType, double amount){
-      double taxAmount =0;
-  
+  public static double compute(int taxType, double amount){ 
       switch(taxType)
       {
 	case 1:
@@ -21,7 +19,7 @@ class Tax
 			amount += (amount- 5000) * 0.4;
 		break;
       }
-      return taxAmount;
+      return amount;
   }
   
 }
