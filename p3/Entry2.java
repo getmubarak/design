@@ -21,7 +21,7 @@ public class OraConnection  implements Connection {
 	}
 }
 //3rd party
-public class MongoDB{
+public class PostGres{
 	public void connect(string str){
 		//logic
 	}
