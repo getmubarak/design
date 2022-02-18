@@ -1,16 +1,16 @@
 # books
-0. Domain Driven Design
 1. Refactoring
-2. Refactoring to patterns
-3. clean code
-4. beautiful code
-5. effective Java 
-6. inside c++ object model
-7. Solid Code
-8. implemenatation patterns
-9. Xunit patterns
-10. Pragmatic Programmer
-11. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
+2. Xunit patterns
+3. Refactoring to patterns
+4. clean code
+5. implemenatation patterns
+6. Domain Driven Design
+7. beautiful code
+8. Pragmatic Programmer
+9. effective Java 
+10. inside c++ object model
+11. Solid Code
+12. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
 
 # design
 p22. vehicle<br>
