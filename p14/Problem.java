@@ -12,13 +12,13 @@ class CC extends CA{
 }
 //----------------------------------
 void do(CA obj){
-  obj.f1(); //<- 1 | 3 | 5
-  obj.f2(); //<- 2 | 4 | 6
+  obj.f1(); //<- logic 1 | logic 3 | logic 5
+  obj.f2(); //<- logic 2 | logic 4 | logic 6
   if(obj instanceof(CA))
-    ...f3 CA
+    ...f3 logic for CA f3
   if(obj instanceof(CB))
-    ...f3 CB
+    ...f3 logic for CB f3
   if(obj instanceof(CC))
-    ...f3 CC
+    ...f3 logic for CC f3
     
 }
