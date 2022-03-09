@@ -20,12 +20,12 @@ class AccountService
   
   public void withdraw(double amount){
     acc.withdraw(amount);
-    Operation op = new WinthDrawOpr(amount);
+    Operation op = new WithDrawOp(amount);
     stack.push(op);
   }
   public void deposit(double amount){
     acc.deposit(amount);
-    Operation op = new DepositOpr(amount);
+    Operation op = new DepositOp(amount);
     stack.push(op)
   }
   public void undo(){
