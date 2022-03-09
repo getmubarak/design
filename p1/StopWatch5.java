@@ -21,23 +21,19 @@ class Suspended implements State{
 public class StopWatch {
 	State state = new Idle();
 	
-	public void start()
-	{
+	public void start(){
 		state.start();
 		state = new Running();
 	}
-	public void stop()
-	{
+	public void stop(){
 		state.stop();
 		state = new Idle();
 	}
-	public void pause()
-	{
+	public void pause(){
 		state.pause();
 		state = new Suspended();
 	}
-	public void resume()
-	{
+	public void resume(){
 		state.resume();
 		state = new Running();
 	}
