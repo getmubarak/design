@@ -1,40 +1,39 @@
 package problem1;
 
 interface State{
-	Start();
-	Stop();
-	Pause();
-	Resume();
+	State Start();
+	State Stop();
+	State Pause();
+	State Resume();
 }
 class Idle implements State{
-	void Start() { //logic 	}
+	State Start() { 
+		//logic
+		return new Running();
+	}
 	...
 }
 class Running implements State{
-	void Start() { throw new InvalidStateException(); }
+	State Start() { throw new InvalidStateException(); }
 	...
 }
 class Suspended implements State{
-	void Start() { throw new InvalidStateException(); }
+	State Start() { throw new InvalidStateException(); }
 	...
 }
 public class StopWatch {
 	State state = new Idle();
 	
 	public void start(){
-		state.start();
-		state = new Running();
+		state = state.start();
 	}
 	public void stop(){
-		state.stop();
-		state = new Idle();
+		state = state.stop();
 	}
 	public void pause(){
-		state.pause();
-		state = new Suspended();
+		state = state.pause();
 	}
 	public void resume(){
-		state.resume();
-		state = new Running();
+		state = state.resume();
 	}
 }
