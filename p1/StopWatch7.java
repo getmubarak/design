@@ -6,20 +6,37 @@ interface State{
 	State Pause();
 	State Resume();
 }
-class Idle implements State{
+class BaseState implements State{
+	State Start() { throw new InvalidStateException(); }
+	State Stop() { throw new InvalidStateException(); }
+	State Pause() { throw new InvalidStateException(); }
+	State Resume() { throw new InvalidStateException(); }
+}
+class Idle extends BaseState{
 	State Start() { 
 		//logic
 		return new Running();
 	}
-	...
 }
-class Running implements State{
-	State Start() { throw new InvalidStateException(); }
-	...
+class Running extends BaseState{
+	State Stop() { 
+		//logic
+		return new Idle();
+	}
+	State Pause() { 
+		//logic
+		return new Suspended();
+	}
 }
-class Suspended implements State{
-	State Start() { throw new InvalidStateException(); }
-	...
+class Suspended extends BaseState{
+	State Stop() { 
+		//logic
+		return new Idle();
+	}
+	State Resume() { 
+		//logic
+		return new Running();
+	}
 }
 public class StopWatch {
 	State state = new Idle();
