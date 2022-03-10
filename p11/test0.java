@@ -13,7 +13,7 @@ public class Stock {
 	double rate;
 	Broker broker;
 	Stock(){
-    BrokerFactory f = new BrokerFactory();
+                BrokerFactory f = new BrokerFactory();
 		this.broker = f.getInstance();
 	}
 	public void changeRate(double newRate) {
