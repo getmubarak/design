@@ -1,4 +1,4 @@
-APPROACH 1
+APPROACH 1 - typecheck
   
 class CX{
 }
@@ -18,7 +18,7 @@ void logic(CX obj){
 CX x = new CZ();
 logic(x);
 ==================================
-APPROACH 2
+APPROACH 2 - dynamic polymorphism
 
 class CX{
   void logic(){
@@ -39,7 +39,7 @@ CX x = new CZ();
 x.logic();
 
 ==================================
-APPROACH 3
+APPROACH 3 - dynamic polymorphism + delegation
 
 class CX{
   void logic(){
