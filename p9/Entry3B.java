@@ -40,6 +40,7 @@ x.logic();
 
 ==================================
 APPROACH 3 - dynamic polymorphism + delegation
+[When Approach 2 breaks SRP and coupling to the logic is allowed]
 
 class CX{
   void logic(){
