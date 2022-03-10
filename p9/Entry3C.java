@@ -22,7 +22,7 @@ class CZ extends CX{
   }
 }
 - --  -   - - - --  -   - -
-class CP implements IX{
+class CP implements IA{
   void logicCX(){
     logic C 
   }
@@ -33,6 +33,7 @@ class CP implements IX{
     logic A 
   }
 }
+- --  -   - - - --  -   - -
 CX x = new CZ();
 IA a = new CP();
 x.logic(a);
