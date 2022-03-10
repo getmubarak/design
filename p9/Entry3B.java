@@ -65,12 +65,12 @@ class CP{
     logic C 
   }
 }
-class CQ extends CX{
+class CQ extends CP{
   void logic(){
     logic B
   }
 }
-class CR extends CX{
+class CR extends CP{
   void logic(){
     logic A 
   }
