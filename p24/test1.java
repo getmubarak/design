@@ -1,3 +1,4 @@
+//------------- Library -------------
 interface IX{
       void f1();
       void f2();
@@ -10,7 +11,7 @@ class IXFactory{
            return new CA();       
       }
 }
-//=================================
+//------------- Consumer -------------
 class Client
 {
       public static void main()
