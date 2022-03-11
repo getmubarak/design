@@ -1,3 +1,5 @@
+****** Domain/Business Layer ****** 
+
 interface Plugin{
   void do(CA);
   void do(SA);
@@ -5,7 +7,7 @@ interface Plugin{
 class Account{
   abstract void invoke(Plugin p);
 }
--------------------------------------
+
 class SA extends Account{
  void invoke(Plugin p){
     p.do(this);//4
@@ -16,7 +18,8 @@ class CA extends Account{
     p.do(this);
   }
 }
--------------------------------------
+
+****** UI Layer ****** 
 
 public class Factory implements Plugin
 {
