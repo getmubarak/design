@@ -13,7 +13,6 @@ class Util{
   void do(CC){} //3
 }
 
-
 CC c = new CC();
 CB b = c; <--upcast
 CA a = c; <--upcast
