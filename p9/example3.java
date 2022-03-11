@@ -21,3 +21,5 @@ class CZ. extends CX {
 do(CA a, CX x){
   x.f(a); 
 }
+
+do(new CC(), new CZ());
