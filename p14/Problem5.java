@@ -1,41 +1,41 @@
 interface Plugin{
-  void do(CA a);
-  void do(CB b);
-  void do(CC c);
+  void doCA();
+  void doCB();
+  void doCC();
 }
 class CA{
   void f1(){} //1
   void f2(){} //2
   void call(Plugin p){
-    p.do(this);
+    p.doCA();
   }
 }
 class CB extends CA{
   void f1(){} //3
   void f2(){} //4
   void call(Plugin p){
-    p.do(this);
+    p.doCB();
   }
 }
 class CC extends CA{
   void f1(){} //5
   void f2(){} //6
   void call(Plugin p){
-    p.do(this);
+    p.doCC();
   }
 }
 //----------------------------------
 class F3 implements Plugin
 {
-  void do(CA a) {} //7
-  void do(CB b) {} //8
-  void do(CC c) {} //9
+  void doCA() {} //7
+  void doCB() {} //8
+  void doCC() {} //9
 }
 class F4 implements Plugin
 {
-  void do(CA a) {} //10
-  void do(CB b) {} //11
-  void do(CC c) {} //12
+  void doCA() {} //10
+  void doCB() {} //11
+  void doCC() {} //12
 }
 //----------------------------------
 void do(CA obj){
