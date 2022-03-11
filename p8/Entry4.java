@@ -24,4 +24,5 @@ public class Stack {
 	}
 	public void pop() {
 		//delegate to List methods
+	}
 }
