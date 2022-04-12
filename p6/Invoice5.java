@@ -1,15 +1,15 @@
 package problem6;
 
 public class Invoice {
-	private Function tax; 
+	private Function computeTax; 
 	
-	public void setTaxType(Function tax) { //<-- DI
-		this.tax = tax;
+	public void setTaxType(Function computeTax) { //<-- DI
+		this.computeTax = computeTax;
 	}	
 	public double getTotal()
 	{	
 		double amount = getSubtotal();
-	        amount += tax(amount);
+	        amount += computeTax(amount);
 		return amount;
 	}
 	double getSubtotal(){
