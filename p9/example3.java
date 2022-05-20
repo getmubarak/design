@@ -18,8 +18,6 @@ class CZ. extends CX {
   void f(CC) {}//9
 }
 
-do(CA a, CX x){
-  x.f(a); 
-}
-
-do(new CC(), new CZ());
+CA a = new CC();
+CX x = new CZ();
+x.f(a); 
