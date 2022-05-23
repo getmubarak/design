@@ -2,6 +2,8 @@ class StatisticsReport
 {
     protected string document;
 
+    ...
+        
     public string getData(string format)
     {
         switch(format) {
