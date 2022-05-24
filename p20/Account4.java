@@ -6,12 +6,12 @@ class AccountRepository{
           … logic 2         
   }
 }
-class SARepository extends Repository{
+class SARepository extends AccountRepository{
     protected persist(){
        //logic
     }
 }
-class CARepository extends Repository{
+class CARepository extends AccountRepository{
     protected persist(){
        //logic
     }
