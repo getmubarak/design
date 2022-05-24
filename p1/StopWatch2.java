@@ -18,7 +18,7 @@ public class StopWatch {
 	}
 	public boolean stop()
 	{
-		if(state != IDLE || state!= SUSPENDED)
+		if(state != RUNNING || state!= SUSPENDED)
 			return false;
 		
 		//logic
