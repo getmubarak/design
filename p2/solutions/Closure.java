@@ -7,10 +7,12 @@ Lamda fun(int x){
   # x,z is the clousre
   
   return (y)-> x + y; 
-  /*
+  /* object{
+         data: x,z
          fun2(y){
             return x+ y;
          }
+    }
   */
 }
 
