@@ -1,3 +1,4 @@
+********** Library *********
 
 interface CA{
   void f1();
@@ -12,6 +13,7 @@ class CC implements CA{
   void f2(){} //2C
 }
 //==========================
+********** Client *********
 
 void doJob(CA a){
   a.f1(); <--1? B|C
