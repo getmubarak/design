@@ -13,7 +13,7 @@ public class StopWatch {
 		//logic
 		state = RUNNING;
 	}
-	public boolean stop()
+	public void stop()
 	{
 		if(state != RUNNING || state!= SUSPENDED)
 			throw new InvalidStateException();
@@ -21,7 +21,7 @@ public class StopWatch {
 		//logic
 		state = IDLE;
 	}
-	public boolean pause()
+	public void pause()
 	{
 		if(state != RUNNING)
 			throw new InvalidStateException();
@@ -29,7 +29,7 @@ public class StopWatch {
 		//logic
 		state = SUSPENDED;
 	}
-	public boolean resume()
+	public void resume()
 	{
 		if(state != SUSPENDED)
 			throw new InvalidStateException();
