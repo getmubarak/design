@@ -5,7 +5,7 @@ interface Tax
  	double compute(double amount);
 }
 public class Invoice {
-	private Tax tax= new TaxImp();
+	private Tax tax= new TaxImp(2);
 	
 	public double getTotal()
 	{	
