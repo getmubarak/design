@@ -24,5 +24,5 @@ void do(CA obj){
   obj.f2(); //<- 2 | 4 | 6
   
   CX x = new CX();
-  x.f3(obj); ?
+  x.f3(obj); //<- 7
 }
