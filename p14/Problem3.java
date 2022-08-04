@@ -35,5 +35,5 @@ void do(CA obj){
   
   CX x = new CX();
   //x.f3(obj); ?
-  obj.call(x); //<- 7| 8 | 9
+  obj.call(x); //<- 10 | 11 | 12 , <- 7| 8 | 9
 }
