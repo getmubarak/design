@@ -30,9 +30,7 @@ class CZ. extends CX {
   void f(CC) {}//9
 }
 //----------------------------------
-do(CA a, CX x){
-   a.invoke(x);       //1|2|3|4|5|6|7|8|9 
-   x.f(a);            //1|4|7       
-}
-//----------------------------------
-do(new ?, new ?);
+CA a = new CC();
+CX x = new CZ();
+x.f(a);            //7       
+a.invoke(x);       //9 
