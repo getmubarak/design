@@ -43,7 +43,7 @@ class CB implements IX {
      //extra logic
   }
 }
-IX obj = new CB(new CB(new CB(new CA())));
+IX obj = new CD(new CC(new CB(new CA())));
 obj.b1();
 
 
