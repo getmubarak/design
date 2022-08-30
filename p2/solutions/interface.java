@@ -1,13 +1,13 @@
 interface Operation{
   undo(Account acc);
 }
-class DepositOp implements Operation
+class DepositOp implements Operation{
    double amount; 
    public void undo(Account acc){
      acc.withdraw(amount);
    }
 }
-class WithdrawOp implements Operation
+class WithdrawOp implements Operation{
    double amount; 
    public void undo(Account acc){
      acc.deposit(amount);
