@@ -9,7 +9,7 @@ Lamda fun(int x){
   return (y)-> x + y; 
   /* object{
          data: x,z
-         fun2(y){
+         f(y){
             return x+ y;
          }
     }
@@ -18,10 +18,10 @@ Lamda fun(int x){
 
 void main(){
   Lamda f1 = fun(10);  
-  //f1{x:10,z:15,logic(y)}
+  //f1{x:10,z:15,f(y)}
   
   Lamda f2 = fun(20);
-  //f2{x:20,z:25,logic(y)}
+  //f2{x:20,z:25,f(y)}
   
   int res = f1(15); #25
   res = f2(10); #30
