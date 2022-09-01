@@ -1,12 +1,12 @@
 //------------- Library -------------
-interface IX{
+public interface IX{
       void f1();
       void f2();
 }
-class CA implements IX{
+internal class CA implements IX{
       ...
 }
-class IXFactory{
+public class IXFactory{
       IX getInstance(){
            return new CA();       
       }
