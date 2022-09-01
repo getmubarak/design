@@ -7,7 +7,12 @@ public class Stock {
 	}
 	public void changeRate(double newRate) {
 		rate = newRate;
-		//if(condition && trade != null)
-			trade();
+		if(IsGoodTimeTrade()){
+			broker.trade();
+		}
+	}
+	public bool IsGoodTimeTrade(){
+		// domain rules
+		...		
 	}
 }
