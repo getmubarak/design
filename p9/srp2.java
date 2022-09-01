@@ -18,3 +18,4 @@ do(CA a){
     uitl.f(a); 
 }
 
+do(new CC());
