@@ -8,7 +8,7 @@ public class Stock {
 	public void changeRate(double newRate) {
 		rate = newRate;
 		if(IsGoodTimeTrade()){
-			broker.trade();
+			trade();
 		}
 	}
 	public bool IsGoodTimeTrade(){
