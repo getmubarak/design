@@ -5,11 +5,12 @@ interface Tax
  	double compute(double amount);
 }
 public class Invoice {
-	private Tax tax= new TaxImp(2);
+	 
 	
 	public double getTotal()
 	{	
 		double amount = getSubtotal();
+		Tax tax= new TaxImp(2);
 	        amount += tax.Compute(amount);
 		return amount;
 	}
