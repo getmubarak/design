@@ -1,7 +1,7 @@
 
 1. The author should also be able to define a State Machine using API’s provided by the FSM framework
 2. The author should be able to define a State Machine using a declarative language like XML or HTML or JSON 
-3. State machine can have many entry states, based on the initial event the State Machine will be in one of the many possible initial states. State machine can have many end states
+3. State machine can have many entry states, based on the TRIGGER the State Machine will be in one of the many possible initial states. State machine can have many end states
 4. Not all event cause state transition, some events only execute logic and remain in the same state
 5. The author should be able to execute a action when a event occurs
 6. Each event will carry data related to the event. e.g. for bug opened event, id, priority, desc, .. etc
