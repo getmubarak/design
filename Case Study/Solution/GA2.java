@@ -257,40 +257,37 @@ class MutationStatergyIMpl implements MutationStatergy{
 	 private int elitismCount=2;
 	 protected int tournamentSize=5;
 	public Population mutatePopulation(Population population){
-        // Initialize new population
         Population newPopulation = new Population(population.size());
-        
-        // Loop over current population by fitness
         for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
             Route route = population.getFittest(populationIndex);
-
-            // Skip mutation if this is an elite individual
-            if (populationIndex >= this.elitismCount) {   
-            	// System.out.println("Mutating population member "+populationIndex);
-                // Loop over individual's genes
-                for (int geneIndex = 0; geneIndex < route.size(); geneIndex++) {   
-                	// System.out.println("\tGene index "+geneIndex);
-                    // Does this gene need mutation?
-                    if (this.mutationRate > Math.random()) {
-                        // Get new gene position
-                        int newGenePos = (int) (Math.random() * route.size());
-                        // Get genes to swap
-                        int gene1 = route.getCity(newGenePos);
-                        int gene2 = route.getCity(geneIndex);
-                        // Swap genes
-                        route.setCity(geneIndex, gene1);
-                        route.setCity(newGenePos, gene2);
-                    }
-                }
+            if ( isAnElliteRoute(populationIndex)) {   
+            	SwapCities(route);
             }
-            
-            // Add individual to population
             newPopulation.setRoute(populationIndex, route);
         }
-        
-        // Return mutated population
         return newPopulation;
     }
+	boolean  isAnElliteRoute(int populationIndex){
+		return populationIndex >= this.elitismCount;
+	}
+	void SwapCities(Route route) {
+		// Loop over individual's genes
+        for (int geneIndex = 0; geneIndex < route.size(); geneIndex++) {   
+        	// System.out.println("\tGene index "+geneIndex);
+            // Does this gene need mutation?
+            if (this.mutationRate <= Math.random()) {
+            	continue;
+            }
+            // Get new gene position
+            int newGenePos = (int) (Math.random() * route.size());
+            // Get genes to swap
+            int gene1 = route.getCity(newGenePos);
+            int gene2 = route.getCity(geneIndex);
+             // Swap genes
+            route.setCity(geneIndex, gene1);
+            route.setCity(newGenePos, gene2);
+        }
+	}
 }
 class Controller {
 	 CrossOverStatergy crossOverStatergy;
