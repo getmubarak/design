@@ -282,8 +282,8 @@ class GA{
 	    }
 
 }
-public class Test2 {
-	public static void main(String[] args) {
+class Controller{
+	public void execute(){
 		Population population =new Population(100,13);
 		population.evalPopulation();
 		// Keep track of current generation
@@ -303,5 +303,11 @@ public class Test2 {
 			// Increment the current generation
 			generation++;
 		}
+	}
+}
+public class Test2 {
+	public static void main(String[] args) {
+		Controller controller = new Controller();
+		controller.execute();
 	}
 }
