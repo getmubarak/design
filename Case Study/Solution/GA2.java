@@ -179,13 +179,18 @@ class Population{
 		return this.population.length;
 	}
 }
-class GenerationFactory{
-	 private double mutationRate=0.001;
+interface CrossOverStatergy{
+	 Population crossoverPopulation(Population population);
+}
+interface MutationStatergy{
+	Population mutatePopulation(Population population);
+}
+class CrossOverStategryImpl implements CrossOverStatergy{
+	  private double mutationRate=0.001;
 	 private double crossoverRate=0.9;
 	 private int elitismCount=2;
 	 protected int tournamentSize=5;
-	 
-	 public Population crossoverPopulation(Population population){
+	public Population crossoverPopulation(Population population){
 	        // Create new population
 	        Population newPopulation = new Population(population.size());
 	        
@@ -208,106 +213,110 @@ class GenerationFactory{
 	        }
 	        return newPopulation;
 	    }
-	    Route createOffSpring(Route parent1 ,Route parent2 ) {
+	 public Route createOffSpring(Route parent1 ,Route parent2 ) {
 	    	// Create blank offspring chromosome
 	        Route offspring = new Route(parent1.size());
 	    	// Get subset of parent chromosomes
-            int substrPos1 = (int) (Math.random() * parent1.size());
-            int substrPos2 = (int) (Math.random() * parent1.size());
+         int substrPos1 = (int) (Math.random() * parent1.size());
+         int substrPos2 = (int) (Math.random() * parent1.size());
 
-            // make the smaller the start and the larger the end
-            final int startSubstr = Math.min(substrPos1, substrPos2);
-            final int endSubstr = Math.max(substrPos1, substrPos2);
+         // make the smaller the start and the larger the end
+         final int startSubstr = Math.min(substrPos1, substrPos2);
+         final int endSubstr = Math.max(substrPos1, substrPos2);
 
-            // Loop and add the sub tour from parent1 to our child
-            for (int i = startSubstr; i < endSubstr; i++) {
-                offspring.setCity(i, parent1.getCity(i));
-            }
-            // Loop through parent2's city tour
-            for (int i = 0; i < parent2.size(); i++) {
-                 int parent2City = i + endSubstr;
-                    if (parent2City >= parent2.size()) {
-                    	parent2City -= parent2.size();
-                    }
+         // Loop and add the sub tour from parent1 to our child
+         for (int i = startSubstr; i < endSubstr; i++) {
+             offspring.setCity(i, parent1.getCity(i));
+         }
+         // Loop through parent2's city tour
+         for (int i = 0; i < parent2.size(); i++) {
+              int parent2City = i + endSubstr;
+                 if (parent2City >= parent2.size()) {
+                 	parent2City -= parent2.size();
+                 }
 
-                    // If offspring doesn't have the city add it
-                    if (offspring.containsCity(parent2.getCity(parent2City)) == false) {
-                        // Loop to find a spare position in the child's tour
-                        for (int ii = 0; ii < offspring.size(); ii++) {
-                            // Spare position found, add city
-                            if (offspring.getCity(ii) == -1) {
-                                offspring.setCity(ii, parent2.getCity(parent2City));
-                                break;
-                            }
-                        }
-                    }
-            }
-            return offspring;
+                 // If offspring doesn't have the city add it
+                 if (offspring.containsCity(parent2.getCity(parent2City)) == false) {
+                     // Loop to find a spare position in the child's tour
+                     for (int ii = 0; ii < offspring.size(); ii++) {
+                         // Spare position found, add city
+                         if (offspring.getCity(ii) == -1) {
+                             offspring.setCity(ii, parent2.getCity(parent2City));
+                             break;
+                         }
+                     }
+                 }
+         }
+         return offspring;
 	 	}
-	   
-	    public Population mutatePopulation(Population population){
-	        // Initialize new population
-	        Population newPopulation = new Population(population.size());
-	        
-	        // Loop over current population by fitness
-	        for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
-	            Route route = population.getFittest(populationIndex);
-
-	            // Skip mutation if this is an elite individual
-	            if (populationIndex >= this.elitismCount) {   
-	            	// System.out.println("Mutating population member "+populationIndex);
-	                // Loop over individual's genes
-	                for (int geneIndex = 0; geneIndex < route.size(); geneIndex++) {   
-	                	// System.out.println("\tGene index "+geneIndex);
-	                    // Does this gene need mutation?
-	                    if (this.mutationRate > Math.random()) {
-	                        // Get new gene position
-	                        int newGenePos = (int) (Math.random() * route.size());
-	                        // Get genes to swap
-	                        int gene1 = route.getCity(newGenePos);
-	                        int gene2 = route.getCity(geneIndex);
-	                        // Swap genes
-	                        route.setCity(geneIndex, gene1);
-	                        route.setCity(newGenePos, gene2);
-	                    }
-	                }
-	            }
-	            
-	            // Add individual to population
-	            newPopulation.setRoute(populationIndex, route);
-	        }
-	        
-	        // Return mutated population
-	        return newPopulation;
-	    }
-
+	
 }
-class Controller{
-	public void execute(){
+class MutationStatergyIMpl implements MutationStatergy{
+	 private double mutationRate=0.001;
+	 private double crossoverRate=0.9;
+	 private int elitismCount=2;
+	 protected int tournamentSize=5;
+	public Population mutatePopulation(Population population){
+        // Initialize new population
+        Population newPopulation = new Population(population.size());
+        
+        // Loop over current population by fitness
+        for (int populationIndex = 0; populationIndex < population.size(); populationIndex++) {
+            Route route = population.getFittest(populationIndex);
+
+            // Skip mutation if this is an elite individual
+            if (populationIndex >= this.elitismCount) {   
+            	// System.out.println("Mutating population member "+populationIndex);
+                // Loop over individual's genes
+                for (int geneIndex = 0; geneIndex < route.size(); geneIndex++) {   
+                	// System.out.println("\tGene index "+geneIndex);
+                    // Does this gene need mutation?
+                    if (this.mutationRate > Math.random()) {
+                        // Get new gene position
+                        int newGenePos = (int) (Math.random() * route.size());
+                        // Get genes to swap
+                        int gene1 = route.getCity(newGenePos);
+                        int gene2 = route.getCity(geneIndex);
+                        // Swap genes
+                        route.setCity(geneIndex, gene1);
+                        route.setCity(newGenePos, gene2);
+                    }
+                }
+            }
+            
+            // Add individual to population
+            newPopulation.setRoute(populationIndex, route);
+        }
+        
+        // Return mutated population
+        return newPopulation;
+    }
+}
+class Controller {
+	 CrossOverStatergy crossOverStatergy;
+	 MutationStatergy mutationStatergy;
+	 public Controller( CrossOverStatergy crossOverStatergy,  MutationStatergy mutationStatergy){
+		 this.crossOverStatergy = crossOverStatergy;
+		 this.mutationStatergy = mutationStatergy;
+	 }
+	public void execute() {
 		Population population =new Population(100,13);
 		population.evalPopulation();
 		// Keep track of current generation
 		int generation = 1;
-		GenerationFactory generationFactory = new GenerationFactory(); 
 		// Start evolution loop
 		while (generation < 100) {
 			// Print fittest individual from population
 		    Route route =population.getFittest(0);
 			System.out.println("G"+generation+" Best distance: " + route.getDistance());
 			// Apply crossover
-			population = generationFactory.crossoverPopulation(population);
+			population = crossOverStatergy.crossoverPopulation(population);
 			// Apply mutation
-			population = generationFactory.mutatePopulation(population);
+			population = mutationStatergy.mutatePopulation(population);
 			// Evaluate population
 			population.evalPopulation();
 			// Increment the current generation
 			generation++;
 		}
-	}
-}
-public class Test2 {
-	public static void main(String[] args) {
-		Controller controller = new Controller();
-		controller.execute();
 	}
 }
