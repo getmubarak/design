@@ -179,7 +179,7 @@ class Population{
 		return this.population.length;
 	}
 }
-class GA{
+class GenerationFactory{
 	 private double mutationRate=0.001;
 	 private double crossoverRate=0.9;
 	 private int elitismCount=2;
@@ -288,16 +288,16 @@ class Controller{
 		population.evalPopulation();
 		// Keep track of current generation
 		int generation = 1;
-		GA ga = new GA(); 
+		GenerationFactory generationFactory = new GenerationFactory(); 
 		// Start evolution loop
 		while (generation < 100) {
 			// Print fittest individual from population
 		    Route route =population.getFittest(0);
 			System.out.println("G"+generation+" Best distance: " + route.getDistance());
 			// Apply crossover
-			population = ga.crossoverPopulation(population);
+			population = generationFactory.crossoverPopulation(population);
 			// Apply mutation
-			population = ga.mutatePopulation(population);
+			population = generationFactory.mutatePopulation(population);
 			// Evaluate population
 			population.evalPopulation();
 			// Increment the current generation
