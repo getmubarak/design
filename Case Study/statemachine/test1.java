@@ -35,10 +35,22 @@ class State{
   }
 }
 class StateMachineInstance{
+  StateMachine sm;
   State current = new State("Initial");
   
   void FireEvent(DomainEvent event){
     current = current.FireEvent(event);
+  }
+}
+class StateMachineInstanceTest{
+  void stopWatchTest(){
+    StateMachineFactory factory = new StateMachineFactory();
+    StateMachine sm = factory.Load("StopWatch");
+    StateMachineInstance smi = sm.createInstance("CREATE");
+    smi.FireEvent(new DomainEvent("START",....));
+    smi.FireEvent(new DomainEvent("STOP",....));
+    smi.FireEvent(new DomainEvent("START",....));
+    smi.FireEvent(new DomainEvent("PAUSE",....));
   }
 }
 class StateMachineAuthoringTest{
