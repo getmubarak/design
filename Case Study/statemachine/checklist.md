@@ -1,12 +1,12 @@
 StopWatch
 ->Idle
-  # start : running
+  > start : running
 ->running
-  # pause : suspended
-  # stop : Idle
+  > pause : suspended
+  > stop : Idle
 ->Suspended
-  # resume : running
-  # stop  : Idle
+  > resume : running
+  > stop  : Idle
 
 
 1. The author should also be able to define a State Machine using API’s provided by the FSM framework
