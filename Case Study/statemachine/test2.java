@@ -10,36 +10,23 @@ class DomainObject{
 		return id;
 	}
 }
+interface Action{
+	void execute();
+}
 class InvalidEventException extends RuntimeException{	
 }
-class Properties{
-	Map<String,Object> propertyValues = new HashMap<String,Object>();
-  
-	boolean contains(String propertyName) {
-		if (!propertyValues.containsKey(propertyName)) 
-		{
-			return false;
-		}
-		return true;
-	}
-  
-	Object get(String propertyName) {
-		return propertyValues.get(propertyName);
-	}
+
+//****************************************************************
+class NullAction implements Action{
+	public void execute() {}
 }
 class DomainEvent extends DomainObject{
-	Properties properties=new Properties();
+	Map<String,Object> propertyValues = new HashMap<String,Object>();
 	DomainEvent(String id){
 		super(id);
 	}
 }
 //****************************************************************
-interface Action{
-	void execute();
-}
-class NullAction implements Action{
-	public void execute() {}
-}
 class Transition extends DomainObject{
 	State endState;
 	Transition(String id,State endState){
