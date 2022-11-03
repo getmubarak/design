@@ -16,9 +16,9 @@ interface Action{
 class InvalidEventException extends RuntimeException{	
 }
 class StateTransitionEvent{
-	StateMachineType type;
+	StateMachine type;
 	StateMachineInstance instance;
-	Event event;
+	DomainEvent event;
 	LocalDateTime dateTime;
 	State beginState;
 	State endState;
@@ -89,9 +89,9 @@ class State extends DomainObject{
 class StateMachine extends State{
 	String stateMachineId;
 	String name;
-  List<StateTransitionListener> stateTransitionListeners;
+        List<StateTransitionListener> stateTransitionListeners;
 	
-  protected void fireChangeEvent(StateTransitionEvent event) {
+        protected void fireChangeEvent(StateTransitionEvent event) {
 		   for (StateTransitionListener cl : stateTransitionListeners) {
 		       cl.stateChanged(event);
 		    }
@@ -131,23 +131,23 @@ class StateMachineInstance{
       if(! trans.rule.eval(event))
         return;
       
-      StateTransitionEvent stateTransitionEvent= new StateTransitionEvent();
+            StateTransitionEvent stateTransitionEvent= new StateTransitionEvent();
 	    stateTransitionEvent.beginState= currentState;
 	    
-	    currentState.onExit.execute();
-	    System.out.print("transition from " + currentState.getId());
-	    currentState = trans.endState;
-	    System.out.println(" to " + currentState.getId());
-		  currentState.onEntry.execute();
+	currentState.onExit.execute();
+	System.out.print("transition from " + currentState.getId());
+	currentState = trans.endState;
+	System.out.println(" to " + currentState.getId());
+	currentState.onEntry.execute();
       
-      stateTransitionEvent.endState= currentState;
-		  stateTransitionEvent.event= event;
-		  stateTransitionEvent.type= type;
-		  stateTransitionEvent.instance= this;
-		  //stateTransitionEvent.dateTime = 
-	    type.fireChangeEvent(stateTransitionEvent);
+        stateTransitionEvent.endState= currentState;
+	stateTransitionEvent.event= event;
+	stateTransitionEvent.type= type;
+	stateTransitionEvent.instance= this;
+	//stateTransitionEvent.dateTime = 
+	type.fireChangeEvent(stateTransitionEvent);
       
-	}
+     }
 }
 interface Rule{
   boolean eval(DomainEvent event);
