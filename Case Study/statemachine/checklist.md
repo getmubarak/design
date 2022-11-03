@@ -1,3 +1,13 @@
+StopWatch
+->Idle
+  # start : running
+->running
+  # pause : suspended
+  # stop : Idle
+->Suspended
+  # resume : running
+  # stop  : Idle
+
 
 1. The author should also be able to define a State Machine using API’s provided by the FSM framework
 2. The author should be able to define a State Machine using a declarative language like XML or HTML or JSON 
