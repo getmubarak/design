@@ -7,10 +7,12 @@ class AccountService:
     acc.withdraw(amount)
     op = WithdrawOperation(amount)
     stack.push(op)
+    
   def deposit(amount):
     acc.deposit(amount)
     op = DepositOperation(amount)
     stack.push(op)
+    
   def undo():
     op = stack.pop();
     op.undo(acc);
