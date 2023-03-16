@@ -2,7 +2,9 @@ class StatisticsReport
 {
     protected string document;
 
-    ...
+    public void createReport(){
+        ... logic to create document
+    }
         
     public string getData(string format)
     {
