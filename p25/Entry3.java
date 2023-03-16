@@ -4,9 +4,9 @@ class SurveyData:
       this.hidden=hidden;
     }
     static SurveyData RAW = new SurveyData("raw",True);
-    static SurveyData cleanedUp = new SurveyData("cleanedUp",True);
-    static SurveyData processed = new SurveyData("processed",True);
-    static SurveyData publication = new SurveyData("publication",False);
+    static SurveyData CLEANEDUP = new SurveyData("cleanedUp",True);
+    static SurveyData PROCESSED = new SurveyData("processed",True);
+    static SurveyData PUBLICATION = new SurveyData("publication",False);
 }
 path = SurveyData.RAW.getPath();
-hidden = = SurveyData.RAW.getHidden();
+hidden = SurveyData.RAW.getHidden();
