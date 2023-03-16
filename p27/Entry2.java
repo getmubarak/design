@@ -2,6 +2,14 @@ interface Formatter{
   void format(string document);
 }
 class CsvFormatter implements Formatter{
+  
+   void format(string document){
+         lines = [];
+         foreach (this->document as row) {
+            lines = implode(",", row);
+         }
+         return implode("\n", lines);
+   }
 }
 class JsonFormatter implements Formatter{
 }
