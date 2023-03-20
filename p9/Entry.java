@@ -24,11 +24,8 @@ public class Entry {
 			dlg.Display();			
 		}
 	}
-	
-	static void main()
-	{
+	static void main(){
 		Account account = new SA();
-		ShowUI(account);
-		
+		ShowUI(account);		
 	}
 }
