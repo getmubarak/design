@@ -1,10 +1,10 @@
 package problem4;
 
 static class Printer{
-  void PrintStart(Step start) { ... }
-  void PrintStop(Step stop) { ... }
-  void PrintBranch(Step branch) { ... }
-  void PrintAction(Step action) { ... }
+  void PrintStart(Start start) { ... }
+  void PrintStop(Stop stop) { ... }
+  void PrintBranch(Branch branch) { ... }
+  void PrintAction(Action action) { ... }
 }
 public class Step {
  void print();
