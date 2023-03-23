@@ -17,6 +17,6 @@ class Emp implements IEmp {
 
 //tree of family members <-- composite pattern
 interface IEmp{}
-class Emp{
+class Emp implements IEmp  {
   List<IEmp> emps;
 }
