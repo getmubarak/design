@@ -1,4 +1,4 @@
-//***** library *******
+//***** broker library (dll/jar) *******
 interface Broker{
 	void trade();
 }
@@ -10,7 +10,7 @@ class BrokerFactory{
     return new BrokerImp();
   }
 }
-//**** client ****************
+//**** stock library (dll/jar) ****************
 public class Stock {
 	double rate;
 	Broker broker;
