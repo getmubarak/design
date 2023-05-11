@@ -7,25 +7,25 @@ class Factory{
     if(flag== 1)
       return new SqlConnection();
     if(flag== 2)
-      ...
+      return new OraConnection();
   }
   Transaction createTran(){
     if(flag== 1)
       return new SqlTransaction();
     if(flag== 2)
-      ...
+      return new OraTransaction();
   }
   Command createCmd(){
     if(flag== 1)
       return new SqlCommand();
     if(flag== 2)
-      ...
+       return new OraCommand();
   }
 }
 
 public class Entry {
 	public static void main() {
-    		Factory factory = new Factory();
+    		Factory factory = new Factory(1);
 		Connection connection = factory.createCon(); 
 		connection.open("mydb;scott;tiger");
 
