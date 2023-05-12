@@ -1,4 +1,8 @@
-class Handlers{
+class NaturalObjectCollusionHandlers{
+     public void AestroidCommetCollide(Aestroid go1,Commet go2) {}
+     ...
+}
+class ManMadeCollusionHandlers{
      public void ShipStationCollide(Ship go1,Station go2) {}
      public void AestroidStationCollide(Aestroid go1,Station go2) {}
      public void CommetStationCollide(Commet go1,Station go2) {}
@@ -9,7 +13,7 @@ class Handler
 {
      map<key,Lamda> vtable =new map<key,Lamda>();
      void Init() { 
-      Handler handler = new Handler();
+      ManMadeCollusionHandlers handler = new ManMadeCollusionHandlers();
       vtable.add("ShipStation",(go1,go2)-> handler.ShipStationCollide(go1,go2) );
       vtable.add("ShipShip",(go1,go2)-> handler.ShipShipCollide(go1,go2));
       ...
