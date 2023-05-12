@@ -1,8 +1,8 @@
-
 interface Rule
 {
   bool eval(HashMap<string,string> obj);
 }
+
 class GreaterRule implements Rule{
   string property;
   double value;
@@ -61,7 +61,7 @@ class AndRule implements Rule{
 }
 
 
-HashMap<string,string> object = new HashMap<>(); 
+        HashMap<string,string> object = new HashMap<>(); 
         object.put("Salary", 3500);
         object.put("Age", 45);
         object.put("Department", "Sales");
