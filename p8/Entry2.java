@@ -1,6 +1,6 @@
 public class List {
 	//collection
-	public void add(Object item,int index ) {
+	public void add(int index ,Object item) {
 		//logic to add item into collection
 	}
 	public void remove(int index ) {
@@ -9,17 +9,17 @@ public class List {
 }
 public class Queue extends List {
 	public void enqueue(Object item) {
-		//add to the list methods
+		super.add(0,item);
 	}
 	public void dequeue() {
-		//remove first item from the list
+		super.remove(0);
 	}
 }
 public class Stack extends List {
 	public void push(Object item) {
-		//add to the list methods
+		super.add(length(),item);
 	}
 	public void pop() {
-		//remove last item from the list
+		super.remove(length());
 	}
 }
