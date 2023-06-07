@@ -1,5 +1,10 @@
 package problem1;
 
+int state = 0;
+const int IDLE=0;
+const int RUNNING=1;
+const int SUSPENDED=2;
+	
 interface State{
 }
 class Idle implements State{
@@ -10,42 +15,39 @@ class Suspended implements State{
 }
 //=====================================
 public class StopWatch {
+	//int state = 0;
 	State state = new Idle();
 	
-	public boolean start()
+	public void start()
 	{
 		if(state != IDLE)
-			return false;
+			throw new InvalidStateException();
 		
 		//logic
 		state = new Running();
-		return true;
 	}
-	public boolean stop()
+	public void stop()
 	{
-		if(state != IDLE || state!= SUSPENDED)
-			return false;
+		if(state != RUNNING || state!= SUSPENDED)
+			throw new InvalidStateException();
 		
 		//logic
 		state = new Idle();
-		return true;
 	}
-	public boolean pause()
+	public void pause()
 	{
 		if(state != RUNNING)
-			return false;
+			throw new InvalidStateException();
 		
 		//logic
 		state = new Suspended();
-		return true;
 	}
-	public boolean resume()
+	public void resume()
 	{
 		if(state != SUSPENDED)
-			return false;
+			throw new InvalidStateException();
 		
 		//logic
 		state = new Running();
-		return true;
 	}
 }
