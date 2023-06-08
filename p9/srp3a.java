@@ -20,7 +20,9 @@ class Util implements Plugin{
 }
 
 void Main(){
-   CA a = new CC(); 
+   CC c = new CC(); 
+   CB b = c; 
+   CA a = b; 
    Util util = new Util()
    a.invoke(util);
 }
