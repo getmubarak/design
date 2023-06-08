@@ -1,9 +1,9 @@
 //***** broker library (dll/jar) *******
 interface Broker{
-	void trade();
+   void trade();
 }
-class BrokerImp{
- void trade(){ ... logic ... }
+class BrokerImp implements Broker{
+   void trade(){ ... logic ... }
 }
 class BrokerFactory{
   Broker getInstance(){
