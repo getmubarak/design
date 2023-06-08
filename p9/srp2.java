@@ -18,4 +18,9 @@ do(CA a){
     uitl.f(a); 
 }
 
-do(new CC());
+CC c = new CC();
+CB b = c;
+CA a = b;
+do(a);
+do(b);
+do(c);
