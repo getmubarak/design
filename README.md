@@ -5,14 +5,15 @@ https://ctxt.io/
 2. Xunit patterns
 3. Refactoring to patterns
 4. clean code
-5. implemenatation patterns
-6. Domain Driven Design
-7. beautiful code
-8. Pragmatic Programmer
-9. effective Java 
-10. inside c++ object model
-11. Solid Code
-12. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
+5. Working Effectively with Legacy Code
+6. implemenatation patterns
+7. Domain Driven Design
+8. beautiful code
+9. Pragmatic Programmer
+10. effective Java 
+11. inside c++ object model
+12. Solid Code
+13. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
 
 # design
 p22. vehicle<br>
