@@ -1,17 +1,15 @@
 package problem9;
-class Account{
+
+interface Account{}
+class CA : Account{}
+class SA : Account{}
+
+interface Dialog {
+	void Display();
 }
-class SA extends Account{
-}
-class CA extends Account{
-}
-//--------------------
-class Dialog{
-}
-class SADilaog extends Dialog{
-}
-class CADialog extends Dialog{
-}
+class SADialog : Dialog {}
+class CADialog : Dialog {}
+
 //--------------------
 public class Factory
 {
