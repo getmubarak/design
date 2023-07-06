@@ -13,12 +13,10 @@ class CADialog : Dialog {}
 //--------------------
 public class Factory
 {
-  public Dialog get(SA a)
-  {
+  public Dialog get(SA a){
     return new SADialog();
   }
-  public Dialog get(CA a)
-  {
+  public Dialog get(CA a){
     return new CADialog();
   }
 }
