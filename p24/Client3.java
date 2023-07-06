@@ -12,7 +12,4 @@ class App
           client.do(new CA());
       }
 }
-# CA should be a public class in the library
-client.do(new CA());
-client.do(new(sizeof(CA))); .. sizeof is compiletime operator
-client.do(new(24));
+
