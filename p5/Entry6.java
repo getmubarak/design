@@ -11,6 +11,13 @@ public class Entry {
         object.put("Department", "Sales");
         
         //((Department == 'purchase') and (age < 28 or salary > 25000))
+
+	Rule r1 = new StringEqual("Department","Purchase");
+	Rule r2 = new LesserThan("Age","28");
+	Rule r3 = new GreaterThan("salary","25000");
+        Rule r4 = new OrRule(r2,r3);
+        Rule r5 = new AndRule(r1,r4);
+	    
 	RuleEngine re = new RuleEngine();
         Rule r1 = re.stringEqual("Department","Purchase");
 	Rule r2 = re.lessThan("Age","28");
