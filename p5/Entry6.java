@@ -11,20 +11,22 @@ public class Entry {
         object.put("Department", "Sales");
         
         //((Department == 'purchase') and (age < 28 or salary > 25000))
-
+        #style 1 
 	Rule r1 = new StringEqual("Department","Purchase");
 	Rule r2 = new LesserThan("Age","28");
 	Rule r3 = new GreaterThan("salary","25000");
         Rule r4 = new OrRule(r2,r3);
-        Rule r5 = new AndRule(r1,r4);
-	    
+        Rule rule = new AndRule(r1,r4);
+
+        #style 2	    
 	RuleEngine re = new RuleEngine();
         Rule r1 = re.stringEqual("Department","Purchase");
 	Rule r2 = re.lessThan("Age","28");
 	Rule r3 = re.greaterThan("salary","25000");
 	Rule r4 = re.or(r2,r3);
 	Rule rule = re.and(r1,r4);
-	
+
+        #style 3
 	RuleBuilder rb = new RuleBuilder();
 	rb.addStringEqual("r1","Department","Purchase");
 	rb.addLessThan("r2","Age","28");
@@ -32,12 +34,14 @@ public class Entry {
 	rb.or("r4","r2","r3");
 	rb.and("r1","r4");    
 	Rule rule = rb.getRule();
-	    
+
+        #style 4
 	Rule rule = re.and(re.stringEqual("Department","Purchase"),
 			   re.or(re.lessThan("Age","28"),
 				 re.greaterThan("salary","25000")
 			      );
-   
+
+	    
 	res = rule.eval(object);	   
         System.out.print(ans);  
 			   
