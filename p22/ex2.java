@@ -15,6 +15,6 @@ void DoJob(Shape shape){
 }
 
 void main(){
-  DoJob(new ...);
+  DoJob(new Square());
 }
 //1. //2 //3
