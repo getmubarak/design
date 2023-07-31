@@ -1,19 +1,19 @@
-class CA{};
-class CB : CA {};
-class CC : CB {};
+class Shape{};
+class Rect extends Shape {}
+class Square extends Rect {};
 
 class Util{
-  void fun(CA* ca){} //1
-  void fun(CB* cb){} //2
-  void fun(CC* cc){} //3
+  void fun(Shape shape){} //1
+  void fun(Rect rect){} //2
+  void fun(Square square){} //3
 };
 void main(){
-  CC* cc = new CC;
-  CB* cb = cc; <-- upcast
-  CA* ca = cb; <-- upcast
+  Square square = new Square();
+  Rect rect = square; 
+  Shape shape = rect; 
   Util util;
-  util.fun(cc);
-  util.fun(cb);
-  util.fun(ca);
+  util.fun(shape);
+  util.fun(rect);
+  util.fun(square);
 }
 //3.2.1. //3.3.3. //1.1.1
