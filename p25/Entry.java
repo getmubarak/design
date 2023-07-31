@@ -1,4 +1,4 @@
-class SurveyData:
+class SurveyData{
     public SurveyData(){
       self.path="";
       self.hidden=False;
