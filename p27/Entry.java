@@ -1,17 +1,17 @@
-class StatisticsReport
+class StatisticsReportBuilder
 {
-    protected string document;
+    protected string reportDocument;
 
     public void createReport(){
-        ... logic to create document
+        ... logic to create reportDocument
     }
         
-    public string getData(string format)
+    public string getReport(string format)
     {
         switch(format) {
             case "csv":
                 lines = [];
-                foreach (this->document as row) {
+                foreach (this->reportDocument as row) {
                     lines = implode(",", row);
                 }
                 return implode("\n", lines);
