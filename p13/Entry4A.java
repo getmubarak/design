@@ -18,7 +18,7 @@ class Ship extends GO{
   }
 }
 
-class Station extends GO{
+class Comet extends GO{
   void Collide(GameObject go2){
     go2.collide(this);
   }
