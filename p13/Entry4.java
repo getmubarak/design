@@ -1,3 +1,6 @@
+interface GO{
+  void Collide(GameObject go2);
+}
 
 class Ship extends GO{
   void Collide(GameObject go2){
