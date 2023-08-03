@@ -11,7 +11,7 @@ class SADialog : Dialog {}
 class CADialog : Dialog {}
 
 public class DialogFactory{
-	public Dialog CreateUI(){
+	public Dialog CreateUI(Account account){
 		Dialog dlg=null;
 		
 		if(account instanceof SA) {
