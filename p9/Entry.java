@@ -10,8 +10,8 @@ interface Dialog {
 class SADialog : Dialog {}
 class CADialog : Dialog {}
 
-public class Entry {
-	public static void ShowUI(Account account) {
+public class DialogFactory{
+	public Dialog CreateUI(){
 		Dialog dlg=null;
 		
 		if(account instanceof SA) {
@@ -20,12 +20,17 @@ public class Entry {
 		if(account instanceof CA) {
 			dlg = new CADialog();
 		}
-		if(dlg!=null) {
-			dlg.Display();			
-		}
+		return new dlg;
 	}
+}
+
+public class Entry {
 	static void main(){
 		Account account = new SA();
-		ShowUI(account);		
+		DialogFactory factory = new DialogFactory();
+		Dialog dlg=factory.createUI();
+		if(dlg!=null) {
+			dlg.Display();			
+		}		
 	}
 }
