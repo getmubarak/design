@@ -11,7 +11,7 @@ public class Message {
     private String text;
     public Message(string algo){
         EncryptionFactory factory = new EncryptionFactory();
-        this.algorithm=factory.create();
+        this.algorithm=factory.create(algo);
    }
    public string getText(){
         return algorithm.decrypt(text);
