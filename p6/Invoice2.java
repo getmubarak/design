@@ -40,7 +40,7 @@ public class Invoice {
 	{
 		
 		double amount = getSubtotal();
-	        amount += Tax.compute(taxType,amount);
+	        amount = Tax.compute(taxType,amount);
 		return amount;
 	}
 	double getSubtotal()
