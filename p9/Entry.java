@@ -28,7 +28,7 @@ public class Entry {
 	static void main(){
 		Account account = new SA();
 		DialogFactory factory = new DialogFactory();
-		Dialog dlg=factory.createUI();
+		Dialog dlg=factory.createUI(account);
 		if(dlg!=null) {
 			dlg.Display();			
 		}		
