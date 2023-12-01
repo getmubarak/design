@@ -2,6 +2,11 @@ package problem5;
 
 import java.util.HashMap;
 
+//requirement
+//===================
+//object : { "Salary": 3500  , "Age" : 45 ,  "Department": "Sales" }
+//rule : ((Department == 'purchase') and (age < 28 or salary > 25000))
+
 public class Entry {
     public static void main(String[] args) 
     {
@@ -10,7 +15,6 @@ public class Entry {
         object.put("Age", 45);
         object.put("Department", "Sales");
         
-        //((Department == 'purchase') and (age < 28 or salary > 25000))
         Rule r1 = new Rule("Department","==","Purchase");
 	Rule r2 = new Rule("Age","<","28");
 	Rule r3 = new Rule("salary",">","25000");
