@@ -15,6 +15,7 @@ public class Stock {
 	}
 	public bool IsGoodTimeTrade(){
 		// domain rules
-		...		
+		if(rate > ... && rate < ...)
+			....
 	}
 }
