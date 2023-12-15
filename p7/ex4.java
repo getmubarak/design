@@ -66,6 +66,16 @@ class MainframeAppHandler implements AppHandler{
   ...
 }
 
+class Factory{
+  public AppHandler getHandler(){
+       if(config== debug)
+             return new CacheAppHandler(new DebugHandler(new JavaAppHandler()));
+       else
+            return new CacheAppHandler(new JavaAppHandler());
+        
+  }
+}
 
-AppHandler handler = new CacheAppHandler(new DebugHandler(new JavaAppHandler()));
+Factory factory = new Factory();
+AppHandler handler = factoryu.getHandler();
 handler.getTitle();
