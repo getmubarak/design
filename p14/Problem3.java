@@ -30,10 +30,9 @@ class CX
 
 //----------------------------------
 void do(CA obj){
-  obj.f1(); //<- 1 | 3 | 5
-  obj.f2(); //<- 2 | 4 | 6
+  obj.f1(); 
+  obj.f2(); 
   
   CX x = new CX();
-  //x.f3(obj); ?
-  obj.call(x); //<- 10 | 11 | 12 , <- 7| 8 | 9
+  obj.call(x);
 }
