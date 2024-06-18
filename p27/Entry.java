@@ -1,6 +1,6 @@
 class StatisticsReportBuilder
 {
-    protected string reportDocument;
+    protected List<row> reportDocument;
 
     public void createReport(){
         ... logic to create reportDocument
