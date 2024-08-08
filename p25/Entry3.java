@@ -12,5 +12,11 @@ class SurveyData
     static SurveyData PROCESSED = new SurveyData("processed",True);
     static SurveyData PUBLICATION = new SurveyData("publication",False);
 };
-path = SurveyData.RAW.getPath();
-hidden = SurveyData.RAW.getHidden();
+
+void main(){
+    
+     path = SurveyData.RAW.getPath();
+     hidden = SurveyData.RAW.getHidden();
+
+}
+
