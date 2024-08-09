@@ -19,10 +19,10 @@ public class DialogFactory{
 		}else if(account instanceof CA) {
 			dlg = new CADialog();
 		}else{
-      throw new InvalidDomainObjectExpection();
-    }
+                    throw new InvalidDomainObjectExpection();
+                }
 
-		return new dlg;
+		return dlg;
 	}
 }
 
