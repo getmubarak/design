@@ -1,6 +1,6 @@
 @Author: Yash
 
-class Ship extends GO{
+class Ship extends GameObject{
   void Collide(GameObject go2){ //1
     go2.collide(this);
   }
@@ -18,7 +18,7 @@ class Ship extends GO{
   }
 }
 
-class Comet extends GO{
+class Comet extends GameObject{
   void Collide(GameObject go2){
     go2.collide(this);
   }
