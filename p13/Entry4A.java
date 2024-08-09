@@ -1,19 +1,19 @@
 @Author: Yash
 
 class Ship extends GO{
-  void Collide(GameObject go2){
+  void Collide(GameObject go2){ //1
     go2.collide(this);
   }
-  void Collide(Station go2){
+  void Collide(Station go2){ //2
     // logic to  collide ship and station
   }
-  void Collide(Commet go2){
+  void Collide(Commet go2){ //3
     // logic to  collide ship and Commet
   }
-  void Collide(Aestroid go2){
+  void Collide(Aestroid go2){ //4
     // logic to  collide ship and Aestroid
   }
-  void Collide(Ship go2){
+  void Collide(Ship go2){ //5
     // logic to  collide ship and Ship
   }
 }
