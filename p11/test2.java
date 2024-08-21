@@ -16,3 +16,20 @@ public class Stock {
 		...		
 	}
 }
+//*************************************
+Class Broker{
+   void tradeWithCare(){
+       ...
+   }
+   void tradeWithRisk(){
+       ....
+   }
+}
+//**************************************
+Consumer
+
+Stock stock = new Stock();
+Broker broker = new Borker();
+stock.setBroker(()-> broker.tradeWithCare() );
+
+....
