@@ -10,10 +10,10 @@ class SqlFactory implements Factory{
       return new SqlConnection();
   }
   Transaction createTran(){
-      return new OraTransaction();
+      return new SqlTransaction();
   }
   Command createCmd(){
-       return new OraCommand();
+       return new SqlCommand();
   }
 }
 class OraFactory implements Factory{
