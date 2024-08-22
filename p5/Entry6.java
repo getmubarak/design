@@ -41,7 +41,7 @@ public class Entry {
 	.addLessThan("r2","Age","28")
 	.greaterThan("r3","salary","25000")
 	.or("r4","r2","r3")
-	.and("r1","r4");   
+	.and("r1","r4"); 
 	Rule rule = rb.getRule();
 
         #style 4
