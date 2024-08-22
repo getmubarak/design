@@ -76,3 +76,19 @@ class AndRule implements Rule{
 	res = r5.eval(object);	
 	//"((Salary > 5000 && Age < 50) || (Department == 'Purchase'))"    
         System.out.print(res);   
+
+
+/***
+<AndRule>
+    <EqualRule property="Department">"Purchase"</EqualRule>
+    <OrRule>
+        <LesserRule property="Age">28</LesserRule>
+        <GreaterRule property="salary">25000</GreaterRule>
+    </OrRule>
+</AndRule>
+**///
+Rule r1 = new EqualRule("Department","Purchase");
+Rule r2 = new LesserRule("Age",28);
+Rule r3 = new GreaterRule("salary",25000);
+Rule r4 = new OrRule(r2,r3);
+Rule r5 = new AndRule(r1, r4);
