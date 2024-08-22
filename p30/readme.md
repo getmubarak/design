@@ -1,23 +1,17 @@
 ### 1. Context
-Build a online shopping system that stores an inventory of products under different categories, allow customers to search through them, and make purchases. Furthermore, how do you handle the expanding load on the website and prevent it from crashing down, particularly on busy days, such as the Black Friday Sale?
+The exercise requires you to develop an alert execution engine that executes alerts at the specified interval checks and sends notifications if alerts fire. 
 
 ### 2. Functional requirements
-- Sellers should be able to add, delete and modify products they want to sell.
-- The website should include a catalog of products.
-- Buyers can search products by name, keyword or category.
-- Buyers can add, delete or update items in a cart.
-- Buyers can purchase items in the cart and make payments.
-- Buyers can view their previous orders.
-- Buyers can review and rate purchased products.
+- Create and delete alerts. Retrieve a list of alerts created by the user. View the execution history for any given alert.
+- The system should support both one-time execution and recurring style.
+- When that data meets the alerting policy condition, Monitoring creates an incident and sends the notifications.
 
-### 3. Quality Requirements
-
+One alert execution cycle involves:
+- Making an API call (query) to query the value of the metric
+- Comparing the return value against Critical thresholds
+- Determining the state of the alert
+- Make a Notify API call if the alert is in CRITICAL state
 
 ### Reference
-
-
-
-## amazon
-- https://medium.com/@kethan.pothula/amazon-system-design-and-architecture-d787a6572f35
-- https://medium.com/double-pointer/system-design-interview-amazon-flipkart-ebay-or-similar-e-commerce-applications-35a0bc764421
-- https://captionstrendingupdatede.blogspot.com/2021/04/system-design-for-ecommerce-website.html
+- https://www.linkedin.com/pulse/notification-system-design-rajiv-srivastava 
+- https://medium.com/@mayilb77/design-a-distributed-job-scheduler-for-millions-of-tasks-in-daily-operations-4132dc6d645f
