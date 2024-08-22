@@ -35,6 +35,15 @@ public class Entry {
 	rb.and("r1","r4");    
 	Rule rule = rb.getRule();
 
+	#style 3A
+	RuleBuilder rb = new RuleBuilder();
+	rb.addStringEqual("r1","Department","Purchase")
+	.addLessThan("r2","Age","28")
+	.greaterThan("r3","salary","25000")
+	.or("r4","r2","r3")
+	.and("r1","r4");   
+	Rule rule = rb.getRule();
+
         #style 4
 	Rule rule = re.and(re.stringEqual("Department","Purchase"),
 			   re.or(re.lessThan("Age","28"),
