@@ -55,5 +55,7 @@ void main(){
   StateMachineInstance smi =  sm.createInstance();
   
   smi.fireEvent("start");
+  smi.fireEvent("pause");
+  smi.fireEvent("start");
 
 }
