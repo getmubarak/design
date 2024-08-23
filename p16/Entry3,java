@@ -1,0 +1,37 @@
+//*** framework
+class Transition{
+  State destination;
+  Lamda action;
+}
+
+class State{
+   string name;
+   map<Event,Transition> transitions;
+   
+  
+}
+
+class StateMachine{
+    string name;
+    State initialState;
+
+}
+
+//*************************************
+void main(){
+  StateMachine sm = createStopWatchStateMachine();
+
+}
+StateMachine createStopWatchStateMachine(){
+  State idleState = new State("idle");
+  State runningState = new State("running");
+  State suspendedState = new State("suspended");
+
+  idleState.add("start", ()->logic, runningState);
+  runningState.add("stop",()->logic, idleState);
+  runningState.add("pause",()->logic, suspendedState);
+  suspendedState.add("stop",()->logic, idleState);
+  suspendedState.add("resume",()->logic, runningState);
+
+  return new StateMachine("StopWatch", idleState);
+}
