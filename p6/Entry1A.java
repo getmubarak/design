@@ -7,11 +7,11 @@ public class Invoice {
 		this.taxType = taxType;
 	}
 	bool IsAmountHigherThanAllowedThreshHold(int amount){
-  	if(amount > 1000)
-      return true;
-    else
-      return false;
-  }
+  	        if(amount > 1000)
+                     return true;
+                else
+                     return false;
+        }
 	public double getTotal(){
 		double amount = getSubtotal();
 		switch(taxType)
