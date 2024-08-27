@@ -1,17 +1,17 @@
 class Shape{
-   virtual fun(){} \\1
+   virtual fun(){} \\A1
 };
 class Rect extends Shape {
-   fun(){} \\2
+   fun(){} \\A2
 }
 class Square extends Rect {
-   fun(){} \\3  
+   fun(){} \\A3  
 };
 
 class Util{
-  void fun(Shape shape){} //1
-  void fun(Rect rect){} //2
-  void fun(Square square){} //3
+  void fun(Shape shape){} //B1
+  void fun(Rect rect){} //B2
+  void fun(Square square){} //B3
 };
 void main(){
   Square square = new Square();
