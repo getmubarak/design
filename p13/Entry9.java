@@ -1,12 +1,12 @@
 class NaturalObjectCollusionHandlers{
-     public void AestroidCommetCollide(Aestroid go1,Commet go2) {}
+     public void AestroidCommetCollide(GameObject go1,GameObject go2) {}
      ...
 }
 class ManMadeCollusionHandlers{
-     public void ShipStationCollide(Ship go1,Station go2) {}
-     public void AestroidStationCollide(Aestroid go1,Station go2) {}
-     public void CommetStationCollide(Commet go1,Station go2) {}
-     public void CommetShipCollide(Commet go1,Ship go2) {}
+     public void ShipStationCollide(GameObject go1,GameObject go2) {}
+     public void AestroidStationCollide(GameObject go1,GameObject go2) {}
+     public void CommetStationCollide(GameObject go1,GameObject go2) {}
+     public void CommetShipCollide(GameObject go1,GameObject go2) {}
 }
 
 class Handler
