@@ -26,3 +26,12 @@ public class Entry {
 	        
     }
 }
+/***
+<AndRule>
+    <EqualRule property="Department">"Purchase"</EqualRule>
+    <OrRule>
+        <LesserRule property="Age">28</LesserRule>
+        <GreaterRule property="salary">25000</GreaterRule>
+    </OrRule>
+</AndRule>
+	***/
