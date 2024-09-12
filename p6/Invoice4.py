@@ -21,19 +21,21 @@ class Invoice:
 
 class KST:
     def compute(self, amount):
-        if amount > 5000:
-            return amount * 0.05
+        if amount > KST_THRESHOLD:
+            return amount * KST_RATE
         else:
-            return amount * 0.05 + 200
+            return amount * KST_RATE + KST_FIXED_AMOUNT
 
 class GST:
     def compute(self, amount):
-        return amount * 0.025 + 500
+        return amount * GST_RATE + GST_FIXED_AMOUNT
 
 class CST:
     def compute(self, amount):
-        return (amount - 5000) * 0.3 if amount > 5000 else 0
-
+        if amount > CST_THRESHOLD:
+            return (amount - CST_THRESHOLD) * CST_RATE
+        else:
+            return 0
 # Example usage
 inv = Invoice()
 inv.set_tax(GST())
