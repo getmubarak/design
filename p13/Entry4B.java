@@ -2,36 +2,36 @@
 
 class Ship extends GameObject{
   void Handle(GameObject go2){ //1
-    go2.collide(this);
+    go2.collideShip(this);
   }
-  void Collide(Station go2){ //2
+  void CollideStation(Station go2){ //2
     // logic to  collide ship and station
   }
-  void Collide(Commet go2){ //3
+  void CollideCommet(Commet go2){ //3
     // logic to  collide ship and Commet
   }
-  void Collide(Aestroid go2){ //4
+  void CollideAestroid(Aestroid go2){ //4
     // logic to  collide ship and Aestroid
   }
-  void Collide(Ship go2){ //5
+  void CollideShip(Ship go2){ //5
     // logic to  collide ship and Ship
   }
 }
 
 class Comet extends GameObject{
   void Handle(GameObject go2){
-    go2.collide(this);
+    go2.collideCommet(this);
   }
-  void Collide(Ship go2){
+  void CollideShip(Ship go2){
     // logic to  collide station and ship
   }
-  void Collide(Station go2){
+  void CollideStation(Station go2){
     // logic to  collide station and station
   }
-  void Collide(Commet go2){
+  void CollideCommet(Commet go2){
     // logic to  collide station and Commet
   }
-  void Collide(Aestroid go2){
+  void CollideAestroid(Aestroid go2){
     // logic to  collide station and Aestroid
   }
   
