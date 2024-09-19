@@ -23,16 +23,16 @@ class Comet extends GameObject{
     go2.collideCommet(this);
   }
   void CollideShip(Ship go2){
-    // logic to  collide station and ship
+    // logic to  collide commet and ship
   }
   void CollideStation(Station go2){
-    // logic to  collide station and station
+    // logic to  collide commet and station
   }
   void CollideCommet(Commet go2){
-    // logic to  collide station and Commet
+    // logic to  collide commet and Commet
   }
   void CollideAestroid(Aestroid go2){
-    // logic to  collide station and Aestroid
+    // logic to  collide commet and Aestroid
   }
   
 }
