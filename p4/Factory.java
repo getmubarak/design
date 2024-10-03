@@ -20,7 +20,15 @@ public class Start extends Step {
 public class Stop extends Step{
 
 }
-
+public class Branch extends Step{
+	Step left;
+	Step right;
+	
+	public Branch(Step left,Step right) {
+		this.left = left;
+		this.right = right;
+	}
+}
 public class Factory {
 	public Step Load(String workflowName) {
 		Stop stop = new Stop();
