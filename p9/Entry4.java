@@ -27,7 +27,7 @@ public class Factory {
 public class Entry {
 	public static void ShowUI(Account account) {
 		Factory factory = new Factory();            
-		account.invoke(factory);
+		account.handle(factory);
 		factory.dlg.Display();				
 	}
 	static void main(){
