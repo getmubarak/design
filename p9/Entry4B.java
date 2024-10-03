@@ -1,5 +1,5 @@
 package problem9;
-
+//-------------------- domain layer ------------------------------
 interface Visitor{
  void visitSA();
  void visitCA();
@@ -13,14 +13,14 @@ class SA extends Account{
 class CA extends Account{
 	void accept(Visitor v) { v.visitCA(); }
 }
-//--------------------
+//-------------------- boundary layer ---------------------------
 class Dialog{
 }
 class SADilaog extends Dialog{
 }
 class CADialog extends Dialog{
 }
-//--------------------
+
 public class Factory implements Visitor
 {
   Dialog d;
