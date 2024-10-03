@@ -20,7 +20,7 @@ public class DialogFactory{
 		if(account instanceof CA) {
 			dlg = new CADialog();
 		}
-		return new dlg;
+		return dlg;
 	}
 }
 
