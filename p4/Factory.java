@@ -1,5 +1,26 @@
 package problem4;
 
+public class Step {
+
+}
+public class Action extends Step{
+	Step next;
+	
+	public Action(Step next) {
+		this.next = next;
+	}
+}
+public class Start extends Step {
+	Step next;
+	
+	public Start(Step next) {
+		this.next = next;
+	}
+}
+public class Stop extends Step{
+
+}
+
 public class Factory {
 	public Step Load(String workflowName) {
 		Stop stop = new Stop();
