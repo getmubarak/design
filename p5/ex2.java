@@ -15,7 +15,7 @@ public class Entry {
         object.put("Age", 45);
         object.put("Department", "Sales");
         
-        Rule r1 = new EqualRule("Department","Purchase");
+        Rule r1 = new StringEqualRule("Department","Purchase");
 
       	ans1 = r1.Eval(object);
         System.out.print(ans);  
