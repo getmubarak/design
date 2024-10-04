@@ -15,12 +15,12 @@ public class Entry {
         object.put("Age", 45);
         object.put("Department", "Sales");
         
-	Rule r1 = new Rule("Age","<","28");
-	Rule r2 = new Rule("salary",">","25000");
+	Rule r1 = new LesserRule("Age",28);
+	Rule r2 = new GreaterRule("salary",25000);
 
 	ans1 = r1.Eval(object);
         ans2 = r2.Eval(object);
-        ans3 = ans1 || ans2;
+        ans3 = ans1 || ans2; <--- ?
 	System.out.print(ans3);          
     }
 }
