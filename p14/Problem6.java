@@ -45,12 +45,12 @@ class F5 implements Plugin
   F5(int x,int y){
     this.x =x; this.y = y;
   }
-  void doCA() { result = x+ y; } //10
-  void doCB() { result = x - y; } //11
-  void doCC() { result = x * y; } //12
+  void doCA() { result = x+ y; } //13
+  void doCB() { result = x - y; } //14
+  void doCC() { result = x * y; } //15
   
   int getResult(){
-     return z;
+     return result;
   }
 }
 //----------------------------------
@@ -58,9 +58,9 @@ void do(CA obj){
   obj.f1(); //<- 1 | 3 | 5
   obj.f2(); //<- 2 | 4 | 6
     
-  F6 f6 = new F6(10,20);
-  obj.call(f6); //<- 7| 8 | 9
-  int ans = f6.getResult();
+  F5 f5 = new F5(10,20);
+  obj.call(f5); //<- 13|14|15
+  int ans = f5.getResult();
   
   //int ans = obj.f6(10,20);
   
