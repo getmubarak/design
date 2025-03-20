@@ -34,5 +34,6 @@ void do(CA obj){
   obj.f2(); 
   
   CX x = new CX();
+  x.? 
   obj.call(x);
 }
