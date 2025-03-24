@@ -8,7 +8,7 @@ public class Message {
         return decrypt(text);
    }
    public void setText(String text){
-         text = encrypt(text);
+         this.text = encrypt(text);
    }
    private string encrypt(String data){
         if (algorithmName.equals("Aes")){
