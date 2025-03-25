@@ -17,26 +17,32 @@ public class StopWatch {
 	}
 	public void stop()
 	{
-		if(state != RUNNING || state!= SUSPENDED)
+		if(state == IDLE)
 			throw new InvalidStateException();
-		
-		//logic
-		state = IDLE;
+
+		if(state == RUNNING || state== SUSPENDED)
+			//logic
+			state = IDLE;
 	}
 	public void pause()
 	{
-		if(state != RUNNING)
+		if(state == IDLE)
 			throw new InvalidStateException();
-		
-		//logic
-		state = SUSPENDED;
+		if(state == SUSPENDED)
+			throw new InvalidStateException();
+		if(state == RUNNING)
+			//logic
+			state = SUSPENDED;
 	}
 	public void resume()
 	{
-		if(state != SUSPENDED)
+		if(state == IDLE)
+			throw new InvalidStateException();
+		if(state == RUNNING)
 			throw new InvalidStateException();
 		
-		//logic
-		state = RUNNING;
+		if(state == SUSPENDED)
+			//logic
+			state = RUNNING;
 	}
 }
