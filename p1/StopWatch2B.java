@@ -12,8 +12,8 @@ public class StopWatch {
 		if(state == SUSPENDED)
 			throw new InvalidStateException();
 		if(state == IDLE)		
-  		//logic
-  		state = RUNNING;
+  		        //logic
+  		        state = RUNNING;
 	}
 	public void stop()
 	{
