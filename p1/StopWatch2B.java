@@ -12,7 +12,7 @@ public class StopWatch {
 		if(state == SUSPENDED)
 			throw new InvalidStateException();
 		if(state == IDLE)		
-  		        //logic
+  		        //timer logic
   		        state = RUNNING;
 	}
 	public void stop()
