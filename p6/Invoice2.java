@@ -26,6 +26,7 @@ class Tax
 
 public class Invoice {
 	private int taxType;
+        private Items = List<InvoiceLineItem>();
 	
 	
 	public int getTaxType() {
@@ -56,4 +57,7 @@ public class Invoice {
 	}
 
 	
+}
+class InvoiceLineItem{
+   ...
 }
