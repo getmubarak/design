@@ -29,7 +29,7 @@ class OraFactory implements Factory{
 }
 public class Entry {
 	public static void main() {
-	  Factory f = new SqlFactory());
+	        Factory f = new SqlFactory();
 		Connection connection = f.createCon();
 		connection.open("mydb;scott;tiger");
 		Transaction transaction = f.createTran();
