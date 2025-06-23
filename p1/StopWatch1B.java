@@ -13,39 +13,39 @@ public class StopWatch {
 			return false;
 		if(state == SUSPENDED)
 			return false;
-    if(state == IDLE)
-  		//logic
+                if(state == IDLE)
+  		        //logic
   		state = RUNNING;
   		return true;
 	}
 	public boolean stop()
 	{
-    if(state == IDLE)
-      return false;
+                if(state == IDLE)
+                     return false;
 		if(state == RUNNING || state == SUSPENDED)
-	  	//logic
+	  	         //logic
 		  state = IDLE;
 		  return true;
 	}
 	public boolean pause()
 	{
-    if(state == IDLE)
+                if(state == IDLE)
 			return false;
 		if(state == SUSPENDED)
 			return false;
 		if(state == RUNNING)
-  		//logic
+  		        //logic
   		state = SUSPENDED;
   		return true;
 	}
 	public boolean resume()
 	{
-    if(state == RUNNING)
+                if(state == RUNNING)
 			return false;
 		if(state == IDLE)
 			return false;
-   	if(state == SUSPENDED)
-      //logic
+   	        if(state == SUSPENDED)
+                         //logic
   		state = RUNNING;
   		return true;
 	}
