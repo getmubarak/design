@@ -35,7 +35,10 @@ class Handler
      }
      public void Collide(GameObject go1,GameObject go2)
      {
-         Action action = vtable.get(go1.getclassName() + go2.getclassName());
+         string key = go1.getclassName() + go2.getclassName();
+         if(! vtable.find(key))
+             throw new CollisionHandlerNotFoundException();
+         Action action = vtable.get(key);
          action.Collide(go1,go2);
      }
 }
