@@ -42,8 +42,7 @@ p12. JobHandler<br>
 p8. Stack, List, Queue<br>
 p7. Loan Eligibility <br>
 p5. Rule Engine<br>
-p15. Log library<br>
-p17. clone<br>
+
 
 
 Vertical and Horizontal: Two Approaches to the Decorator Pattern
