@@ -1,18 +1,24 @@
-package problem7;
+interface EligibilityCheck {
+    boolean evaluate(Customer customer);
+}
+
+class KYCCheck implements EligibilityCheck { ... }
+class CreditScoreCheck implements EligibilityCheck { ... }
+class CollateralCheck implements EligibilityCheck { ... }
+class AadhaarCheck implements EligibilityCheck { ... }
+class SSNCheck implements EligibilityCheck { ... }
 
 
-Account{}
-class SA : Account{}
-class CA : Account{}
+List<EligibilityCheck> indiaHomeLoanChecks = List.of(
+    new KYCCheck(),
+    new CreditScoreCheck(),
+    new CollateralCheck(),
+    new AadhaarCheck()
+);
 
-class SilverSA : SA{}
-class PlatinumSA : SA{}
-class BronzeSA : SA{}
-
-class SilverCA : CA{}
-class PlatinumCA : CA{}
-class BronzeCA : CA{}
-
-class SilverOverdraft : Overdraft{}
-class PlatinumOverdraft :Overdraft{}
-class BronzeOverdraft : Overdraft{}
+List<EligibilityCheck> usHomeLoanChecks = List.of(
+    new KYCCheck(),
+    new CreditScoreCheck(),
+    new CollateralCheck(),
+    new SSNCheck()
+);
