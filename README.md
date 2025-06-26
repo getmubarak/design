@@ -40,8 +40,7 @@ p4. Flow Chart Traversal ,  Pipes and Filter<br>
 p13. GameObject <br>
 p12. JobHandler<br>
 p8. Stack, List, Queue<br>
-p7. AccountType - multi dimension <br>
-p10. Account Enrichment <br>
+p7. Loan Eligibility <br>
 p5. Rule Engine<br>
 p15. Log library<br>
 p17. clone<br>
