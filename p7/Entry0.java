@@ -1,56 +1,44 @@
-package problem7;
-
-public class Account {
-	double balance;
-	private AccountType acctype=AccountType.SavingPlatinum;
-	
-	public boolean withDraw(double amount) {		
-		switch(acctype)
-		{
-			case SavingPlatinum:
-				if(amount > 20000){
-					return false; 
-				}
-				if((balance - amount) < 5000){
-					return false;
-				}
-			break;
-			case SavingSilver:
-				if(amount > 10000){
-					return false; 
-				}
-				if((balance - amount) < 5000){
-					return false;
-				}
-			
-			break;
-			case CurrentPlatinum:
-				if(amount > 20000){
-					return false; 
-				}
-				if((balance - amount) < 100000){
-					return false;
-				}
-			break;
-			case CurrentSilver:
-				if(amount > 10000){
-					return false; 
-				}
-				if((balance - amount) < 100000){
-					return false;
-				}
-				
-			break;
-		}
-		balance-=amount;
-		return true;
-	}
-
-	AccountType getType() {
-		return acctype;
-	}
-
-	void setType(AccountType type) {
-		this.acctype = type;
-	}
+class LoanEligibility {
+    boolean isEligible(Customer c) {
+        return true; // Default always eligible
+    }
 }
+
+class HomeLoanEligibility extends LoanEligibility {
+    @Override
+    boolean isEligible(Customer c) {
+        return checkKYC(c) && checkCreditScore(c) && checkCollateral(c);
+    }
+
+    boolean checkKYC(Customer c) { ... }
+    boolean checkCreditScore(Customer c) { ... }
+    boolean checkCollateral(Customer c) { ... }
+}
+
+class PersonalLoanEligibility extends LoanEligibility {
+    @Override
+    boolean isEligible(Customer c) {
+        return checkKYC(c) && checkCreditScore(c) && checkIncome(c);
+    }
+
+    boolean checkIncome(Customer c) { ... }
+}
+
+class HomeLoanEligibilityUS extends HomeLoanEligibility {
+    @Override
+    boolean isEligible(Customer c) {
+        return super.isEligible(c) && checkSocialSecurityNumber(c);
+    }
+
+    boolean checkSocialSecurityNumber(Customer c) { ... }
+}
+
+class HomeLoanEligibilityIndia extends HomeLoanEligibility {
+    @Override
+    boolean isEligible(Customer c) {
+        return super.isEligible(c) && checkAadhaar(c);
+    }
+
+    boolean checkAadhaar(Customer c) { ... }
+}
+
