@@ -22,7 +22,6 @@ p22. vehicle<br>
 p27. formatting <br>
 p23 error <br>
 p6. Invoice TaxType  <br>
-p19.Tax (polymorphism) <br>
 p25. Data Flag <br>
 p29. Repository </br>
 p21. encryption <br>
