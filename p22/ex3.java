@@ -22,7 +22,7 @@ void main(){
   rect.fun();
   square.fun();
 // static / coompile time/ over loading
-  Util util; 
+  Util util = new Util(); 
   util.fun(shape);
   util.fun(rect);
   util.fun(square); 
