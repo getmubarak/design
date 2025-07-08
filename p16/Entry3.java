@@ -18,7 +18,7 @@ class State{
   }
 }
 
-class StateMachine{
+class StateMachineDefinition{
     string name;
     State initialState;
 
@@ -27,7 +27,7 @@ class StateMachine{
     }
 }
 class StaeMachineInstance{
-    StateMachine sm;
+    StateMachineDefinition sm;
     State currentState;
   
     void fireEvent(string event){
@@ -36,7 +36,7 @@ class StaeMachineInstance{
 }
 //*************************************
 
-StateMachine createStopWatchStateMachine(){
+StateMachineDefinition createStopWatchStateMachine(){
   State idleState = new State("idle");
   State runningState = new State("running");
   State suspendedState = new State("suspended");
@@ -47,15 +47,16 @@ StateMachine createStopWatchStateMachine(){
   suspendedState.add("stop",()->logic, idleState);
   suspendedState.add("resume",()->logic, runningState);
 
-  return new StateMachine("StopWatch", idleState);
+  return new StateMachineDefinition("StopWatch", idleState);
 }
 
 void main(){
-  StateMachine sm = createStopWatchStateMachine();
-  StateMachineInstance smi =  sm.createInstance();
+  StateMachineDefinition stopwatch = createStopWatchStateMachine();
+  StateMachineInstance watch1 =  stopwatch.createInstance();
+  StateMachineInstance watch2 =  stopwatch.createInstance();
   
-  smi.fireEvent("start");
-  smi.fireEvent("pause");
-  smi.fireEvent("start");
-
+  watch1.fireEvent("start");
+  watch1.fireEvent("pause");
+  watch1.fireEvent("start");
+  watch2.fireEvent("start");
 }
