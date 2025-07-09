@@ -1,14 +1,18 @@
 //------------- Library -------------
-public interface IX{
-      void f1();
-      void f2();
+public interface Account{
+      void withdraw();
+      void deposit();
 }
-internal class CA implements IX{
-      ...
+class AccountImp implements Account
+{
+    public void withdraw() { //logic
+    }
+    public void deposit()  { //logic
+    }
 }
-public class IXFactory{
-      IX getInstance(){
-           return new CA();       
+public class AccountFactory{
+      Account getInstance(){
+           return new AccountImp();       
       }
 }
 //------------- Consumer -------------
@@ -16,9 +20,9 @@ class Client
 {
       public static void main()
       {
-          IXFactory f= new IXFactory();
-          IX obj = f.getInstance();
-          obj.f1();
-          obj.f2();
+          AccountFactory f= new AccountFactory();
+          Account obj = f.getInstance();
+          obj.withdraw();
+          obj.deposit();
       }
 }
