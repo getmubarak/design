@@ -1,5 +1,10 @@
-package problem11;
-
+# broker library
+public class Broker {
+	public void trade() {
+		System.out.println("trading ..");
+	}
+}
+# stock library
 public class Stock {
 	double rate;
 	
