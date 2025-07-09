@@ -1,10 +1,10 @@
-public class CA
+public class Account
 {
-    public void f1()
+    public void withdraw()
     {
       //logic
     }
-    public void f2()
+    public void deposit()
     {
       //logic
     }
