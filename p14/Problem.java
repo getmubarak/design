@@ -1,24 +1,24 @@
-class CA{
-  void f1(){} //1
-  void f2(){} //2
+#### Drawing Library  ####
+
+interface Shape{
+  void draw();
+  void fill();
 }
-class CB extends CA{
-  void f1(){} //3
-  void f2(){} //4
+class Rect extends Shape{
+  void draw(){} //1
+  void fill(){} //2
 }
-class CC extends CA{
-  void f1(){} //5
-  void f2(){} //6
+class Ellipse extends Shape{
+  void draw(){} //3
+  void fill(){} //4
 }
-//----------------------------------
-void do(CA obj){
-  obj.f1(); //<- logic 1 | logic 3 | logic 5
-  obj.f2(); //<- logic 2 | logic 4 | logic 6
-  if(obj instanceof(CA))
-    ...f3 logic for CA f3
-  if(obj instanceof(CB))
-    ...f3 logic for CB f3
-  if(obj instanceof(CC))
-    ...f3 logic for CC f3
-    
+####  Client ####
+
+void do(Shape obj){
+  obj.draw(); //<- logic 1 | logic 3 
+  obj.fill(); //<- logic 2 | logic 4 
+  if(obj instanceof(Rect))
+    ...logic 5 : rotate logic for Rect 
+  if(obj instanceof(Ellipse))
+    ...logic 6 : rotate logic for Ellipse 
 }
