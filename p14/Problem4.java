@@ -35,7 +35,7 @@ void do(Shape obj){
   obj.fill(); //<- logic 2 | logic 4 
   
   Rotate rotate = new Rotate();
-  rotate.logic(obj);  //<- error
+  rotate.visitXXX();  //<- error
   obj.call(rotate);  //<- logic 5 | logic 6
 }
 
