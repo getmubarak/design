@@ -1,51 +1,41 @@
+#### Drawing Library  ####
 interface Plugin{
-  void do(CA a);
-  void do(CB b);
-  void do(CC c);
+  void visit(Rect rect);
+  void visit(Ellipse ellipse);
 }
-class CA{
-  void f1(){} //1
-  void f2(){} //2
+
+interface Shape{
+  void draw();
+  void fill();
+  void call(Plugin plugin);
+}
+class Rect extends Shape{
+  void draw(){} //1
+  void fill(){} //2
   void call(Plugin p){
     p.do(this);
   }
 }
-class CB extends CA{
-  void f1(){} //3
-  void f2(){} //4
+class Ellipse extends Shape{
+  void draw(){} //3
+  void fill(){} //4
   void call(Plugin p){
     p.do(this);
   }
 }
-class CC extends CA{
-  void f1(){} //5
-  void f2(){} //6
-  void call(Plugin p){
-    p.do(this);
-  }
-}
-//----------------------------------
-class F3 implements Plugin
+####  Client ####
+class Rotate implements Plugin
 {
-  void do(CA a) {} //7
-  void do(CB b) {} //8
-  void do(CC c) {} //9
+  void visit(Rect a) {} //5
+  void visit(Ellipse b) {} //6
 }
-class F4 implements Plugin
-{
-  void do(CA a) {} //10
-  void do(CB b) {} //11
-  void do(CC c) {} //12
+
+void do(Shape obj){
+  obj.draw(); //<- logic 1 | logic 3 
+  obj.fill(); //<- logic 2 | logic 4 
+  
+  Rotate rotate = new Rotate();
+  rotate.logic(obj);  //<- error
+  obj.visit(rotate);  //<- logic 5 | logic 6
 }
-//----------------------------------
-void do(CA obj){
-  obj.f1(); //<- 1 | 3 | 5
-  obj.f2(); //<- 2 | 4 | 6
-  
-  F3 f3 = new F3();
-  obj.call(f3); //<- 7| 8 | 9
-  
-  F4 f4 = new F4();
-  obj.call(f4); //<- 10| 11 | 12
-  
-}
+
