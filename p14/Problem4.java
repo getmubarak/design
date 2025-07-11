@@ -1,7 +1,7 @@
 #### Drawing Library  ####
 interface Plugin{
-  void visit(Rect rect);
-  void visit(Ellipse ellipse);
+  void visitRect();
+  void visitEllipse();
 }
 
 interface Shape{
@@ -13,21 +13,21 @@ class Rect extends Shape{
   void draw(){} //1
   void fill(){} //2
   void call(Plugin p){
-    p.do(this);
+    p.visitRect();
   }
 }
 class Ellipse extends Shape{
   void draw(){} //3
   void fill(){} //4
   void call(Plugin p){
-    p.do(this);
+    p.visitEllipse();
   }
 }
 ####  Client ####
 class Rotate implements Plugin
 {
-  void visit(Rect a) {} //5
-  void visit(Ellipse b) {} //6
+  void visitRect() {} //5
+  void visitEllipse() {} //6
 }
 
 void do(Shape obj){
@@ -36,6 +36,6 @@ void do(Shape obj){
   
   Rotate rotate = new Rotate();
   rotate.logic(obj);  //<- error
-  obj.visit(rotate);  //<- logic 5 | logic 6
+  obj.call(rotate);  //<- logic 5 | logic 6
 }
 
