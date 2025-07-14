@@ -4,11 +4,11 @@
 Lamda fun(int x){
   int z =  x + 5;
   
-  # x,z is the clousre
+ 
   
   return (y)-> x + y; 
   /* object{
-         data: x,z
+         data: x,z      # x,z is the clousre
          f(y){
             return x+ y;
          }
