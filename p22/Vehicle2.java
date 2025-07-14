@@ -1,19 +1,19 @@
-do(Car vehicle){
-    vehicle.lock();
-    vehicle.go();
+do(Car car){
+    car.lock();
+    car.go();
 }
-do(Ship vehicle){
-     vehicle.balance();
-     vehicle.swim();
+do(Ship ship){
+     ship.balance();
+     ship.swim();
 }
-do(Airplane vehicle){
-     vehicle.go();
-     vehicle.fly();
+do(Airplane airplane){
+     airplane.go();
+     airplane.fly();
 }
-do(Tank vehicle){
-     vehicle.move();
-     vehicle.stop();
-     vehicle.fire();
+do(Tank tank){
+     tank.move();
+     tank.stop();
+     tank.fire();
 }
 
 execute(List<Vehicle> vehicles){
