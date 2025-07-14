@@ -21,10 +21,11 @@ void main(){
   shape.fun();
   rect.fun();
   square.fun();
-// static / coompile time/ over loading
+// static / compile time/ over loading
   Util util = new Util(); 
   util.fun(shape);
   util.fun(rect);
   util.fun(square); 
 }
-//3.2.1. //3.3.3. //1.1.1
+//A1A2A3 //A3A3A3 //A1A1A1
+//B1B2B3 //B3B3B3 //B1B1B1
