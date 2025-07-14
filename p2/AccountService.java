@@ -1,3 +1,8 @@
+class Operation
+{
+  public int type;
+  public double amount; 
+}
 Enum TransactionType{
   Deposit=1,
   Withdraw=2 
