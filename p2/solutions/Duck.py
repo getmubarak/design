@@ -5,13 +5,11 @@ class AccountService:
 
   def withdraw(self, amount):
     self.acc.withdraw(amount)
-    op = WithdrawOperation(amount)
-    self.stack.push(op)
+    self.stack.push(WithdrawOperation(amount))
     
   def deposit(self, amount):
     self.acc.deposit(amount)
-    op = DepositOperation(amount)
-    self.stack.push(op)
+    self.stack.push(DepositOperation(amount))
     
   def undo():
     op = stack.pop();
