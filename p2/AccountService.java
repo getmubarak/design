@@ -5,14 +5,12 @@ class AccountService //<-- root entity
   
   public void withdraw(double amount){
     acc.withdraw(amount);
-    Operation op = new Operation(1,amount);
-    stack.push(op);
+    stack.push(new Operation(1,amount));
   }
   
   public void deposit(double amount){
     acc.deposit(amount);
-    Operation op = new Operation(2,amount);
-    stack.push(op)
+    stack.push(new Operation(2,amount))
   }
   
   public void undo(){
