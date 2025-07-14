@@ -10,7 +10,7 @@ Lamda fun(int x){
   /* object{
          data: x,z      # x,z is the clousre
          f(y){
-            return x+ y;
+            return x+ y + z;
          }
     }
   */
@@ -23,8 +23,8 @@ void main(){
   Lamda f2 = fun(20);
   //f2{x:20,z:25,f(y)}
   
-  int res = f1(15); #25
-  res = f2(10); #30
+  int res = f1(5); #30
+  res = f2(2); #47
   
 }
   
