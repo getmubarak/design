@@ -29,11 +29,11 @@ StateMachineDefinition createStopWatchStateMachine(){
   State runningState = new State("running");
   State suspendedState = new State("suspended");
 
-  idleState.add("start", ()->logic, runningState);
-  runningState.add("stop",()->logic, idleState);
-  runningState.add("pause",()->logic, suspendedState);
-  suspendedState.add("stop",()->logic, idleState);
-  suspendedState.add("resume",()->logic, runningState);
+  idleState.add("start", runningState);
+  runningState.add("stop",idleState);
+  runningState.add("pause", suspendedState);
+  suspendedState.add("stop", idleState);
+  suspendedState.add("resume", runningState);
 
   return new StateMachineDefinition("StopWatch", idleState);
 }
