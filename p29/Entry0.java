@@ -40,7 +40,7 @@ public class OrderRepository
 {
     private readonly DbContext _context;
 
-    public CustomerRepository(DbContext context)
+    public OrderRepository(DbContext context)
     {
         _context = context;
     }
@@ -78,7 +78,7 @@ public class ProductRepository
 {
     private readonly DbContext _context;
 
-    public CustomerRepository(DbContext context)
+    public ProductRepository(DbContext context)
     {
         _context = context;
     }
