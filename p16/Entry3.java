@@ -6,7 +6,7 @@ class Transition{
 
 class State{
    string name;
-   map<Event,Transition> transitions;
+   map<string,Transition> transitions;
    
   State fireEvent(string event){
       if (! map.contains(event))
