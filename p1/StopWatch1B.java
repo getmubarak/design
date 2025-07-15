@@ -15,17 +15,17 @@ public class StopWatch {
 			return false;
                 if(state == IDLE)
   		        //logic
-  		state = RUNNING;
-  		return true;
+  		        state = RUNNING;
+  		        return true;
 	}
 	public boolean stop()
 	{
                 if(state == IDLE)
-                     return false;
+                         return false;
 		if(state == RUNNING || state == SUSPENDED)
 	  	         //logic
-		  state = IDLE;
-		  return true;
+		         state = IDLE;
+		         return true;
 	}
 	public boolean pause()
 	{
@@ -35,8 +35,8 @@ public class StopWatch {
 			return false;
 		if(state == RUNNING)
   		        //logic
-  		state = SUSPENDED;
-  		return true;
+  		        state = SUSPENDED;
+  		        return true;
 	}
 	public boolean resume()
 	{
@@ -46,7 +46,7 @@ public class StopWatch {
 			return false;
    	        if(state == SUSPENDED)
                          //logic
-  		state = RUNNING;
-  		return true;
+  		         state = RUNNING;
+  		         return true;
 	}
 }
