@@ -4,11 +4,11 @@ interface Shape{
   void draw();
   void fill();
 }
-class Rect extends Shape{
+class Rect implements Shape{
   void draw(){} //1
   void fill(){} //2
 }
-class Ellipse extends Shape{
+class Ellipse implements Shape{
   void draw(){} //3
   void fill(){} //4
 }
