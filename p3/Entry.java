@@ -1,8 +1,10 @@
 package problem3;
-# library
+# database connectivity library
+
 SqlConnection
 SqlTransaction
 SqlCommand
+
 OraConnection
 OraTransaction
 OraCommand
