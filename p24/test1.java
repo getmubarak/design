@@ -15,7 +15,7 @@ public class AccountFactory{
            return new AccountImp();       
       }
 }
-//------------- Consumer -------------
+//------------- Library Consumer -------------
 class Client
 {
       public static void main()
