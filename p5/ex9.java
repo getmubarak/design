@@ -28,11 +28,11 @@ public class Entry {
 
         #style 3 - builder
         RuleBuilder rb = new RuleBuilder();
-        rb.addStringEqual("r1","Department","Purchase");
-        rb.addLessThan("r2","Age","28");
-        rb.greaterThan("r3","salary","25000");
-        rb.or("r4","r2","r3");
-        rb.and("r1","r4");    
+        rb.addStringEqual("dept_rule","Department","Purchase");
+        rb.addLessThan("age_rule","Age","28");
+        rb.greaterThan("sal_rule","salary","25000");
+        rb.or("person_rule","age_rule","sal_rule");
+        rb.and("corp_rule","dept_rule","person_rule");    
         Rule rule = rb.getRule();
 
         #style 4 - chaining
