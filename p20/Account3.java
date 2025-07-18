@@ -3,7 +3,7 @@ class Account
      public abstract withdraw(double amount);
      public abstract deposit(double amount);
      protected abstract persist();   
-     void save(){
+     public void save(){
           … logic 1
           persist(); <-- hollywood style
           … logic 2         
