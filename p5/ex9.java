@@ -26,6 +26,11 @@ public class Entry {
         Rule r4 = re.or(r2,r3);
         Rule rule = re.and(r1,r4);
 
+        #style 2A - fluent
+        Rule rule = re.and(re.stringEqual("Department","Purchase"),
+                           re.or(re.lessThan("Age","28"),
+                                 re.greaterThan("salary","25000"));
+
         #style 3 - builder
         RuleBuilder rb = new RuleBuilder();
         rb.addStringEqual("dept_rule","Department","Purchase");
@@ -35,7 +40,7 @@ public class Entry {
         rb.and("corp_rule","dept_rule","person_rule");    
         Rule rule = rb.getRule();
 
-        #style 4 - chaining
+        #style 3A - chaining
         RuleBuilder rb = new RuleBuilder();
         rb.addStringEqual("r1","Department","Purchase")
                 .addLessThan("r2","Age","28")
@@ -44,11 +49,7 @@ public class Entry {
                 .and("r1","r4"); 
         Rule rule = rb.getRule();
 
-        #style 5 - fluent
-        Rule rule = re.and(re.stringEqual("Department","Purchase"),
-                re.or(re.lessThan("Age","28"),
-                re.greaterThan("salary","25000")
-			      );
+       
 
 	    
         res = rule.eval(object);	   
