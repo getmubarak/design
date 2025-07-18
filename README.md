@@ -43,5 +43,3 @@ p29. Repository </br>
 p20. save<br>
 
 
-
-Vertical and Horizontal: Two Approaches to the Decorator Pattern
