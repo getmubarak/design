@@ -3,15 +3,15 @@ class State{
    string name;
    map<string,State> transitions;
 }
-class StateMachineDefinition{
+class Definition{
    string name;
    State intialState;
    
 }
-class StaeMachineInstance{
-  StateMachineDefinition sm;
+class Instance{
+  Definition sm;
   State currentState;
-  StaeMachineInstance(StateMachineDefinition sm){
+  Instance(Definition sm){
     this.sm = sm;
     currentState = sm.intialState;
   }
@@ -24,7 +24,7 @@ class StaeMachineInstance{
 }
 //*************************************
 
-StateMachineDefinition createStopWatchStateMachine(){
+Definition createStopWatchStateMachine(){
   State idleState = new State("idle");
   State runningState = new State("running");
   State suspendedState = new State("suspended");
@@ -35,13 +35,13 @@ StateMachineDefinition createStopWatchStateMachine(){
   suspendedState.add("stop", idleState);
   suspendedState.add("resume", runningState);
 
-  return new StateMachineDefinition("StopWatch", idleState);
+  return new Definition("StopWatch", idleState);
 }
 
 void main(){
-  StateMachineDefinition stopwatch = createStopWatchStateMachine();
-  StateMachineInstance watch1 =  new StaeMachineInstance(stopwatch);
-  StateMachineInstance watch2 =  new StaeMachineInstance(stopwatch);
+  Definition stopwatch = createStopWatchStateMachine();
+  Instance watch1 =  new Instance(stopwatch);
+  Instance watch2 =  new Instance(stopwatch);
   
   watch1.fireEvent("start");
   watch1.fireEvent("pause");
