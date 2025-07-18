@@ -10,13 +10,19 @@ class AadhaarCheck implements EligibilityCheck { ... }
 class SSNCheck implements EligibilityCheck { ... }
 
 
-List<EligibilityCheck> checks = List.of(
+List<EligibilityCheck> personelSalaried = List.of(
     new KYCCheck(),
     new CreditScoreCheck(),
     new SalarySlipCheck(),
+    new AadhaarCheck()
+);
+List<EligibilityCheck> personelBusiness = List.of(
+    new KYCCheck(),
+    new CreditScoreCheck(),
     new CollateralCheck(),
     new AadhaarCheck()
 );
+
 
 class EligibilityEngine {
     List<EligibilityCheck> checks;
