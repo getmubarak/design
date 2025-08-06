@@ -5,7 +5,7 @@ double getSalary(int empCode)
 	if(res == true){
 		res = repo.authenticate();
 		if(res == true){
-			Emp emp = rep.get(empCode);
+			Emp emp = repo.get(empCode);
 			if(emp != null){	
 				return emp.getSalary();
 			}else{
