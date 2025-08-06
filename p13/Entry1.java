@@ -1,3 +1,9 @@
+interface GameObject{ }
+class Ship extends GameObject{}
+class Station extends GameObject{}
+class Commet extends GameObject{}
+class Aestroid extends GameObject{}
+
 class Handler
 {
      public void Collide(GameObject go1,GameObject go2)
