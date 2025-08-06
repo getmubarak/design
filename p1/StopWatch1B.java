@@ -22,7 +22,11 @@ public class StopWatch {
 	{
                 if(state == IDLE)
                          return false;
-		if(state == RUNNING || state == SUSPENDED)
+		if(state == SUSPENDED)
+	  	         //logic
+		         state = IDLE;
+		         return true;
+		if(state == RUNNING)
 	  	         //logic
 		         state = IDLE;
 		         return true;
