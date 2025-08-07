@@ -1,37 +1,29 @@
-class Account
-{
-     public abstract withdraw(double amount);
-     public abstract deposit(double amount);
-     
-     logic1() { ... }
-     logic2() { ... }
+#1 
+class Account{
+     open() { ... }
+     close() { ... }
      public abstract save();
 }
-
-class Account
-{
-     public abstract withdraw(double amount);
-     public abstract deposit(double amount);
+#2 - inheritance
+class Account{
      protected abstract persist();   
      public void save(){
-          … logic 1
+          … open
           persist(); <-- hollywood style
-          … logic 2         
+          … close         
      }
 }
-
+#3 - aggregation
 interface Dao{
   abstract persist();  
 }
-class Account
-{
-     Dao dao;
-     public abstract withdraw(double amount);
-     public abstract deposit(double amount);
-      
+class Account{
+     Dao dao; 
+     Account(Dao dao); //<--di 
      public void save(){
-          … logic 1
+          … open
           dao.persist();
-          … logic 2         
+          … close         
      }
 }
+
