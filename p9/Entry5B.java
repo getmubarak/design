@@ -28,14 +28,14 @@ public class Entry {
  
 	static void main()
 	{
-    DialogFactory factory = new DialogFactory();
-    foreach(Class in ClassConfig){
-        factory.register(Class.name, ()=> Class.create() );
-    }
+                DialogFactory factory = new DialogFactory();
+                foreach(Class in ClassConfig){
+                    factory.register(Class.name, ()=> Class.create() );
+                }
 
 
 		Account account = new SA();
-    Dialog dlg = factory.createUI(account);
+                Dialog dlg = factory.createUI(account);
 		dlg.Display();
 		
 	}
