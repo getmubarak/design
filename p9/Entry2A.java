@@ -26,10 +26,10 @@ public class Entry {
 		Dialog dlg=null;
 		Factory factory = new Factory();
                 if(account instanceof SA) {
-			dlg = factory.get((SA)account);
+			dlg = factory.createUI((SA)account);
 		}
 		if(account instanceof CA) {
-                        dlg = factory.get((CA)account);
+                        dlg = factory.createUI((CA)account);
 		}
 		if(dlg!=null) {
 			dlg.Display();			
