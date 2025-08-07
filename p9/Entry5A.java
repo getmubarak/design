@@ -14,16 +14,12 @@ public class Entry {
     lookup.add(SA.getName(),()->new SADialog());
     lookup.add(CA.getName(),()->new CADialog());
   }
-	public static void ShowUI(Account account) {
-		Lambda creatorMethod =lookup.get(account.getName());
-                Dialog d = creatorMethod();
-		dlg.Display();			
-	}
-	
 	static void main()
 	{
 		Account account = new SA();
-		ShowUI(account);
+		Lambda creatorMethod =lookup.get(account.getName());
+                Dialog dlg = creatorMethod();
+		dlg.Display();
 		
 	}
 }
