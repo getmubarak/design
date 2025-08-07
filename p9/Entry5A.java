@@ -11,12 +11,12 @@ class CADialog : Dialog {}
 public class Entry {
   Map<string,Lambda> lookup = new Map<string,Lambda>();
   public Entry(){
-    lookup.add(SA.getName(),()->new SADialogFactory());
-    lookup.add(CA.getName(),()->new CADialogF());
+    lookup.add(SA.getName(),()->new SADialog());
+    lookup.add(CA.getName(),()->new CADialog());
   }
 	public static void ShowUI(Account account) {
-		Lambda createFun =lookup.get(account.getName());
-    Dialog d = createFun();
+		Lambda creatorMethod =lookup.get(account.getName());
+                Dialog d = creatorMethod();
 		dlg.Display();			
 	}
 	
