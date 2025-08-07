@@ -24,7 +24,7 @@ class Ellipse extends Shape{
   }
 }
 ####  Client ####
-class Rotate implements Plugin
+class Rotate implements Visitor
 {
   void visitRect() {} //5
   void visitEllipse() {} //6
