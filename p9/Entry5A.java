@@ -8,17 +8,30 @@ interface Dialog {
 class SADialog : Dialog {}
 class CADialog : Dialog {}
 
+public class DialogFactory{
+        Map<string,Lambda> lookup = new Map<string,Lambda>();
+
+        public DialogFactory(){
+                lookup.add(SA.getName(),()->new SADialog());
+                lookup.add(CA.getName(),()->new CADialog());
+        }
+	public Dialog CreateUI(Account account){
+		Dialog dlg=null;
+		string key = account.getName();
+                if (!lookup.exist(key))
+			 throw new InvalidDomainObjectExpection();
+		Lambda creatorMethod =lookup.get(key);
+                return creatorMethod();
+	}
+}
+
 public class Entry {
-  Map<string,Lambda> lookup = new Map<string,Lambda>();
-  public Entry(){
-    lookup.add(SA.getName(),()->new SADialog());
-    lookup.add(CA.getName(),()->new CADialog());
-  }
+ 
 	static void main()
 	{
 		Account account = new SA();
-		Lambda creatorMethod =lookup.get(account.getName());
-                Dialog dlg = creatorMethod();
+                DialogFactory factory = new DialogFactory();
+		Dialog dlg = factory.createUI(account);
 		dlg.Display();
 		
 	}
