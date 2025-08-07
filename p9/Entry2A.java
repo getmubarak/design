@@ -11,17 +11,18 @@ class SADialog : Dialog {}
 class CADialog : Dialog {}
 
 //--------------------
-public class Factory
+public class DialogFactory
 {
-  public Dialog get(SA a){
+  public Dialog createUI(SA a){
     return new SADialog();
   }
-  public Dialog get(CA a){
+  public Dialog createUI(CA a){
     return new CADialog();
   }
 }
 public class Entry {
-	public static void ShowUI(Account account) {
+	static void main(){
+		Account account = new SA();
 		Dialog dlg=null;
 		Factory factory = new Factory();
                 if(account instanceof SA) {
@@ -32,10 +33,6 @@ public class Entry {
 		}
 		if(dlg!=null) {
 			dlg.Display();			
-		}			
-	}
-	static void main(){
-		Account account = new SA();
-		ShowUI(account);
+		}		
 	}
 }
