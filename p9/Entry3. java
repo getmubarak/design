@@ -1,31 +1,27 @@
 package problem9;
 
 interface Account{
-	Dialog Create();
+	Dialog createUI();
 	...
 }
 class SA implements Account {
-	Dialog Create(){
+	Dialog createUI(){
 		return new SADialog();
 	}
 	...
 }
 class CA implements Account {
-	Dialog Create(){
+	Dialog createUI(){
 		return new CADialog();
 	}
 	...
 }
 public class Entry {
-	public static void ShowUI(Account account) {
-		Dialog dlg=account.Create(); //<-- factory method pattern
-		dlg.Display();			
-	}
-	
 	static void main()
 	{
 		Account account = new SA();
-		ShowUI(account);
+		Dialog dlg=account.createUI(); //<-- factory method pattern
+		dlg.Display();
 		
 	}
 }
