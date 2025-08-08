@@ -27,7 +27,7 @@ class Rule
     switch(operator)
     {
       case '==':
-        return value.equeals(curValue); sales == purchase
+        return value.equeals(curValue); //sales == purchase
         break;
       case '>':
         ...
