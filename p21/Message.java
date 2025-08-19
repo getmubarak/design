@@ -1,7 +1,7 @@
-public class Message {
+public class EncryptedMessage {
     private String algorithmName;
     private String text;
-    public Message(String algorithmName){
+    public EncryptedMessage(String algorithmName){
        this.algorithmName=algorithmName;
    }
    public string getText(){
