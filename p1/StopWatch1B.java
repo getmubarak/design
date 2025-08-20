@@ -20,37 +20,37 @@ public class StopWatch {
 	}
 	public boolean stop()
 	{
-                if(state == IDLE)
-                         return false;
+        if(state == IDLE)
+            return false;
 		if(state == SUSPENDED)
-	  	         //logic
-		         state = IDLE;
-		         return true;
+	  	    //logic
+		    state = IDLE;
+		    return true;
 		if(state == RUNNING)
-	  	         //logic
-		         state = IDLE;
-		         return true;
+	  	    //logic
+		    state = IDLE;
+		    return true;
 	}
 	public boolean pause()
 	{
-                if(state == IDLE)
+        if(state == IDLE)
 			return false;
 		if(state == SUSPENDED)
 			return false;
 		if(state == RUNNING)
-  		        //logic
-  		        state = SUSPENDED;
-  		        return true;
+  		    //logic
+  		    state = SUSPENDED;
+  		    return true;
 	}
 	public boolean resume()
 	{
-                if(state == RUNNING)
+        if(state == RUNNING)
 			return false;
 		if(state == IDLE)
 			return false;
-   	        if(state == SUSPENDED)
-                         //logic
-  		         state = RUNNING;
-  		         return true;
+   	    if(state == SUSPENDED)
+            //logic
+  		    state = RUNNING;
+  		    return true;
 	}
 }
