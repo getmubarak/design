@@ -13,10 +13,10 @@ public class StopWatch {
 			return false;
 		if(state == SUSPENDED)
 			return false;
-                if(state == IDLE)
-  		        //logic
-  		        state = RUNNING;
-  		        return true;
+        if(state == IDLE)
+  		    //logic
+  		    state = RUNNING;
+  		    return true;
 	}
 	public boolean stop()
 	{
