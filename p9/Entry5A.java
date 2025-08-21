@@ -18,10 +18,10 @@ public class DialogFactory{
 	public Dialog CreateUI(Account account){
 		Dialog dlg=null;
 		string key = account.getName();
-                if (!lookup.exist(key))
+        if (!lookup.exist(key))
 			 throw new InvalidDomainObjectExpection();
 		Lambda creatorMethod =lookup.get(key);
-                return creatorMethod();
+            return creatorMethod();
 	}
 }
 
