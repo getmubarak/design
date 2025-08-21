@@ -21,7 +21,7 @@ public class DialogFactory{
         if (!lookup.exist(key))
 			 throw new InvalidDomainObjectExpection();
 		Lambda creatorMethod =lookup.get(key);
-            return creatorMethod();
+        return creatorMethod();
 	}
 }
 
