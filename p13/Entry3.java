@@ -10,8 +10,10 @@ class Handler
      public void Collide(GameObject go1,GameObject go2)
      {
         Handler handler = new Handler();
-        if(go1 instanceod(Ship) && go2 instanceof(Statio))
+        if(go1 instanceod(Ship) && go2 instanceof(Station))
           handler.Invoke((Ship)go1,(Station)go2);
+        if(go1 instanceod(Aestroid) && go2 instanceof(Station))
+          handler.Invoke((Aestroid)go1,(Station)go2);
         ...  
      }
 }
