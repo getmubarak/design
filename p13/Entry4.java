@@ -1,9 +1,9 @@
 interface GO{
-  void Collide(GameObject go2);
+  void Invoke(GameObject go2);
 }
 
 class Ship extends GO{
-  void Collide(GameObject go2){
+  void Invoke(GameObject go2){
     //this is ship
     if(go2 is instanceof(Station))
       ...logic of ship with station
@@ -18,6 +18,6 @@ class Handler
 {
      public void Collide(GameObject go1,GameObject go2)
      {
-          go1.Collide(go2);
+          go1.Invoke(go2);
      }
 }
