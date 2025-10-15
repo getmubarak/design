@@ -26,7 +26,7 @@ class Tax
 
 public class Invoice {
 	private int taxType;
-        private Items = List<InvoiceLineItem>();
+    private Items = List<InvoiceLineItem>();
 	
 	
 	public int getTaxType() {
@@ -41,7 +41,7 @@ public class Invoice {
 	{
 		
 		double amount = getSubtotal();
-	        amount = Tax.compute(taxType,amount);
+	    amount = Tax.compute(taxType,amount);
 		return amount;
 	}
 	double getSubtotal()
