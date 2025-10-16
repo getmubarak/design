@@ -2,6 +2,8 @@ package problem5;
 
 import java.util.HashMap;
 
+https://martinfowler.com/bliki/RulesEngine.html
+
 //requirement
 //===================
 //object : { "Salary": 3500  , "Age" : 45 ,  "Department": "Sales" }
