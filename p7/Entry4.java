@@ -19,7 +19,7 @@ class PersonalLoan  extends LoanType {
 
 class Eligibility {
     LoanType loanType;
-    void SetLoanType( LoanType loanType){
+    void Eligibility( LoanType loanType){
       this.loanType = loanType;
     }
     boolean isEligible(Customer c){
@@ -43,4 +43,10 @@ class EligibilitySelfEmployed extends LoanEligibility {
     }
     boolean checkBusinessDocuments(Customer c) { ... }
 }
+
+
+
+Eligibility eligibility = new EligibilitySelfEmployed(new PersonalLoan());
+result = eligibility.isEligible(c);
+
 
