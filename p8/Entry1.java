@@ -9,7 +9,7 @@ public class List {
 }
 public class Queue extends List {
 	public void enqueue(Object item) {
-		super.add(0,item);
+		super.add(length(),item);
 	}
 	public void dequeue() {
 		super.remove(0);
