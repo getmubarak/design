@@ -5,7 +5,7 @@ public class Broker {
 	}
 }
 # stock library
-public class Stock {
+public class StockTradeNotifier {
 	double rate;
 	
 	public void changeRate(double newRate) {
