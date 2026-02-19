@@ -28,9 +28,9 @@ class BrokerImp implements Broker{
 //***** client *******
 
 BrokerImp brokerImp = new BrokerImp();
-Stock stock =  new Stock();
-stock.SetBroker(brokerImp);
+StockTradeNotifier notifier =  new StockTradeNotifier();
+notifier.SetBroker(brokerImp);
 ...
-stock.changeRate(4545);
+notifier.changeRate(4545);
 
 
