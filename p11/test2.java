@@ -1,5 +1,5 @@
 
-public class Stock {
+public class StockTradeNotifier {
 	double rate;
 	LAMDA trade;
 	void SetBroker(LAMDA trade){
@@ -28,8 +28,8 @@ Class Broker{
 //**************************************
 Consumer
 
-Stock stock = new Stock();
+StockTradeNotifier notifier = new StockTradeNotifier();
 Broker broker = new Borker();
-stock.setBroker(()-> broker.tradeWithCare() );
+notifier.setBroker(()-> broker.tradeWithCare() );
 
 ....
