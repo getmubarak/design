@@ -1,4 +1,4 @@
-//**** stock library (dll/jar) ****************
+//**** notifier library (dll/jar) ****************
 interface Broker{
 	void trade();
 }
