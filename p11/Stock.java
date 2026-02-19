@@ -4,7 +4,7 @@ public class Broker {
 		System.out.println("trading ..");
 	}
 }
-# stock library
+# notification library
 public class StockTradeNotifier {
 	double rate;
 	
