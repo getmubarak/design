@@ -10,12 +10,12 @@ class BrokerFactory{
     return new BrokerImp();
   }
 }
-//**** stock library (dll/jar) ****************
-public class Stock {
+//**** notifier library (dll/jar) ****************
+public class StockTradeNotifier {
 	double rate;
 	Broker broker;
-	Stock(){
-                BrokerFactory f = new BrokerFactory();
+	StockTradeNotifier(){
+		BrokerFactory f = new BrokerFactory();
 		this.broker = f.getInstance();
 	}
 	public void changeRate(double newRate) {
