@@ -2,7 +2,7 @@
 interface Broker{
 	void trade();
 }
-public class Stock {
+public class StockTradeNotifier {
 	double rate;
 	Broker broker;
 	void SetBroker(Broker broker){
