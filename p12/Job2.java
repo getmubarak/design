@@ -25,3 +25,15 @@ class JobServer
 class BackupJob implements Job{
   void execute(string jsonData){...}
 }
+class RestoreJob implements Job{
+  void execute(string jsonData){...}
+}
+class ArchiveJob implements Job{
+  void execute(string jsonData){...}
+}
+class DataCleanupJob implements Job{
+  void execute(string jsonData){...}
+}
+class CompressionJob implements Job{
+  void execute(string jsonData){...}
+}
