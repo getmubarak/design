@@ -21,7 +21,7 @@ class JobServer
             //Data Cleanup logic
            break;
           ....
-          case n:
+          case 35:
             //Compression logic
            break;
        }
