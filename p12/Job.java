@@ -2,25 +2,27 @@
 
 class JobServer
 {
-  public void execute(int jobID,object data)
+  //rest API
+  //http://server/JobServer/execute?jobID=3&jsonData={}
+  public void execute(int jobID,string jsonData)
   {
        switch(jobID)
        {
          case 1:
-           //logic 1
+           //Back up logic
            break;
          case 2:
-            //logic 2
+            //Restore logic
            break;
          case 3:
-            //logic 3
+            //Archive Logic
            break;
          case 4:
-            //logic 4
+            //Data Cleanup logic
            break;
           ....
           case n:
-            //logic n
+            //Compression logic
            break;
        }
   }
