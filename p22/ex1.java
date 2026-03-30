@@ -11,7 +11,7 @@ void main(){
   Square square = new Square();
   Rect rect = square; 
   Shape shape = rect; 
-  Util util;
+  Util util = new Util();
   util.fun(shape);
   util.fun(rect);
   util.fun(square);
