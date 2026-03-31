@@ -30,12 +30,11 @@ public class Invoice {
 	double getSubtotal()
 	{
 		double subtotal = 0;
-		/* 
-		 * foreach(lineItem in Items)
-		 * {
-		 * 		subtotal += lineItem.getPrice() * lineItem.Qty()
-		 * }
-		 */
+		
+		foreach(lineItem in Items)
+		{
+		 		subtotal += lineItem.getPrice() * lineItem.Qty()
+		}
 		return subtotal;
 	}
 }
