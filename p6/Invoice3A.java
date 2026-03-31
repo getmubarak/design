@@ -36,7 +36,6 @@ class InvoiceLineItem{
    ...
 }
 
-package problem6;
 
 public enum TaxType {
         KST,
