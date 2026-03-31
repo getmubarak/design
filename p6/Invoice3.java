@@ -4,50 +4,92 @@ interface Tax
 {
  	double compute(double amount);
 }
+
 public class Invoice {
-	 
+	Tax tax;
+    private Items = List<InvoiceLineItem>();
+
+	public Invoice(TaxType taxType){
+		tax = new TaxImp(taxType);
+	}
 	
 	public double getTotal()
-	{	
+	{
 		double amount = getSubtotal();
-		Tax tax= new TaxImp(2);
-	        amount += tax.Compute(amount);
-		return amount;
+	    double taxAmount = tax.compute(taxType,amount);
+		return amount + taxAmount;
 	}
-	double getSubtotal(){
-		...
-	}	
+	double getSubtotal()
+	{
+		double subtotal = 0;
+		 
+		foreach(lineItem in Items)
+		{
+				subtotal += lineItem.getPrice() * lineItem.Qty()
+		}
+		return subtotal;
+	}
+
+	
 }
-class TaxImp  implements Tax
+class InvoiceLineItem{
+   ...
+}
+
+package problem6;
+
+public enum TaxType {
+        KST,
+        CST,
+        GST
+}
+class TaxImp implements Tax
 { 
-   int taxType;
+    // KST constants
+    private static final double KST_RATE = 0.05;
+    private static final double KST_THRESHOLD = 1000;
 
-  public TaxImp(int taxType)
-  {
-        this.taxType = taxType;
-  }
-  public double compute(double amount){
-      double taxAmount =0;
-  
-     
-      switch(taxType)
-      {
-	case 1:
-		if(amount > 1000)
-			amount += amount * 0.05;
-		break;
-	case 2:
-		amount += amount * 0.025 + 500;
-		break;
-	case 3:
-		if(amount < 1000)
-			amount += (amount- 5000) * 0.3;
-		else
-			amount += (amount- 5000) * 0.4;
-		break;
-      }
-      return taxAmount;
-  }
-  
+    // CST constants
+    private static final double CST_RATE = 0.025;
+    private static final double CST_FIXED_FEE = 500;
+
+    // GST constants
+    private static final double GST_THRESHOLD = 5000;
+    private static final double GST_RATE_BELOW_THRESHOLD = 0.3;
+    private static final double GST_RATE_ABOVE_THRESHOLD = 0.4;
+    
+	private TaxType taxType;
+	public void Tax(TaxType taxType) {
+		this.taxType = taxType;
+	}
+	boolean isKSTApplicable(double amount) {
+        return amount > KST_THRESHOLD;
+    }
+
+    boolean isBelowGSTThreshold(double amount) {
+        return amount < GST_THRESHOLD;
+    }
+    public double compute(int taxType, double amount){ 
+		double taxAmount=0;
+        switch (taxType) {
+            case KST:
+                if (isKSTApplicable(amount)) {
+                    taxAmount= amount * KST_RATE;
+                }
+                break;
+
+            case CST:
+                taxAmount= amount * CST_RATE + CST_FIXED_FEE;
+                break;
+
+            case GST:
+                if (isBelowGSTThreshold(amount)) {
+                    taxAmount += (amount - GST_THRESHOLD) * GST_RATE_BELOW_THRESHOLD;
+                } else {
+                    taxAmount += (amount - GST_THRESHOLD) * GST_RATE_ABOVE_THRESHOLD;
+                }
+                break;
+        }
+		return taxAmount;
+	}
 }
-
