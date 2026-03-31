@@ -1,61 +1,88 @@
 package problem6;
 
+public enum TaxType {
+        KST,
+        CST,
+        GST
+}
 class Tax
 { 
-  public double compute(int taxType, double amount){
-      double taxAmount =0;
-  
-      switch(taxType)
-      {
-	case 1:
-		if(amount > 1000)
-			amount += amount * 0.05;
-		break;
-	case 2:
-		amount += amount * 0.025 + 500;
-		break;
-	case 3:
-		if(amount < 1000)
-			amount += (amount- 5000) * 0.3;
-		else
-			amount += (amount- 5000) * 0.4;
-		break;
-      }
-      return taxAmount;
-  }
-  
+    // KST constants
+    private static final double KST_RATE = 0.05;
+    private static final double KST_THRESHOLD = 1000;
+
+    // CST constants
+    private static final double CST_RATE = 0.025;
+    private static final double CST_FIXED_FEE = 500;
+
+    // GST constants
+    private static final double GST_THRESHOLD = 5000;
+    private static final double GST_RATE_BELOW_THRESHOLD = 0.3;
+    private static final double GST_RATE_ABOVE_THRESHOLD = 0.4;
+    
+	private TaxType taxType;
+	public void Tax(TaxType taxType) {
+		this.taxType = taxType;
+	}
+	boolean isKSTApplicable(double amount) {
+        return amount > KST_THRESHOLD;
+    }
+
+    boolean isBelowGSTThreshold(double amount) {
+        return amount < GST_THRESHOLD;
+    }
+    public double compute(int taxType, double amount){ 
+		double taxAmount=0;
+        switch (taxType) {
+            case KST:
+                if (isKSTApplicable(amount)) {
+                    taxAmount= amount * KST_RATE;
+                }
+                break;
+
+            case CST:
+                taxAmount= amount * CST_RATE + CST_FIXED_FEE;
+                break;
+
+            case GST:
+                if (isBelowGSTThreshold(amount)) {
+                    taxAmount += (amount - GST_THRESHOLD) * GST_RATE_BELOW_THRESHOLD;
+                } else {
+                    taxAmount += (amount - GST_THRESHOLD) * GST_RATE_ABOVE_THRESHOLD;
+                }
+                break;
+        }
+		return taxAmount;
+	}
 }
 
 public class Invoice {
-	private int taxType;
-	
-	
-	public int getTaxType() {
-		return taxType;
-	}
+	Tax tax;
+    private Items = List<InvoiceLineItem>();
 
-	public void setTaxType(int taxType) {
-		this.taxType = taxType;
+	public Invoice(TaxType taxType){
+		tax = new Tax(taxType);
 	}
 	
 	public double getTotal()
 	{
-		Tax tax = new Tax();
 		double amount = getSubtotal();
-	        amount += tax.compute(taxType,amount);
-		return amount;
+	    double taxAmount = tax.compute(taxType,amount);
+		return amount + taxAmount;
 	}
 	double getSubtotal()
 	{
 		double subtotal = 0;
-		/* 
-		 * foreach(lineItem in Items)
-		 * {
-		 * 		subtotal += lineItem.getPrice() * lineItem.Qty()
-		 * }
-		 */
+		 
+		foreach(lineItem in Items)
+		{
+				subtotal += lineItem.getPrice() * lineItem.Qty()
+		}
 		return subtotal;
 	}
 
 	
+}
+class InvoiceLineItem{
+   ...
 }
