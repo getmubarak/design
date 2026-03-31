@@ -11,7 +11,7 @@ public class Invoice {
                      return true;
                 else
                      return false;
-        }
+    }
 	public double getTotal(){
 		double amount = getSubtotal();
 		switch(taxType)
@@ -35,12 +35,11 @@ public class Invoice {
 	double getSubtotal()
 	{
 		double subtotal = 0;
-		/* 
-		 * foreach(lineItem in Items)
-		 * {
-		 * 		subtotal += lineItem.getPrice() * lineItem.Qty()
-		 * }
-		 */
+		
+		foreach(lineItem in Items)
+		{
+		 		subtotal += lineItem.getPrice() * lineItem.Qty()
+		}
 		return subtotal;
 	}
 }
