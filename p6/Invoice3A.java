@@ -1,9 +1,11 @@
-package problem6;
+package contract;
 
 interface Tax
 {
  	double compute(double amount);
 }
+//****************************************************************
+package invoicing;
 
 public class Invoice {
 	Tax tax;
@@ -36,6 +38,7 @@ class InvoiceLineItem{
    ...
 }
 //****************************************************************
+package taxing;
 
 public enum TaxType {
         KST,
@@ -94,6 +97,8 @@ class TaxImp implements Tax
 }
 
 //****************************************************************
+package client;
+
 Invoice inv = new Invoice(new TaxImp(TaxType.KST));
 ...
 
