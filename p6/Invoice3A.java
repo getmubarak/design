@@ -92,3 +92,8 @@ class TaxImp implements Tax
 		return taxAmount;
 	}
 }
+
+//****************************************************************
+Invoice inv = new Invoice(new TaxImp(TaxType.KST));
+...
+
