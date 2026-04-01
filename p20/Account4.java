@@ -1,18 +1,9 @@
-interface Dao{
-  abstract persist();  
-}
+//************ domain **************
 class Account
 {
-     Dao dao;
      public abstract withdraw(double amount);
      public abstract deposit(double amount);
-      
-     public void save(){
-          … logic 1
-          dao.persist();
-          … logic 2         
-     }
-}
+ }
 class SA extends Account{
      public withdraw(double amount){
         //logic 3
@@ -29,6 +20,15 @@ class CA extends Account{
         //logic 6
      }
     
+}
+//***************** Dao ********************
+class Dao{
+  abstract persist();  
+  void save(){
+        logic
+        persist();
+        logic
+  }
 }
 class SADao implements Dao{
       protected persist(){
