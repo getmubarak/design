@@ -1,5 +1,5 @@
 package problem9;
-
+//******************** DOmain ***********************
 interface Account{
 	Dialog createUI();
 	...
@@ -16,6 +16,8 @@ class CA implements Account {
 	}
 	...
 }
+//******************** User interface ***********************
+
 public class Entry {
 	static void main()
 	{
