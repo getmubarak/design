@@ -1,9 +1,9 @@
 package problem9;
-
+//***************************  domain ***********************
 interface Account{}
 class CA : Account{}
 class SA : Account{}
-
+//***************************  User interface ***********************
 interface Dialog {
 	void Display();
 }
