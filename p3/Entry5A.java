@@ -39,13 +39,13 @@ public class Entry {
 		transaction.begin(connection);
 		Command cmd1 = transaction.createCmd();
 		cmd1.execute(transaction, "insert into emp values(10,'jack',2500')");
-    	Command cmd2 = factory.createCmd();
+    	Command cmd2 = transaction.createCmd();
 		cmd2.execute(transaction, "insert into emp values(20,'jill',4300')");
 		transaction.commit();
 
-    	Transaction transaction2 = factory.createTran();
+    	Transaction transaction2 = connection.createTran();
 		transaction2.begin(connection);
-		Command cmd3 = factory.createCmd();
+		Command cmd3 = transaction.createCmd();
 		cmd3.execute(transaction, "insert into emp values(10,'jack',2500')");
 		transaction2.commit();
 		connection.close();
