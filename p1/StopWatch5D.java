@@ -16,11 +16,11 @@ class Idle extends BaseState
 	void Start() { //logic 	}
 }
 class Running extends BaseState{
-        void Pause() { // logic }
+	void Pause() { // logic }
  	void Stop() { //logic }
 }
 class Suspended implements State{
-       void Resume() { //logic }
+	void Resume() { //logic }
 	void Stop() { //logic }
 }
 public class StopWatch {
