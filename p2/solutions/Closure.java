@@ -6,7 +6,7 @@ Lamda fun(int x){
   
  
   
-  return (y)-> x + y; 
+  return (y)-> x + y + z; 
   /* object{
          data: x,z      # x,z is the clousre
          f(y){
