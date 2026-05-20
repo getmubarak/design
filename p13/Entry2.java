@@ -5,10 +5,11 @@ class Handler
      public void Invoke(Commet go1,Station go2) {}
      public void Invoke(Commet go1,Ship go2) {}
      ....
-     
+}
+
      public void Collide(GameObject go1,GameObject go2)
      {
         Handler handler = new Handler();
         handler.Invoke(go1,go2);
      }
-}
+
