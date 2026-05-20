@@ -5,14 +5,15 @@ public class StopWatch {
 	const int IDLE=0;
 	const int RUNNING=1;
 	const int SUSPENDED=2;
-	
+	Timer timer = new Timer();
 	
 	public boolean start()
 	{
 		if(state != IDLE)
 			return false;
-		
-		//logic
+
+		timer.reset();
+		timer.start();
 		state = RUNNING;
 		return true;
 	}
@@ -21,7 +22,7 @@ public class StopWatch {
 		if(state != RUNNING || state!= SUSPENDED)
 			return false;
 		
-		//logic
+		timer.stop();
 		state = IDLE;
 		return true;
 	}
@@ -30,7 +31,7 @@ public class StopWatch {
 		if(state != RUNNING)
 			return false;
 		
-		//logic
+		timer.stop();
 		state = SUSPENDED;
 		return true;
 	}
@@ -39,7 +40,7 @@ public class StopWatch {
 		if(state != SUSPENDED)
 			return false;
 		
-		//logic
+		timer.start();
 		state = RUNNING;
 		return true;
 	}
