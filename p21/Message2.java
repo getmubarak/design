@@ -4,7 +4,7 @@ interface Encryption{
   void encrypt(string data);
   string decrypt(string cipher);
 }
-public class Message {
+public class EncryptedMessage {
     private Encryption algorithm;
     private String text;
     public Message(Encryption algorithm){
@@ -39,6 +39,6 @@ class BlowFish implements Encryption{
   }
 }
 //*******************************************
-Message message = new Message(new BlowFish());
+EncryptedMessage message = new EncryptedMessage(new BlowFish());
 message.setText("hello");
 ...
