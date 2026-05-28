@@ -7,7 +7,7 @@ interface Encryption{
 public class EncryptedMessage {
     private Encryption algorithm;
     private String text;
-    public Message(Encryption algorithm){
+    public EncryptedMessage(Encryption algorithm){
        this.algorithm=algorithm;
    }
    public string getText(){
