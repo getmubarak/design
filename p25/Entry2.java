@@ -7,16 +7,19 @@ class SurveyData
       this.path="c:/application/data/" + path + ".dat";
       this.hidden=hidden;
     }
-    static SurveyData RAW = new SurveyData("raw",True);
-    static SurveyData CLEANEDUP = new SurveyData("cleanedUp",True);
-    static SurveyData PROCESSED = new SurveyData("processed",True);
-    static SurveyData PUBLICATION = new SurveyData("publication",False);
+}
+class SurveyDataType
+{
+    SurveyData RAW = new SurveyData("raw",True);
+    SurveyData CLEANEDUP = new SurveyData("cleanedUp",True);
+    SurveyData PROCESSED = new SurveyData("processed",True);
+    SurveyData PUBLICATION = new SurveyData("publication",False);
 };
 
 void main(){
-    
-     path = SurveyData.RAW.getPath();
-     hidden = SurveyData.RAW.getHidden();
+    SurveyDataType type = new SurveyDataType();
+     path = type.RAW.getPath();
+     hidden = type.RAW.getHidden();
 
 }
 
