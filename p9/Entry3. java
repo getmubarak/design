@@ -17,6 +17,12 @@ class CA implements Account {
 	...
 }
 //******************** User interface ***********************
+interface Dialog {
+	void Display();
+}
+class SADialog : Dialog {}
+class CADialog : Dialog {}
+
 
 public class Entry {
 	static void main()
