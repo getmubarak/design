@@ -21,7 +21,7 @@ class SADilaog extends Dialog{
 class CADialog extends Dialog{
 }
 
-public class Factory implements Visitor
+public class DialogFactory implements Visitor
 {
   Dialog d;
   public void visitSA()
@@ -34,16 +34,13 @@ public class Factory implements Visitor
   }
 }
 public class Entry {
-	public static void ShowUI(Account account) {
+	static void main(){
+		Account account = new SA();
 
-		Factory factory = new Factory();
+		DialogFactory factory = new DialogFactory();
 		account.accept(factory);
 
 		Dialog dlg=factory.getDialog();
 		dlg.Display();			
-	}
-	static void main(){
-		Account account = new SA();
-		ShowUI(account);
 	}
 }
