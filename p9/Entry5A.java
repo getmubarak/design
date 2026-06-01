@@ -8,13 +8,13 @@ interface Dialog {
 class SADialog : Dialog {}
 class CADialog : Dialog {}
 
-public class DialogFactory{
-        Map<string,Lambda> lookup = new Map<string,Lambda>();
 
-        public DialogFactory(){
+public class DialogFactory{
+	Map<string,Dialog> lookup = new Map<string,Dialog>();
+	public DialogFactory(){
                 lookup.add(SA.getName(),()->new SADialog());
                 lookup.add(CA.getName(),()->new CADialog());
-        }
+	}
 	public Dialog CreateUI(Account account){
 		Dialog dlg=null;
 		string key = account.getName();
