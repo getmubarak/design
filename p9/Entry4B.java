@@ -32,6 +32,10 @@ public class DialogFactory implements Visitor
   {
      d = new CADialog();
   }
+  Dialog getDialog()
+  {
+    return d;
+  }
 }
 public class Entry {
 	static void main(){
