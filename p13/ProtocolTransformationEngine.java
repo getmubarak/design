@@ -13,7 +13,6 @@ class KafkaEventPacket implements NetworkPacket {}
 
 public class ProtocolTransformationEngine 
 {
-     // THE SMELLY METHOD: Hardcoding combinations of packet conversions
      public NetworkPacket transformPayload(NetworkPacket inbound, NetworkPacket outboundSchema)
      {
           // Case 1: REST API Client calling a gRPC Downstream Service
