@@ -2,7 +2,6 @@ abstract class ReplayRule {
     public abstract boolean evaluate(Request request);
     public abstract void apply(Response response);
     
-    // The Code Smell: Parent class knows too much about its children
     public void serializeRule() {
         // ... common serialization logic 1 (e.g., save rule ID and name)
         
