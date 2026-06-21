@@ -18,12 +18,9 @@ for (ProxyAction action : actions) {
             break;
             
         case SECURE_PASSTHROUGH:
-            // CRASH! LSP VIOLATION: This subclass throws an exception because 
-            // it cannot allow payload tweaking or standard initialization.
             action.initializeStorage(); 
             action.capture();
             break;
     }
-    // Expected post-condition: Every action must clean up its socket
     action.cleanupSockets();    
 }
