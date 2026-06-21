@@ -23,7 +23,6 @@ public class ProxyStubExporter {
         // ... Core logic that fetches recorded interactions from the in-memory engine cache
     }
         
-    // THE SMELLY METHOD: High coupling to string formats
     public String exportRecordings(String format) {
         switch(format.toLowerCase()) {
             case "json":
