@@ -12,7 +12,7 @@ public class ServiceHealthMonitor {
     public void onMetricChanged(double newCpuUsage) {
         cpuUsage = newCpuUsage;
         if (isCritical()) {
-            ServiceRestarter restarter = new ServiceRestarter(); // ❌ wrong
+            ServiceRestarter restarter = new ServiceRestarter(); 
             restarter.restart();
         }
     }
