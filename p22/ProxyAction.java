@@ -18,7 +18,7 @@ for (ProxyAction action : actions) {
             break;
             
         case SECURE_PASSTHROUGH:
-            action.initializeStorage(); 
+            action.setSSL(false); 
             action.capture();
             break;
     }
