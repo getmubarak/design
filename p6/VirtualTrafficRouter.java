@@ -1,82 +1,126 @@
-import java.util.List;
+package problem6;
 
-class NetworkPacket {
-    private double sizeKb;
-    public double getSizeKb() { return sizeKb; }
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+// --- DOMAIN LAYER (Mocked Network Entities) ---
+class ProxyResponse {
+    private int statusCode = 200;
+    private String body = "";
+    private final Map<String, String> headers = new HashMap<>();
+
+    public void setStatusCode(int statusCode) { this.statusCode = statusCode; }
+    public void setBody(String body) { this.body = body; }
+    public void addHeader(String key, String value) { this.headers.put(key, value); }
+    
+    public int getStatusCode() { return statusCode; }
+    public String getBody() { return body; }
+    public Map<String, String> getHeaders() { return headers; }
 }
 
-public class VirtualTrafficRouter {
+public class FaultInjectionEngine {
+    private static final Logger LOGGER = Logger.getLogger(FaultInjectionEngine.class.getName());
+    
+    private String activeFaultRule; // e.g., "SERVICE_UNAVAILABLE", "RATE_LIMITED", "BAD_GATEWAY"
+    private boolean isInjectionEnabled;
+    private String targetedServicePattern;
 
-    public enum DelayType {
-        FIXED,
-        LINEAR_BACKOFF,
-        JITTER_THRESHOLD
+    public void initializeConfiguration(String faultRule, boolean enabled, String servicePattern) {
+        this.activeFaultRule = Objects.requireNonNull(faultRule, "Fault rule cannot be null");
+        this.isInjectionEnabled = enabled;
+        this.targetedServicePattern = servicePattern;
+        LOGGER.log(Level.INFO, "Fault Engine reloaded: Rule={0}, Enabled={1}, Target={2}", 
+            new Object[]{faultRule, enabled, servicePattern});
     }
 
-    private DelayType delayType;
+    public ProxyResponse processFaultRules(ProxyResponse originalResponse, String inboundRequestPath) {
+        if (!isInjectionEnabled) {
+            return originalResponse;
+        }
 
-    // FIXED delay constants
-    private static final double FIXED_RATE = 0.05; // 5% processing tax per KB
-    private static final double FIXED_MIN_THRESHOLD = 1000; // minimum package size to trigger delay
+        // Simulating a route-matching guard clause
+        if (inboundRequestPath == null || !inboundRequestPath.contains(targetedServicePattern)) {
+            LOGGER.log(Level.FINE, "Request path {0} bypassed fault injection rules.", inboundRequestPath);
+            return originalResponse;
+        }
 
-    // LINEAR_BACKOFF delay constants
-    private static final double BACKOFF_SCALE = 0.025;
-    private static final double BASE_HANDSHAKE_FEE = 500; // base network handshake overhead in ms
+        LOGGER.log(Level.WARNING, "Intercepting matching traffic! Applying active simulation rule: {0}", activeFaultRule);
 
-    // JITTER_THRESHOLD delay constants
-    private static final double TRAFFIC_BURST_THRESHOLD = 5000;
-    private static final double JITTER_RATE_BELOW_BURST = 0.3;
-    private static final double JITTER_RATE_ABOVE_BURST = 0.4;
-
-    private List<NetworkPacket> packetQueue;
-
-    public void setDelayType(DelayType delayType) {
-        this.delayType = delayType;
-    }
-
-    // Helper condition equivalent to isKSTApplicable
-    boolean isFixedDelayApplicable(double totalSize) {
-        return totalSize > FIXED_MIN_THRESHOLD;
-    }
-
-    // Helper condition equivalent to isBelowGSTThreshold
-    boolean isBelowBurstThreshold(double totalSize) {
-        return totalSize < TRAFFIC_BURST_THRESHOLD;
-    }
-
-    // THE SMELLY METHOD: Contains the entire strategy switch matrix
-    public double calculateTotalLatencyMs() {
-        double currentDelay = getQueuePayloadSize();
-
-        switch (delayType) {
-            case FIXED:
-                if (isFixedDelayApplicable(currentDelay)) {
-                    currentDelay += currentDelay * FIXED_RATE;
-                }
+        switch (activeFaultRule.toUpperCase()) {
+            case "SERVICE_UNAVAILABLE":
+                originalResponse.setStatusCode(503);
+                originalResponse.addHeader("Content-Type", "application/json");
+                originalResponse.setBody(buildJsonErrorPayload("ERR_SYS_503", "Target upstream service cluster is temporarily overloaded under high simulation load."));
                 break;
 
-            case LINEAR_BACKOFF:
-                currentDelay += currentDelay * BACKOFF_SCALE + BASE_HANDSHAKE_FEE;
+            case "RATE_LIMITED":
+                originalResponse.setStatusCode(429);
+                originalResponse.addHeader("Content-Type", "application/json");
+                originalResponse.addHeader("Retry-After", "60");
+                originalResponse.addHeader("X-RateLimit-Limit", "1000");
+                originalResponse.setBody(buildJsonErrorPayload("ERR_LIMIT_429", "Too many synthetic transactions. Virtualization burst policy threshold exceeded."));
                 break;
 
-            case JITTER_THRESHOLD:
-                if (isBelowBurstThreshold(currentDelay)) {
-                    currentDelay += (currentDelay - TRAFFIC_BURST_THRESHOLD) * JITTER_RATE_BELOW_BURST;
-                } else {
-                    currentDelay += (currentDelay - TRAFFIC_BURST_THRESHOLD) * JITTER_RATE_ABOVE_BURST;
-                }
+            case "BAD_GATEWAY":
+                originalResponse.setStatusCode(502);
+                originalResponse.addHeader("Content-Type", "application/json");
+                originalResponse.setBody(buildJsonErrorPayload("ERR_NET_502", "Bad Gateway: Invalid serialization frame received from upstream mock network segment."));
+                break;
+
+            default:
+                LOGGER.log(Level.SEVERE, "Unknown rule engine directive encountered: {0}. Bypassing safely.", activeFaultRule);
                 break;
         }
 
-        return currentDelay;
+        return originalResponse;
     }
 
-    // Aggregates sub-elements, equivalent to getSubtotal()
-    double getQueuePayloadSize() {
-        double totalSize = 0;
-        for (NetworkPacket packet : packetQueue) {
-            totalSize += packet.getSizeKb();
+    private String buildJsonErrorPayload(String errorCode, String message) {
+        if (message == null) {
+            message = "";
         }
-        return totalSize;
+        
+        // Manual JSON serialization, escaping, and defensive formatting
+        String escapedMessage = message
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r");
+
+        StringBuilder jsonBuilder = new StringBuilder();
+        jsonBuilder.append("{\n");
+        jsonBuilder.append("  \"timestamp\": ").append(System.currentTimeMillis()).append(",\n");
+        jsonBuilder.append("  \"status\": \"simulated_failure\",\n");
+        jsonBuilder.append("  \"error\": {\n");
+        jsonBuilder.append("    \"code\": \"").append(errorCode).append("\",\n");
+        jsonBuilder.append("    \"description\": \"").append(escapedMessage).append("\"\n");
+        jsonBuilder.append("  }\n");
+        jsonBuilder.append("}");
+
+        return jsonBuilder.toString();
+    }
+}
+
+public class ProxyTrafficOrchestrator {
+    private final FaultInjectionEngine faultEngine;
+
+    public ProxyTrafficOrchestrator() {
+        // The core orchestrator instantiates the engine
+        this.faultEngine = new FaultInjectionEngine();
+        
+        // Configured with rules loaded from a control plane, DB, or JSON file
+        this.faultEngine.initializeConfiguration("RATE_LIMITED", true, "/api/v1/banking");
+    }
+
+    // Invoked for every incoming network request/response cycle
+    public ProxyResponse handleIncomingTraffic(String currentPath, ProxyResponse interceptedResponse) {
+        
+        // Orchestrator coordinates the lifecycle and passes execution to the engine
+        ProxyResponse finalizedResponse = faultEngine.processFaultRules(interceptedResponse, currentPath);
+        
+        return finalizedResponse;
     }
 }
