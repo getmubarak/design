@@ -25,7 +25,7 @@ public class StopWatch {
         if(state == IDLE)
             return false;
 		if(state == SUSPENDED)
-	  	    //logic
+		    timer.stop();
 		    state = IDLE;
 		    return true;
 		if(state == RUNNING)
