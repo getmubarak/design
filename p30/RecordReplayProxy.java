@@ -17,17 +17,20 @@ void replayScenario(RecordReplayProxy proxy){
   Response resonse = proxy.replay(request);
 }
 
-void persistScenario(RecordReplayProxy proxy){
+void exportScenario(RecordReplayProxy proxy){
   RecordReplayProxyDao dao = new RecordReplayProxyDao();
   List<NetworkObject> networkObjects = proxy.getAllNetworkObject();
   dao.save(networkObjects);
+
+  RecordReplayProxyXmlSerializer sr = new RecordReplayProxyXmlSerializer();
+  sr.serialize(networkObjects);
 }
 
 void Main(){
   RecordReplayProxy proxy = new  RecordReplayProxy();
   recordScenario(proxy);
   replayScenario(proxy);
-  persistScenario(proxy);
+  exportScenario(proxy);
 
 
 
