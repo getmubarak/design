@@ -1,21 +1,4 @@
-https://ctxt.io/ <br/>
-https://ideaboardz.com/ <br/>
-https://www.menti.com
 
-# books
-1. Refactoring
-2. Xunit patterns
-3. Refactoring to patterns
-4. clean code
-5. Working Effectively with Legacy Code
-6. implemenatation patterns
-7. Domain Driven Design
-8. beautiful code
-9. Pragmatic Programmer
-10. effective Java 
-11. inside c++ object model
-12. Solid Code
-13. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
 
 # Agenda
 
@@ -49,6 +32,24 @@ p9. SADlg, CADlg, SADao,CADao<br>
 p14. Extendable Family<br>
 p4. Flow Chart Traversal ,  Pipes and Filter<br>
 
+https://ctxt.io/ <br/>
+https://ideaboardz.com/ <br/>
+https://www.menti.com
+
+# books
+1. Refactoring
+2. Xunit patterns
+3. Refactoring to patterns
+4. clean code
+5. Working Effectively with Legacy Code
+6. implemenatation patterns
+7. Domain Driven Design
+8. beautiful code
+9. Pragmatic Programmer
+10. effective Java 
+11. inside c++ object model
+12. Solid Code
+13. https://www.amazon.com/Building-Your-Own-Compiler-C/dp/0131821067
 
 
 
