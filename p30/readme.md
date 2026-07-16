@@ -28,7 +28,7 @@ Isolated Environments: Allows developers to write and run full suite test config
 
 
 
-# Record requests/responses with matching strategies (exact, header-aware, body hash).
-# Replay based on rules (latency injection, error codes, rate limiting) for resilience testing.
-# Support export/import of recordings (JSON/YAML) and versioning.
-# Be testable: matching and replay engines run with in-memory adapters; no real networkrequired.
+#### Record requests/responses with matching strategies (exact, header-aware, body hash).
+#### Replay based on rules (latency injection, error codes, rate limiting) for resilience testing.
+#### Support export/import of recordings (JSON/YAML) and versioning.
+#### Be testable: matching and replay engines run with in-memory adapters; no real networkrequired.
