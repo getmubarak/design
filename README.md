@@ -21,6 +21,7 @@ p7. Loan Eligibility <br>
 ### Assignment
 p20. save<br>
 p5. Rule Engine<br>
+p30. Record and Replay <br>
 ## 3 Coupling
 p18. student course<br>
 p6. Invoice TaxType  <br>
@@ -32,9 +33,11 @@ p9. SADlg, CADlg, SADao,CADao<br>
 p14. Extendable Family<br>
 p4. Flow Chart Traversal ,  Pipes and Filter<br>
 
+# tools
 https://ctxt.io/ <br/>
 https://ideaboardz.com/ <br/>
 https://www.menti.com
+https://app.diagrams.net/
 
 # books
 1. Refactoring
