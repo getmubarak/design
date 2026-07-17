@@ -1,5 +1,4 @@
 # Network Record/Replay Proxy (Service Virtualization)
-## Full Problem Statement with Design Hints
 
 ---
 
