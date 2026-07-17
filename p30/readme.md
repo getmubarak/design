@@ -1,6 +1,5 @@
 # Network Record/Replay Proxy (Service Virtualization)
 
----
 
 ## Background
 
