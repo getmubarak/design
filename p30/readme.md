@@ -11,7 +11,6 @@ A record/replay proxy sits between an application and the external systems it de
 
 This eliminates flaky CI runs from sandbox downtime, avoids hitting rate-limited/paid APIs during load tests, and lets developers run full suites offline.
 
-You are building this as a **single-process library** — no distributed storage, no microservices, no plugin marketplace. All the complexity should live in your algorithms, data structures, and concurrency handling.
 
 ---
 
