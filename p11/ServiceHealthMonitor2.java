@@ -1,26 +1,26 @@
 // Contract Library
-interface ServiceRestarter{
- void restart();
+interface HealthMonitorListener{
+ void OnHighCpuUtilization();
 }
 
 // restart library
-public class ServiceRestarterImp implements  ServiceRestarter{
-    public void restart() {
+public class ServiceRestarterImp implements  HealthMonitorListener{
+    public void OnHighCpuUtilization() {
         System.out.println("restarting service...");
     }
 }
 
 // monitoring library
 public class ServiceHealthMonitor {
-    ServiceRestarter restarter;
+    HealthMonitorListener healthMonitorListener;
     double cpuUsage;
-    public ServiceHealthMonitor(ServiceRestarter serviceRestarter){
-        restarter = serviceRestarter;
+    public ServiceHealthMonitor(HealthMonitorListener healthMonitorListener){
+        this.healthMonitorListener = healthMonitorListener;
     }
     public void onMetricChanged(double newCpuUsage) {
         cpuUsage = newCpuUsage;
         if (isCritical()) {
-            restarter.restart();
+            healthMonitorListener.OnHighCpuUtilization();
         }
     }
 
